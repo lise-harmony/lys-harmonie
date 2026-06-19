@@ -2597,14 +2597,22 @@
                     this.startAutoplay();
                 });
 
+                this.viewport.querySelectorAll("img").forEach((image) => {
+                    image.addEventListener("dragstart", (event) => {
+                        event.preventDefault();
+                    });
+                });
+
                 this.viewport.addEventListener("pointerdown", (event) => {
                     /*
-                    Ne pas lancer le glissement du carrousel lorsque
-                    l’utilisateur clique sur un lien ou un bouton.
-                    Sans cette vérification, le pointer capture peut
-                    empêcher le lien « Découvrir ce soin » de s’ouvrir sur PC.
+                    Sur ordinateur, la souris ne déclenche pas le glissement.
+                    Cela laisse les liens fonctionner normalement au clic gauche.
+                    Le glissement reste actif au doigt sur mobile et tablette.
                     */
-                    if (event.target.closest("a, button")) {
+                    if (
+                        event.pointerType === "mouse" ||
+                        event.target.closest("a, button")
+                    ) {
                         this.isDragging = false;
                         return;
                     }
