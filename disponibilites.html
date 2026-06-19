@@ -1,0 +1,1050 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Prendre rendez-vous | Lys’Harmony</title>
+  <meta name="description" content="Choisissez votre soin Lys’Harmony et préparez votre demande de rendez-vous à Messein : magnétisme, alignement et harmonisation ou accompagnement énergétique.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #fbf7f1;
+      --surface: #fffdf9;
+      --surface-soft: #f6efe6;
+      --text: #302923;
+      --muted: #756a61;
+      --gold: #bd7b27;
+      --gold-dark: #9a5e18;
+      --gold-soft: #eed8b9;
+      --sage: #87947b;
+      --lavender: #a18caf;
+      --line: rgba(95, 71, 49, 0.13);
+      --shadow: 0 24px 60px rgba(84, 61, 38, 0.13);
+      --radius-lg: 34px;
+      --radius-md: 24px;
+      --container: 1180px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 92% 12%, rgba(221, 203, 226, 0.34), transparent 31rem),
+        radial-gradient(circle at 5% 78%, rgba(225, 205, 168, 0.28), transparent 31rem),
+        var(--bg);
+      font-family: "Manrope", sans-serif;
+      line-height: 1.7;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    button, input, select, textarea { font: inherit; }
+
+    .container {
+      width: min(calc(100% - 40px), var(--container));
+      margin-inline: auto;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      border-bottom: 1px solid var(--line);
+      background: rgba(255, 252, 247, 0.92);
+      backdrop-filter: blur(16px);
+    }
+
+    .nav {
+      min-height: 84px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 28px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 13px;
+      min-width: max-content;
+    }
+
+    .brand-mark {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--gold-soft);
+      border-radius: 50%;
+      color: var(--gold);
+      background: #fffaf3;
+      box-shadow: 0 8px 24px rgba(184, 121, 38, 0.09);
+    }
+
+    .brand-mark svg { width: 24px; height: 24px; }
+
+    .brand-name {
+      display: block;
+      font-family: "Cormorant Garamond", serif;
+      font-size: 25px;
+      font-weight: 600;
+      line-height: 1;
+    }
+
+    .brand-tagline {
+      display: block;
+      margin-top: 4px;
+      color: var(--muted);
+      font-size: 8px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 30px;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .nav-links a { transition: color 180ms ease; }
+    .nav-links a:hover, .nav-links a:focus-visible { color: var(--gold-dark); }
+
+    .nav-cta, .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 50px;
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: 700;
+      transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease;
+    }
+
+    .nav-cta {
+      padding: 0 23px;
+      border: 1px solid var(--gold);
+      color: white;
+      background: linear-gradient(135deg, #c28332, #a9661b);
+      box-shadow: 0 12px 25px rgba(166, 99, 25, 0.16);
+    }
+
+    .nav-cta:hover, .btn:hover { transform: translateY(-2px); }
+
+    .menu-button {
+      display: none;
+      width: 44px;
+      height: 44px;
+      border: 1px solid var(--line);
+      border-radius: 50%;
+      color: var(--text);
+      background: var(--surface);
+      cursor: pointer;
+    }
+
+    .hero { padding: 68px 0 36px; }
+
+    .breadcrumb {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 26px;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .breadcrumb span { color: var(--gold); }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.08fr) minmax(330px, 0.92fr);
+      gap: clamp(42px, 7vw, 88px);
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin: 0 0 16px;
+      color: var(--gold-dark);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 28px;
+      height: 1px;
+      background: var(--gold);
+    }
+
+    h1, h2, h3 {
+      margin-top: 0;
+      font-family: "Cormorant Garamond", serif;
+      font-weight: 600;
+      line-height: 1.05;
+    }
+
+    h1 {
+      margin-bottom: 22px;
+      font-size: clamp(52px, 7vw, 82px);
+      letter-spacing: -0.04em;
+    }
+
+    .intro {
+      max-width: 680px;
+      margin: 0;
+      color: var(--muted);
+      font-size: clamp(16px, 2vw, 19px);
+    }
+
+    .hero-reassurance {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 11px;
+      margin-top: 28px;
+    }
+
+    .hero-reassurance span {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 9px 13px;
+      border: 1px solid rgba(180, 124, 57, 0.17);
+      border-radius: 999px;
+      color: #64584e;
+      background: rgba(255, 253, 249, 0.7);
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .hero-reassurance span::before {
+      content: "✓";
+      color: var(--gold-dark);
+      font-weight: 800;
+    }
+
+    .hero-card {
+      position: relative;
+      overflow: hidden;
+      padding: 34px;
+      border: 1px solid rgba(183, 124, 47, 0.18);
+      border-radius: 34px;
+      background:
+        radial-gradient(circle at 88% 12%, rgba(207, 184, 218, 0.34), transparent 12rem),
+        linear-gradient(145deg, rgba(255,255,255,0.92), rgba(245,235,221,0.82));
+      box-shadow: var(--shadow);
+    }
+
+    .hero-card::after {
+      content: "";
+      position: absolute;
+      right: -35px;
+      bottom: -55px;
+      width: 190px;
+      height: 190px;
+      border: 1px solid rgba(165, 136, 180, 0.16);
+      border-radius: 50%;
+    }
+
+    .hero-card-icon {
+      display: grid;
+      width: 64px;
+      height: 64px;
+      place-items: center;
+      margin-bottom: 22px;
+      border-radius: 50%;
+      color: var(--lavender);
+      background: rgba(255,255,255,.86);
+      box-shadow: 0 12px 26px rgba(84,61,38,.09);
+    }
+
+    .hero-card-icon svg { width: 31px; height: 31px; }
+    .hero-card h2 { margin-bottom: 12px; font-size: 39px; }
+    .hero-card p { margin: 0; color: var(--muted); font-size: 14px; }
+
+    .hero-contact {
+      display: grid;
+      gap: 8px;
+      margin-top: 22px;
+      padding-top: 20px;
+      border-top: 1px solid var(--line);
+      font-size: 13px;
+    }
+
+    .hero-contact a {
+      width: fit-content;
+      color: var(--gold-dark);
+      font-weight: 700;
+    }
+
+    .booking-section { padding: 48px 0 78px; }
+
+    .booking-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 360px;
+      gap: clamp(28px, 5vw, 58px);
+      align-items: start;
+    }
+
+    .booking-form {
+      display: grid;
+      gap: 24px;
+    }
+
+    .form-panel {
+      padding: clamp(24px, 4vw, 38px);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      background: rgba(255, 253, 249, 0.8);
+      box-shadow: 0 18px 48px rgba(84, 61, 38, 0.07);
+    }
+
+    .panel-heading {
+      display: grid;
+      grid-template-columns: 48px 1fr;
+      gap: 15px;
+      align-items: center;
+      margin-bottom: 25px;
+    }
+
+    .panel-number {
+      display: grid;
+      width: 48px;
+      height: 48px;
+      place-items: center;
+      border-radius: 50%;
+      color: var(--gold-dark);
+      background: #fbf0df;
+      font-family: "Cormorant Garamond", serif;
+      font-size: 19px;
+      font-weight: 600;
+    }
+
+    .panel-heading h2 { margin: 0 0 3px; font-size: clamp(31px, 4vw, 42px); }
+    .panel-heading p { margin: 0; color: var(--muted); font-size: 13px; }
+
+    .service-options {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 13px;
+    }
+
+    .service-option { position: relative; }
+    .service-option input {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .service-label {
+      min-height: 190px;
+      display: flex;
+      flex-direction: column;
+      padding: 22px;
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      background: rgba(255,255,255,.65);
+      cursor: pointer;
+      transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease, background 180ms ease;
+    }
+
+    .service-label:hover { transform: translateY(-3px); }
+
+    .service-option input:checked + .service-label {
+      border-color: rgba(189,123,39,.58);
+      background: linear-gradient(145deg, #fffaf2, #f7ede1);
+      box-shadow: 0 16px 32px rgba(150,94,31,.12);
+    }
+
+    .service-option input:focus-visible + .service-label {
+      outline: 3px solid rgba(161,140,175,.25);
+      outline-offset: 3px;
+    }
+
+    .service-check {
+      display: grid;
+      width: 27px;
+      height: 27px;
+      place-items: center;
+      margin-bottom: 18px;
+      border: 1px solid var(--gold-soft);
+      border-radius: 50%;
+      color: transparent;
+      background: white;
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .service-option input:checked + .service-label .service-check {
+      color: white;
+      border-color: var(--gold);
+      background: var(--gold);
+    }
+
+    .service-label h3 { margin-bottom: 8px; font-size: 25px; }
+    .service-label p { margin: 0 0 18px; color: var(--muted); font-size: 12px; line-height: 1.55; }
+
+    .service-price {
+      margin-top: auto;
+      color: var(--gold-dark);
+      font-size: 15px;
+      font-weight: 800;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 17px;
+    }
+
+    .field { display: grid; gap: 8px; }
+    .field-full { grid-column: 1 / -1; }
+
+    .field label, .consent-label {
+      color: #54483f;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .field input, .field select, .field textarea {
+      width: 100%;
+      min-height: 52px;
+      padding: 13px 15px;
+      border: 1px solid rgba(95, 71, 49, 0.16);
+      border-radius: 15px;
+      color: var(--text);
+      background: rgba(255,255,255,.82);
+      outline: none;
+      transition: border-color 160ms ease, box-shadow 160ms ease;
+    }
+
+    .field textarea { min-height: 120px; resize: vertical; }
+
+    .field input:focus, .field select:focus, .field textarea:focus {
+      border-color: rgba(189,123,39,.62);
+      box-shadow: 0 0 0 4px rgba(189,123,39,.09);
+    }
+
+    .field-hint { color: var(--muted); font-size: 11px; }
+
+    .consent {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      margin-top: 4px;
+    }
+
+    .consent input { margin-top: 5px; accent-color: var(--gold-dark); }
+    .consent-label { color: var(--muted); font-weight: 500; line-height: 1.55; }
+
+    .btn {
+      min-width: 190px;
+      padding: 0 25px;
+      border: 1px solid transparent;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      color: white;
+      background: linear-gradient(135deg, #c28332, #a9661b);
+      box-shadow: 0 16px 32px rgba(166, 99, 25, 0.2);
+    }
+
+    .btn-secondary {
+      border-color: var(--line);
+      color: var(--text);
+      background: rgba(255,253,249,.85);
+    }
+
+    .form-actions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 13px;
+      margin-top: 4px;
+    }
+
+    .form-actions small { color: var(--muted); font-size: 11px; }
+
+    .summary-card {
+      position: sticky;
+      top: 110px;
+      overflow: hidden;
+      padding: 30px;
+      border: 1px solid rgba(183,124,47,.18);
+      border-radius: 30px;
+      background: linear-gradient(160deg, rgba(255,253,249,.97), rgba(243,232,217,.97));
+      box-shadow: var(--shadow);
+    }
+
+    .summary-card::after {
+      content: "";
+      position: absolute;
+      right: -62px;
+      top: -62px;
+      width: 170px;
+      height: 170px;
+      border-radius: 50%;
+      background: rgba(196,172,207,.15);
+    }
+
+    .summary-card > * { position: relative; z-index: 1; }
+    .summary-card h2 { margin-bottom: 8px; font-size: 38px; }
+    .summary-card > p { margin: 0; color: var(--muted); font-size: 13px; }
+
+    .summary-details {
+      display: grid;
+      gap: 13px;
+      margin: 24px 0;
+      padding: 20px 0;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .summary-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      font-size: 13px;
+    }
+
+    .summary-row span { color: var(--muted); }
+    .summary-row strong { max-width: 190px; text-align: right; }
+    .summary-price { color: var(--gold-dark); font-size: 18px; }
+
+    .summary-note {
+      display: flex;
+      gap: 10px;
+      padding: 15px;
+      border-radius: 16px;
+      color: #5f5148;
+      background: rgba(255,255,255,.68);
+      font-size: 12px;
+      line-height: 1.55;
+    }
+
+    .summary-note span { color: var(--gold-dark); font-weight: 800; }
+
+    .result-panel {
+      display: none;
+      margin-top: 24px;
+      padding: 23px;
+      border: 1px solid rgba(135,148,123,.28);
+      border-radius: 22px;
+      background: rgba(239,245,234,.72);
+    }
+
+    .result-panel.is-visible { display: block; }
+    .result-panel h3 { margin-bottom: 8px; font-size: 29px; }
+    .result-panel p { margin: 0 0 17px; color: var(--muted); font-size: 13px; }
+
+    .result-actions { display: grid; gap: 10px; }
+    .result-actions .btn { width: 100%; }
+
+    .direct-contact {
+      padding: 0 0 74px;
+    }
+
+    .direct-box {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 30px;
+      align-items: center;
+      padding: clamp(28px, 5vw, 48px);
+      border-radius: var(--radius-lg);
+      color: white;
+      background:
+        radial-gradient(circle at 90% 15%, rgba(255,255,255,.14), transparent 14rem),
+        linear-gradient(135deg, #7c6c80, #9b7f78 58%, #ad7a3e);
+      box-shadow: 0 28px 58px rgba(80,58,53,.18);
+    }
+
+    .direct-box h2 { margin-bottom: 10px; font-size: clamp(34px, 5vw, 50px); }
+    .direct-box p { max-width: 690px; margin: 0; color: rgba(255,255,255,.8); }
+
+    .direct-actions { display: flex; flex-wrap: wrap; gap: 10px; }
+    .direct-actions .btn { color: #6f4b24; background: #fffaf4; box-shadow: 0 14px 30px rgba(55,36,25,.16); }
+
+    .site-footer { padding: 34px 0 40px; color: var(--muted); font-size: 13px; }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      gap: 24px;
+      padding-top: 26px;
+      border-top: 1px solid var(--line);
+    }
+
+    .footer-links { display: flex; flex-wrap: wrap; gap: 18px; }
+
+    @media (max-width: 1020px) {
+      .nav-links, .nav-cta { display: none; }
+      .menu-button { display: grid; place-items: center; }
+      .nav.is-open { flex-wrap: wrap; }
+      .nav.is-open .nav-links {
+        order: 3;
+        width: 100%;
+        display: grid;
+        gap: 0;
+        padding: 8px 0 20px;
+      }
+      .nav.is-open .nav-links a { padding: 13px 0; border-top: 1px solid var(--line); }
+
+      .hero-grid, .booking-layout { grid-template-columns: 1fr; }
+      .hero-copy { text-align: center; }
+      .breadcrumb, .eyebrow { justify-content: center; }
+      .intro { margin-inline: auto; }
+      .hero-reassurance { justify-content: center; }
+      .hero-card { width: min(100%, 650px); margin-inline: auto; }
+      .summary-card { position: static; }
+      .direct-box { grid-template-columns: 1fr; text-align: center; }
+      .direct-box p { margin-inline: auto; }
+      .direct-actions { justify-content: center; }
+    }
+
+    @media (max-width: 760px) {
+      .service-options { grid-template-columns: 1fr; }
+      .service-label { min-height: auto; }
+      .form-grid { grid-template-columns: 1fr; }
+      .field-full { grid-column: auto; }
+    }
+
+    @media (max-width: 640px) {
+      .container { width: min(calc(100% - 24px), var(--container)); }
+      .site-header { position: relative; }
+      .nav { min-height: 72px; }
+      .brand-name { font-size: 22px; }
+      .brand-tagline { max-width: 205px; font-size: 7px; }
+      .hero { padding-top: 42px; }
+      h1 { font-size: clamp(46px, 15vw, 62px); }
+      .hero-card, .form-panel, .summary-card { padding: 23px; border-radius: 24px; }
+      .panel-heading { grid-template-columns: 42px 1fr; }
+      .panel-number { width: 42px; height: 42px; }
+      .form-actions, .form-actions .btn { width: 100%; }
+      .direct-box { padding: 30px 22px; border-radius: 24px; }
+      .direct-actions, .direct-actions .btn { width: 100%; }
+      .footer-inner { flex-direction: column; }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="site-header">
+    <nav class="nav container" aria-label="Navigation principale">
+      <a class="brand" href="index.html" aria-label="Retour à l’accueil Lys’Harmony">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none">
+            <path d="M12 20c0-4.5 2.7-8 7-10-0.1 4.9-2.4 8.4-7 10Z" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+            <path d="M12 20c0-4.5-2.7-8-7-10 .1 4.9 2.4 8.4 7 10Z" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+            <path d="M12 20c3.2-3.9 3.3-8.4 0-13-3.3 4.6-3.2 9.1 0 13Z" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+          </svg>
+        </span>
+
+        <span>
+          <span class="brand-name">Lys’Harmony</span>
+          <span class="brand-tagline">Harmonie du corps, de l’âme et de l’énergie</span>
+        </span>
+      </a>
+
+      <button class="menu-button" type="button" aria-expanded="false" aria-controls="menu-principal" aria-label="Ouvrir le menu">☰</button>
+
+      <div class="nav-links" id="menu-principal">
+        <a href="index.html">Accueil</a>
+        <a href="index.html#services">Mes soins</a>
+        <a href="index.html#a-propos">À propos</a>
+        <a href="index.html#contact">Contact</a>
+      </div>
+
+      <a class="nav-cta" href="#reservation">Choisir mon soin</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <div class="breadcrumb">
+          <a href="index.html">Accueil</a>
+          <span>•</span>
+          <strong>Prendre rendez-vous</strong>
+        </div>
+
+        <div class="hero-grid">
+          <div class="hero-copy">
+            <p class="eyebrow">Votre moment de bien-être</p>
+            <h1>Prendre<br>rendez-vous</h1>
+            <p class="intro">
+              Choisissez le soin qui vous correspond, indiquez le créneau souhaité puis envoyez votre demande directement à Lise.
+              Votre rendez-vous sera confirmé après son retour.
+            </p>
+
+            <div class="hero-reassurance" aria-label="Informations importantes">
+              <span>Demande simple</span>
+              <span>Confirmation par Lise</span>
+              <span>Cabinet à Messein</span>
+            </div>
+          </div>
+
+          <aside class="hero-card" aria-label="Informations de réservation">
+            <span class="hero-card-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none">
+                <rect x="3.5" y="5.5" width="17" height="15" rx="3" stroke="currentColor" stroke-width="1.4"/>
+                <path d="M7.5 3.5v4M16.5 3.5v4M3.5 10h17" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+                <path d="m9 15 2 2 4-4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </span>
+            <h2>Une demande, puis une confirmation</h2>
+            <p>
+              Les créneaux indiqués sont vos préférences. Lise vous répondra afin de confirmer l’horaire ou de vous proposer une autre disponibilité.
+            </p>
+
+            <div class="hero-contact">
+              <a href="tel:+33787033356">07 87 03 33 56</a>
+              <a href="mailto:lys.harmony@mail.fr">lys.harmony@mail.fr</a>
+              <span>Messein, France</span>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="booking-section" id="reservation">
+      <div class="container booking-layout">
+        <form class="booking-form" id="bookingForm" novalidate>
+          <section class="form-panel" aria-labelledby="soin-title">
+            <div class="panel-heading">
+              <span class="panel-number">1</span>
+              <div>
+                <h2 id="soin-title">Choisissez votre soin</h2>
+                <p>Les tarifs affichés sont TTC.</p>
+              </div>
+            </div>
+
+            <div class="service-options">
+              <div class="service-option">
+                <input type="radio" id="service-magnetisme" name="service" value="Magnétisme et énergie" data-price="55 € TTC" checked>
+                <label class="service-label" for="service-magnetisme">
+                  <span class="service-check">✓</span>
+                  <h3>Magnétisme et énergie</h3>
+                  <p>Une séance douce pour favoriser l’apaisement, le relâchement et le mieux-être.</p>
+                  <strong class="service-price">55 € TTC</strong>
+                </label>
+              </div>
+
+              <div class="service-option">
+                <input type="radio" id="service-alignement" name="service" value="Alignement & Harmonisation" data-price="60 € TTC">
+                <label class="service-label" for="service-alignement">
+                  <span class="service-check">✓</span>
+                  <h3>Alignement & Harmonisation</h3>
+                  <p>Un soin énergétique pour se recentrer et retrouver une sensation d’équilibre global.</p>
+                  <strong class="service-price">60 € TTC</strong>
+                </label>
+              </div>
+
+              <div class="service-option">
+                <input type="radio" id="service-accompagnement" name="service" value="Accompagnement énergétique" data-price="60 € TTC">
+                <label class="service-label" for="service-accompagnement">
+                  <span class="service-check">✓</span>
+                  <h3>Accompagnement énergétique</h3>
+                  <p>Un temps d’écoute, de recentrage et de conseils personnalisés pour avancer sereinement.</p>
+                  <strong class="service-price">60 € TTC</strong>
+                </label>
+              </div>
+            </div>
+          </section>
+
+          <section class="form-panel" aria-labelledby="creneau-title">
+            <div class="panel-heading">
+              <span class="panel-number">2</span>
+              <div>
+                <h2 id="creneau-title">Votre créneau souhaité</h2>
+                <p>Indiquez une préférence de date et d’heure.</p>
+              </div>
+            </div>
+
+            <div class="form-grid">
+              <div class="field">
+                <label for="date">Date souhaitée *</label>
+                <input type="date" id="date" name="date" required>
+              </div>
+
+              <div class="field">
+                <label for="time">Heure souhaitée *</label>
+                <input type="time" id="time" name="time" min="08:00" max="20:00" step="900" required>
+                <span class="field-hint">La disponibilité exacte sera confirmée par Lise.</span>
+              </div>
+
+              <div class="field field-full">
+                <label for="alternative">Autre possibilité</label>
+                <input type="text" id="alternative" name="alternative" placeholder="Ex. : mardi ou jeudi après 17 h">
+              </div>
+            </div>
+          </section>
+
+          <section class="form-panel" aria-labelledby="coordonnees-title">
+            <div class="panel-heading">
+              <span class="panel-number">3</span>
+              <div>
+                <h2 id="coordonnees-title">Vos coordonnées</h2>
+                <p>Pour que Lise puisse vous confirmer le rendez-vous.</p>
+              </div>
+            </div>
+
+            <div class="form-grid">
+              <div class="field">
+                <label for="firstname">Prénom *</label>
+                <input type="text" id="firstname" name="firstname" autocomplete="given-name" required>
+              </div>
+
+              <div class="field">
+                <label for="lastname">Nom *</label>
+                <input type="text" id="lastname" name="lastname" autocomplete="family-name" required>
+              </div>
+
+              <div class="field">
+                <label for="email">Adresse e-mail *</label>
+                <input type="email" id="email" name="email" autocomplete="email" required>
+              </div>
+
+              <div class="field">
+                <label for="phone">Téléphone *</label>
+                <input type="tel" id="phone" name="phone" autocomplete="tel" required>
+              </div>
+
+              <div class="field field-full">
+                <label for="message">Votre besoin ou votre message</label>
+                <textarea id="message" name="message" placeholder="Vous pouvez expliquer brièvement ce qui vous amène ou poser une question."></textarea>
+              </div>
+            </div>
+
+            <div class="consent">
+              <input type="checkbox" id="consent" name="consent" required>
+              <label class="consent-label" for="consent">
+                J’accepte que mes coordonnées soient utilisées uniquement afin de répondre à ma demande de rendez-vous. *
+              </label>
+            </div>
+
+            <div class="form-actions">
+              <button class="btn btn-primary" type="submit">Préparer ma demande</button>
+              <small>* Champs obligatoires — aucun paiement n’est demandé sur cette page.</small>
+            </div>
+          </section>
+        </form>
+
+        <aside class="summary-card" aria-label="Récapitulatif de la demande">
+          <p class="eyebrow">Votre sélection</p>
+          <h2>Récapitulatif</h2>
+          <p>Le récapitulatif se complète automatiquement.</p>
+
+          <div class="summary-details">
+            <div class="summary-row">
+              <span>Soin</span>
+              <strong id="summaryService">Magnétisme et énergie</strong>
+            </div>
+            <div class="summary-row">
+              <span>Tarif</span>
+              <strong class="summary-price" id="summaryPrice">55 € TTC</strong>
+            </div>
+            <div class="summary-row">
+              <span>Date</span>
+              <strong id="summaryDate">À choisir</strong>
+            </div>
+            <div class="summary-row">
+              <span>Heure</span>
+              <strong id="summaryTime">À choisir</strong>
+            </div>
+            <div class="summary-row">
+              <span>Lieu</span>
+              <strong>Messein</strong>
+            </div>
+          </div>
+
+          <div class="summary-note">
+            <span>i</span>
+            <div>Cette demande ne bloque pas encore le créneau. Le rendez-vous sera confirmé personnellement par Lise.</div>
+          </div>
+
+          <div class="result-panel" id="resultPanel" aria-live="polite">
+            <h3>Votre demande est prête</h3>
+            <p>Choisissez comment l’envoyer à Lise. Toutes les informations seront déjà préparées.</p>
+            <div class="result-actions">
+              <a class="btn btn-primary" id="emailRequest" href="mailto:lys.harmony@mail.fr">Envoyer par e-mail</a>
+              <a class="btn btn-secondary" id="whatsappRequest" href="https://wa.me/33787033356" target="_blank" rel="noopener">Envoyer par WhatsApp</a>
+              <button class="btn btn-secondary" id="copyRequest" type="button">Copier la demande</button>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="direct-contact">
+      <div class="container">
+        <div class="direct-box">
+          <div>
+            <h2>Vous préférez échanger directement ?</h2>
+            <p>Contactez Lise pour parler de votre besoin et choisir ensemble le soin le plus adapté.</p>
+          </div>
+          <div class="direct-actions">
+            <a class="btn" href="tel:+33787033356">Appeler Lise</a>
+            <a class="btn" href="mailto:lys.harmony@mail.fr">Envoyer un e-mail</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <span>© <span id="year"></span> Lys’Harmony — Tous droits réservés.</span>
+      <div class="footer-links">
+        <a href="index.html">Accueil</a>
+        <a href="index.html#services">Mes soins</a>
+        <a href="index.html#contact">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    "use strict";
+
+    const menuButton = document.querySelector(".menu-button");
+    const nav = document.querySelector(".nav");
+    const form = document.querySelector("#bookingForm");
+    const serviceInputs = document.querySelectorAll('input[name="service"]');
+    const dateInput = document.querySelector("#date");
+    const timeInput = document.querySelector("#time");
+    const summaryService = document.querySelector("#summaryService");
+    const summaryPrice = document.querySelector("#summaryPrice");
+    const summaryDate = document.querySelector("#summaryDate");
+    const summaryTime = document.querySelector("#summaryTime");
+    const resultPanel = document.querySelector("#resultPanel");
+    const emailRequest = document.querySelector("#emailRequest");
+    const whatsappRequest = document.querySelector("#whatsappRequest");
+    const copyRequest = document.querySelector("#copyRequest");
+
+    let preparedMessage = "";
+
+    menuButton?.addEventListener("click", () => {
+      const isOpen = nav.classList.toggle("is-open");
+      menuButton.setAttribute("aria-expanded", String(isOpen));
+      menuButton.textContent = isOpen ? "✕" : "☰";
+    });
+
+    document.querySelector("#year").textContent = new Date().getFullYear();
+
+    const now = new Date();
+    const localToday = new Date(now.getTime() - now.getTimezoneOffset() * 60000)
+      .toISOString()
+      .split("T")[0];
+    dateInput.min = localToday;
+
+    function formatDate(value) {
+      if (!value) return "À choisir";
+      const [year, month, day] = value.split("-");
+      return new Intl.DateTimeFormat("fr-FR", {
+        weekday: "long",
+        day: "numeric",
+        month: "long",
+        year: "numeric"
+      }).format(new Date(Number(year), Number(month) - 1, Number(day)));
+    }
+
+    function selectedService() {
+      return document.querySelector('input[name="service"]:checked');
+    }
+
+    function updateSummary() {
+      const selected = selectedService();
+      summaryService.textContent = selected?.value || "À choisir";
+      summaryPrice.textContent = selected?.dataset.price || "—";
+      summaryDate.textContent = formatDate(dateInput.value);
+      summaryTime.textContent = timeInput.value || "À choisir";
+      resultPanel.classList.remove("is-visible");
+    }
+
+    serviceInputs.forEach((input) => input.addEventListener("change", updateSummary));
+    dateInput.addEventListener("change", updateSummary);
+    timeInput.addEventListener("change", updateSummary);
+
+    form.addEventListener("submit", (event) => {
+      event.preventDefault();
+
+      if (!form.checkValidity()) {
+        form.reportValidity();
+        return;
+      }
+
+      const data = new FormData(form);
+      const selected = selectedService();
+      const subject = `Demande de rendez-vous Lys’Harmony — ${selected.value}`;
+
+      preparedMessage = [
+        "Bonjour Lise,",
+        "",
+        "Je souhaite vous transmettre une demande de rendez-vous.",
+        "",
+        `Soin : ${selected.value}`,
+        `Tarif : ${selected.dataset.price}`,
+        `Date souhaitée : ${formatDate(data.get("date"))}`,
+        `Heure souhaitée : ${data.get("time")}`,
+        `Autre possibilité : ${data.get("alternative") || "Non renseignée"}`,
+        "",
+        `Prénom : ${data.get("firstname")}`,
+        `Nom : ${data.get("lastname")}`,
+        `E-mail : ${data.get("email")}`,
+        `Téléphone : ${data.get("phone")}`,
+        "",
+        `Message : ${data.get("message") || "Aucun message complémentaire"}`,
+        "",
+        "Merci de me confirmer si ce créneau est disponible."
+      ].join("\n");
+
+      emailRequest.href = `mailto:lys.harmony@mail.fr?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(preparedMessage)}`;
+      whatsappRequest.href = `https://wa.me/33787033356?text=${encodeURIComponent(preparedMessage)}`;
+
+      resultPanel.classList.add("is-visible");
+      resultPanel.scrollIntoView({ behavior: "smooth", block: "center" });
+    });
+
+    copyRequest.addEventListener("click", async () => {
+      if (!preparedMessage) return;
+
+      try {
+        await navigator.clipboard.writeText(preparedMessage);
+        copyRequest.textContent = "Demande copiée ✓";
+      } catch (error) {
+        const temporary = document.createElement("textarea");
+        temporary.value = preparedMessage;
+        document.body.appendChild(temporary);
+        temporary.select();
+        document.execCommand("copy");
+        temporary.remove();
+        copyRequest.textContent = "Demande copiée ✓";
+      }
+
+      window.setTimeout(() => {
+        copyRequest.textContent = "Copier la demande";
+      }, 2400);
+    });
+
+    updateSummary();
+  </script>
+</body>
+</html>
