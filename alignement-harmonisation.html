@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>Alignement & Harmonisation | Lys’Harmony</title>
   <meta name="description" content="Découvrez l’accompagnement Alignement & Harmonisation proposé par Lys’Harmony : un moment personnalisé pour se recentrer, relâcher les tensions et retrouver plus de sérénité.">
@@ -34,23 +34,11 @@
       box-sizing: border-box;
     }
 
-    .hero-grid > *,
-    .experience > *,
-    .nav > * {
-      min-width: 0;
-    }
-
     html {
-      width: 100%;
-      max-width: 100%;
-      overflow-x: hidden;
       scroll-behavior: smooth;
     }
 
     body {
-      width: 100%;
-      max-width: 100%;
-      overflow-x: hidden;
       margin: 0;
       color: var(--text);
       background:
@@ -73,7 +61,6 @@
 
     .container {
       width: min(calc(100% - 40px), var(--container));
-      max-width: 100%;
       margin-inline: auto;
     }
 
@@ -681,7 +668,6 @@
 
       .image-shell {
         width: min(100%, 620px);
-        max-width: 100%;
         margin: 12px auto 0;
       }
 
@@ -706,8 +692,7 @@
 
     @media (max-width: 640px) {
       .container {
-        width: calc(100% - 24px);
-        max-width: 100%;
+        width: min(calc(100% - 24px), var(--container));
       }
 
       .site-header {
@@ -864,7 +849,7 @@
 
           <div class="image-shell">
             <img
-              src="images/harmour.png"
+              src="images/alignement-harmonisation.webp"
               alt="Lise pendant une séance d’alignement et d’harmonisation"
               width="1448"
               height="1086"
@@ -988,7 +973,7 @@
             </div>
             <div class="detail-row">
               <span>Tarif</span>
-              <strong>À renseigner</strong>
+              <strong>60 € TTC</strong>
             </div>
             <div class="detail-row">
               <span>Lieu</span>
