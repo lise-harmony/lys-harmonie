@@ -1,2721 +1,1088 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0, viewport-fit=cover"
-    >
-
-    <title>Lys’Harmony | Magnétisme et soins énergétiques</title>
-
-    <meta
-        name="description"
-        content="Lys’Harmony vous accompagne avec des séances de magnétisme, d’harmonisation et des soins énergétiques personnalisés."
-    >
-
-    <meta name="theme-color" content="#f7f0e8">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <link
-        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Manrope:wght@300;400;500;600;700&display=swap"
-        rel="stylesheet"
-    >
-
-    <style>
-        :root {
-            --cream: #fbf7f2;
-            --cream-dark: #f2e5d9;
-            --white: #ffffff;
-            --text: #302824;
-            --text-soft: #6e625d;
-            --gold: #c68a37;
-            --gold-light: #e6bb75;
-            --gold-dark: #9f6824;
-            --sage: #87957c;
-            --lavender: #9882a8;
-            --rose: #c7988e;
-
-            --shadow-soft:
-                0 20px 60px rgba(92, 62, 37, 0.10);
-
-            --shadow-card:
-                0 16px 45px rgba(84, 57, 38, 0.12);
-
-            --radius-large: 34px;
-            --radius-medium: 24px;
-            --radius-small: 16px;
-
-            --container: 1240px;
-            --header-height: 88px;
-
-            --transition:
-                0.35s cubic-bezier(0.2, 0.75, 0.25, 1);
-        }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        html {
-            scroll-behavior: smooth;
-            scroll-padding-top: 100px;
-        }
-
-        body {
-            overflow-x: hidden;
-            color: var(--text);
-            background:
-                radial-gradient(
-                    circle at 15% 10%,
-                    rgba(226, 187, 125, 0.15),
-                    transparent 30%
-                ),
-                var(--cream);
-            font-family: "Manrope", sans-serif;
-            line-height: 1.6;
-        }
-
-        body.menu-open {
-            overflow: hidden;
-        }
-
-        img {
-            display: block;
-            width: 100%;
-        }
-
-        a {
-            color: inherit;
-            text-decoration: none;
-        }
-
-        button,
-        a {
-            -webkit-tap-highlight-color: transparent;
-        }
-
-        button {
-            font: inherit;
-        }
-
-        .container {
-            width: min(calc(100% - 48px), var(--container));
-            margin-inline: auto;
-        }
-
-        .section {
-            position: relative;
-            padding: 110px 0;
-        }
-
-        .eyebrow {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            margin-bottom: 18px;
-            color: var(--gold-dark);
-            font-size: 0.78rem;
-            font-weight: 700;
-            letter-spacing: 0.17em;
-            text-transform: uppercase;
-        }
-
-        .eyebrow::before {
-            width: 34px;
-            height: 1px;
-            background: var(--gold);
-            content: "";
-        }
-
-        .section-title {
-            max-width: 780px;
-            font-family: "Cormorant Garamond", serif;
-            font-size: clamp(2.6rem, 5vw, 4.6rem);
-            font-weight: 500;
-            line-height: 0.97;
-            letter-spacing: -0.035em;
-        }
-
-        .section-title span {
-            color: var(--gold);
-            font-style: italic;
-        }
-
-        .section-intro {
-            max-width: 650px;
-            margin-top: 24px;
-            color: var(--text-soft);
-            font-size: 1rem;
-            line-height: 1.9;
-        }
-
-        /* HEADER */
-
-        .site-header {
-            position: fixed;
-            z-index: 1000;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: var(--header-height);
-            border-bottom: 1px solid transparent;
-            transition:
-                background var(--transition),
-                box-shadow var(--transition),
-                border-color var(--transition),
-                height var(--transition);
-        }
-
-        .site-header.scrolled {
-            height: 74px;
-            border-color: rgba(198, 138, 55, 0.12);
-            background: rgba(255, 252, 248, 0.88);
-            box-shadow: 0 12px 40px rgba(67, 42, 26, 0.08);
-            backdrop-filter: blur(18px);
-            -webkit-backdrop-filter: blur(18px);
-        }
-
-        .header-inner {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            height: 100%;
-        }
-
-        .brand {
-            position: relative;
-            z-index: 1002;
-            display: flex;
-            align-items: center;
-            gap: 13px;
-        }
-
-        .brand-icon {
-            display: grid;
-            width: 49px;
-            height: 49px;
-            flex: 0 0 auto;
-            place-items: center;
-            border: 1px solid rgba(198, 138, 55, 0.42);
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.64);
-            color: var(--gold);
-            box-shadow:
-                0 8px 25px rgba(198, 138, 55, 0.14);
-            backdrop-filter: blur(10px);
-        }
-
-        .brand-icon svg {
-            width: 29px;
-            height: 29px;
-        }
-
-        .brand-text {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .brand-name {
-            font-family: "Cormorant Garamond", serif;
-            font-size: 1.72rem;
-            font-weight: 600;
-            line-height: 1;
-        }
-
-        .brand-tagline {
-            margin-top: 4px;
-            color: var(--text-soft);
-            font-size: 0.52rem;
-            font-weight: 600;
-            letter-spacing: 0.12em;
-            text-transform: uppercase;
-        }
-
-        .main-nav {
-            display: flex;
-            align-items: center;
-            gap: 34px;
-        }
-
-        .main-nav a:not(.nav-cta) {
-            position: relative;
-            font-size: 0.84rem;
-            font-weight: 600;
-        }
-
-        .main-nav a:not(.nav-cta)::after {
-            position: absolute;
-            bottom: -7px;
-            left: 0;
-            width: 100%;
-            height: 1px;
-            background: var(--gold);
-            content: "";
-            transform: scaleX(0);
-            transform-origin: right;
-            transition: transform var(--transition);
-        }
-
-        .main-nav a:not(.nav-cta):hover::after {
-            transform: scaleX(1);
-            transform-origin: left;
-        }
-
-        .nav-cta {
-            padding: 12px 22px;
-            border: 1px solid var(--gold);
-            border-radius: 999px;
-            background: rgba(255, 255, 255, 0.48);
-            color: var(--gold-dark);
-            font-size: 0.78rem;
-            font-weight: 700;
-            transition: var(--transition);
-        }
-
-        .nav-cta:hover {
-            background: var(--gold);
-            color: var(--white);
-            box-shadow: 0 12px 30px rgba(198, 138, 55, 0.25);
-            transform: translateY(-2px);
-        }
-
-        .menu-button {
-            position: relative;
-            z-index: 1002;
-            display: none;
-            width: 48px;
-            height: 48px;
-            cursor: pointer;
-            border: 1px solid rgba(198, 138, 55, 0.45);
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.64);
-            backdrop-filter: blur(10px);
-        }
-
-        .menu-button span {
-            position: absolute;
-            left: 13px;
-            width: 21px;
-            height: 1.5px;
-            border-radius: 2px;
-            background: var(--text);
-            transition: var(--transition);
-        }
-
-        .menu-button span:nth-child(1) {
-            top: 16px;
-        }
-
-        .menu-button span:nth-child(2) {
-            top: 23px;
-        }
-
-        .menu-button span:nth-child(3) {
-            top: 30px;
-        }
-
-        .menu-button.active span:nth-child(1) {
-            top: 23px;
-            transform: rotate(45deg);
-        }
-
-        .menu-button.active span:nth-child(2) {
-            opacity: 0;
-        }
-
-        .menu-button.active span:nth-child(3) {
-            top: 23px;
-            transform: rotate(-45deg);
-        }
-
-        /* HERO */
-
-        .hero {
-            position: relative;
-            min-height: 100svh;
-            overflow: hidden;
-            background: #ead8ca;
-        }
-
-        .hero-media,
-        .hero-media picture,
-        .hero-media img {
-            position: absolute;
-            inset: 0;
-            width: 100%;
-            height: 100%;
-        }
-
-        .hero-media img {
-            object-fit: cover;
-            object-position: center center;
-            animation: heroZoom 16s ease-out forwards;
-        }
-
-        @keyframes heroZoom {
-            from {
-                transform: scale(1.04);
-            }
-
-            to {
-                transform: scale(1);
-            }
-        }
-
-        .hero-overlay {
-            position: absolute;
-            inset: 0;
-            background:
-                linear-gradient(
-                    90deg,
-                    rgba(252, 246, 240, 0.98) 0%,
-                    rgba(250, 241, 232, 0.93) 25%,
-                    rgba(248, 238, 227, 0.61) 48%,
-                    rgba(66, 37, 25, 0.06) 73%
-                ),
-                linear-gradient(
-                    180deg,
-                    rgba(250, 245, 239, 0.14),
-                    rgba(47, 31, 24, 0.12)
-                );
-        }
-
-        .hero::after {
-            position: absolute;
-            right: -7%;
-            bottom: -170px;
-            width: 780px;
-            height: 410px;
-            border: 1px solid rgba(255, 224, 170, 0.42);
-            border-radius: 50%;
-            content: "";
-            filter: blur(1px);
-            transform: rotate(-12deg);
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 5;
-            display: flex;
-            min-height: 100svh;
-            flex-direction: column;
-            justify-content: center;
-            padding-top: calc(var(--header-height) + 55px);
-            padding-bottom: 155px;
-        }
-
-        .hero-copy {
-            max-width: 640px;
-        }
-
-        .hero-services {
-            margin-bottom: 26px;
-            color: var(--gold-dark);
-            font-size: 0.82rem;
-            font-weight: 700;
-            line-height: 1.8;
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
-        }
-
-        .hero-title {
-            max-width: 630px;
-            font-family: "Cormorant Garamond", serif;
-            font-size: clamp(4.2rem, 7.5vw, 7.2rem);
-            font-weight: 500;
-            line-height: 0.83;
-            letter-spacing: -0.055em;
-        }
-
-        .hero-title span {
-            display: block;
-            color: var(--gold);
-            font-style: italic;
-            font-weight: 500;
-        }
-
-        .hero-description {
-            max-width: 500px;
-            margin-top: 30px;
-            color: #554b46;
-            font-size: 1rem;
-            line-height: 1.9;
-        }
-
-        .hero-actions {
-            display: flex;
-            align-items: center;
-            gap: 14px;
-            margin-top: 36px;
-        }
-
-        .button {
-            display: inline-flex;
-            min-height: 56px;
-            align-items: center;
-            justify-content: center;
-            gap: 11px;
-            padding: 0 28px;
-            cursor: pointer;
-            border-radius: 999px;
-            font-size: 0.79rem;
-            font-weight: 700;
-            letter-spacing: 0.06em;
-            text-transform: uppercase;
-            transition: var(--transition);
-        }
-
-        .button-primary {
-            border: 1px solid var(--gold);
-            background:
-                linear-gradient(
-                    135deg,
-                    var(--gold-light),
-                    var(--gold-dark)
-                );
-            color: var(--white);
-            box-shadow: 0 16px 35px rgba(169, 108, 37, 0.27);
-        }
-
-        .button-primary:hover {
-            box-shadow: 0 21px 44px rgba(169, 108, 37, 0.34);
-            transform: translateY(-3px);
-        }
-
-        .button-secondary {
-            border: 1px solid rgba(159, 104, 36, 0.48);
-            background: rgba(255, 255, 255, 0.5);
-            color: var(--gold-dark);
-            backdrop-filter: blur(12px);
-        }
-
-        .button-secondary:hover {
-            border-color: var(--gold);
-            background: var(--white);
-            transform: translateY(-3px);
-        }
-
-        .button svg {
-            width: 19px;
-            height: 19px;
-        }
-
-        .hero-features {
-            display: grid;
-            max-width: 720px;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 18px;
-            margin-top: 58px;
-        }
-
-        .hero-feature {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            color: #5c504a;
-            font-size: 0.72rem;
-            font-weight: 600;
-            line-height: 1.45;
-        }
-
-        .feature-icon {
-            display: grid;
-            width: 38px;
-            height: 38px;
-            flex: 0 0 auto;
-            place-items: center;
-            border: 1px solid rgba(198, 138, 55, 0.36);
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.5);
-            color: var(--gold);
-        }
-
-        .feature-icon svg {
-            width: 19px;
-            height: 19px;
-        }
-
-        .energy-particle {
-            position: absolute;
-            z-index: 3;
-            width: 6px;
-            height: 6px;
-            border-radius: 50%;
-            background: #ffe3a9;
-            box-shadow:
-                0 0 9px #ffd17b,
-                0 0 24px rgba(255, 209, 123, 0.75);
-            animation: particleFloat 6s ease-in-out infinite;
-        }
-
-        .energy-particle:nth-child(1) {
-            top: 22%;
-            right: 17%;
-            animation-delay: 0s;
-        }
-
-        .energy-particle:nth-child(2) {
-            top: 37%;
-            right: 7%;
-            width: 4px;
-            height: 4px;
-            animation-delay: 1.4s;
-        }
-
-        .energy-particle:nth-child(3) {
-            right: 28%;
-            bottom: 20%;
-            animation-delay: 2.2s;
-        }
-
-        .energy-particle:nth-child(4) {
-            right: 11%;
-            bottom: 33%;
-            width: 4px;
-            height: 4px;
-            animation-delay: 3.1s;
-        }
-
-        @keyframes particleFloat {
-            0%,
-            100% {
-                opacity: 0.35;
-                transform: translateY(0) scale(0.8);
-            }
-
-            50% {
-                opacity: 1;
-                transform: translateY(-24px) scale(1.25);
-            }
-        }
-
-
-        /* TRANSITION ARRONDIE ENTRE LA BANNIÈRE ET LES SOINS */
-
-        .hero-bottom-shape {
-            position: absolute;
-            z-index: 6;
-            bottom: -1px;
-            left: 50%;
-            width: 132%;
-            height: 118px;
-            pointer-events: none;
-            border-top-left-radius: 50% 100%;
-            border-top-right-radius: 50% 100%;
-            background:
-                linear-gradient(
-                    180deg,
-                    rgba(248, 239, 230, 0.98) 0%,
-                    var(--cream) 88%
-                );
-            box-shadow: 0 -18px 45px rgba(255, 247, 238, 0.18);
-            transform: translateX(-50%);
-        }
-
-        .hero-center-badge {
-            position: absolute;
-            z-index: 7;
-            bottom: 38px;
-            left: 50%;
-            display: grid;
-            width: 82px;
-            height: 82px;
-            pointer-events: none;
-            place-items: center;
-            border: 1px solid rgba(198, 138, 55, 0.24);
-            border-radius: 50%;
-            background: rgba(255, 253, 250, 0.96);
-            color: var(--gold);
-            box-shadow:
-                0 13px 30px rgba(91, 58, 34, 0.14),
-                inset 0 0 0 7px rgba(255, 255, 255, 0.68);
-            transform: translateX(-50%);
-        }
-
-        .hero-center-badge svg {
-            width: 39px;
-            height: 39px;
-        }
-
-        /* SERVICES */
-
-        .services-section {
-            overflow: hidden;
-            padding-top: 92px;
-            background:
-                radial-gradient(
-                    circle at 85% 10%,
-                    rgba(197, 169, 206, 0.19),
-                    transparent 24%
-                ),
-                radial-gradient(
-                    circle at 12% 85%,
-                    rgba(204, 169, 118, 0.15),
-                    transparent 25%
-                ),
-                var(--cream);
-        }
-
-        .services-header {
-            display: flex;
-            align-items: flex-end;
-            justify-content: space-between;
-            gap: 50px;
-            margin-bottom: 52px;
-        }
-
-        .services-header-left {
-            max-width: 760px;
-        }
-
-        .services-header-right {
-            max-width: 330px;
-            color: var(--text-soft);
-            font-size: 0.92rem;
-            line-height: 1.8;
-        }
-
-        .services-slider {
-            position: relative;
-        }
-
-        .services-viewport {
-            overflow: hidden;
-            padding: 10px 4px 50px;
-            touch-action: pan-y;
-        }
-
-        .services-track {
-            display: flex;
-            gap: 26px;
-            transition:
-                transform 0.65s cubic-bezier(0.22, 0.8, 0.25, 1);
-            will-change: transform;
-        }
-
-        .service-card {
-            position: relative;
-            min-width: calc((100% - 26px) / 2);
-            overflow: hidden;
-            border: 1px solid rgba(255, 255, 255, 0.75);
-            border-radius: var(--radius-large);
-            background: rgba(255, 255, 255, 0.64);
-            box-shadow: var(--shadow-card);
-            transition:
-                transform var(--transition),
-                box-shadow var(--transition);
-            backdrop-filter: blur(14px);
-        }
-
-        .service-card:hover {
-            box-shadow: 0 24px 65px rgba(82, 54, 36, 0.18);
-            transform: translateY(-9px);
-        }
-
-        .service-image {
-            position: relative;
-            height: 360px;
-            overflow: hidden;
-        }
-
-        .service-image::after {
-            position: absolute;
-            inset: 0;
-            background:
-                linear-gradient(
-                    180deg,
-                    transparent 35%,
-                    rgba(42, 28, 21, 0.16)
-                );
-            content: "";
-        }
-
-        .service-image img {
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.9s ease;
-        }
-
-        .service-card:hover .service-image img {
-            transform: scale(1.055);
-        }
-
-        .service-number {
-            position: absolute;
-            z-index: 2;
-            top: 22px;
-            left: 22px;
-            display: grid;
-            width: 47px;
-            height: 47px;
-            place-items: center;
-            border: 1px solid rgba(255, 255, 255, 0.52);
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.73);
-            color: var(--gold-dark);
-            font-family: "Cormorant Garamond", serif;
-            font-size: 1.05rem;
-            font-weight: 700;
-            backdrop-filter: blur(12px);
-        }
-
-        .service-content {
-            position: relative;
-            min-height: 290px;
-            padding: 37px 38px 39px;
-        }
-
-        .service-icon {
-            position: absolute;
-            top: -35px;
-            left: 38px;
-            display: grid;
-            width: 70px;
-            height: 70px;
-            place-items: center;
-            border: 6px solid rgba(255, 255, 255, 0.9);
-            border-radius: 50%;
-            background: var(--white);
-            color: var(--gold);
-            box-shadow: 0 10px 24px rgba(72, 47, 31, 0.13);
-        }
-
-        .service-icon svg {
-            width: 34px;
-            height: 34px;
-        }
-
-        .service-title {
-            margin-top: 19px;
-            font-family: "Cormorant Garamond", serif;
-            font-size: clamp(2rem, 3vw, 2.8rem);
-            font-weight: 500;
-            line-height: 0.98;
-        }
-
-        .service-description {
-            margin-top: 20px;
-            color: var(--text-soft);
-            font-size: 0.92rem;
-            line-height: 1.85;
-        }
-
-        .service-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 13px;
-            margin-top: 25px;
-            color: var(--gold-dark);
-            font-size: 0.82rem;
-            font-weight: 700;
-        }
-
-        .service-link span {
-            display: grid;
-            width: 32px;
-            height: 32px;
-            place-items: center;
-            border: 1px solid rgba(198, 138, 55, 0.35);
-            border-radius: 50%;
-            transition: var(--transition);
-        }
-
-        .service-link:hover span {
-            background: var(--gold);
-            color: var(--white);
-            transform: translateX(5px);
-        }
-
-        .slider-controls {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-top: 5px;
-        }
-
-        .slider-button {
-            display: grid;
-            width: 52px;
-            height: 52px;
-            cursor: pointer;
-            place-items: center;
-            border: 1px solid rgba(198, 138, 55, 0.3);
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.62);
-            color: var(--gold-dark);
-            transition: var(--transition);
-        }
-
-        .slider-button:hover:not(:disabled) {
-            border-color: var(--gold);
-            background: var(--gold);
-            color: var(--white);
-            transform: scale(1.07);
-        }
-
-        .slider-button:disabled {
-            cursor: not-allowed;
-            opacity: 0.35;
-        }
-
-        .slider-button svg {
-            width: 20px;
-            height: 20px;
-        }
-
-        .slider-dots {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .slider-dot {
-            width: 9px;
-            height: 9px;
-            cursor: pointer;
-            border: 0;
-            border-radius: 50%;
-            background: #d9cec5;
-            transition: var(--transition);
-        }
-
-        .slider-dot.active {
-            width: 28px;
-            border-radius: 999px;
-            background: var(--gold);
-        }
-
-        /* ABOUT */
-
-        .about-section {
-            background:
-                linear-gradient(
-                    135deg,
-                    #fffaf5,
-                    #f2e5dc
-                );
-        }
-
-        .about-grid {
-            display: grid;
-            grid-template-columns: 0.85fr 1.15fr;
-            align-items: center;
-            gap: 95px;
-        }
-
-        .about-image-column {
-            position: relative;
-        }
-
-        .about-image {
-            position: relative;
-            overflow: hidden;
-            aspect-ratio: 0.8;
-            border-radius: 48% 48% 32px 32px;
-            box-shadow: var(--shadow-soft);
-        }
-
-        .about-image img {
-            height: 100%;
-            object-fit: cover;
-            object-position: center top;
-        }
-
-        .about-image::after {
-            position: absolute;
-            inset: 0;
-            border: 1px solid rgba(255, 255, 255, 0.5);
-            border-radius: inherit;
-            content: "";
-        }
-
-        .experience-badge {
-            position: absolute;
-            right: -35px;
-            bottom: 45px;
-            display: grid;
-            width: 145px;
-            height: 145px;
-            place-items: center;
-            border: 1px solid rgba(198, 138, 55, 0.35);
-            border-radius: 50%;
-            background: rgba(255, 253, 250, 0.91);
-            box-shadow: var(--shadow-card);
-            text-align: center;
-            backdrop-filter: blur(15px);
-        }
-
-        .experience-badge strong {
-            display: block;
-            color: var(--gold-dark);
-            font-family: "Cormorant Garamond", serif;
-            font-size: 2rem;
-            line-height: 1;
-        }
-
-        .experience-badge span {
-            display: block;
-            max-width: 90px;
-            margin-top: 5px;
-            color: var(--text-soft);
-            font-size: 0.62rem;
-            font-weight: 700;
-            line-height: 1.4;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-        }
-
-        .about-text p {
-            margin-top: 24px;
-            color: var(--text-soft);
-            line-height: 1.9;
-        }
-
-        .about-points {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 16px;
-            margin-top: 32px;
-        }
-
-        .about-point {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            padding: 16px;
-            border: 1px solid rgba(198, 138, 55, 0.15);
-            border-radius: var(--radius-small);
-            background: rgba(255, 255, 255, 0.55);
-            color: #564b46;
-            font-size: 0.8rem;
-            font-weight: 600;
-        }
-
-        .about-point span {
-            display: grid;
-            width: 30px;
-            height: 30px;
-            flex: 0 0 auto;
-            place-items: center;
-            border-radius: 50%;
-            background: rgba(198, 138, 55, 0.12);
-            color: var(--gold-dark);
-        }
-
-        .about-actions {
-            margin-top: 34px;
-        }
-
-        /* CTA */
-
-        .contact-section {
-            overflow: hidden;
-            padding: 80px 0;
-            background: var(--text);
-            color: var(--white);
-        }
-
-        .contact-section::before {
-            position: absolute;
-            top: -190px;
-            right: -130px;
-            width: 520px;
-            height: 520px;
-            border: 1px solid rgba(230, 187, 117, 0.22);
-            border-radius: 50%;
-            content: "";
-        }
-
-        .contact-section::after {
-            position: absolute;
-            right: 30px;
-            bottom: -270px;
-            width: 650px;
-            height: 430px;
-            border: 1px solid rgba(230, 187, 117, 0.16);
-            border-radius: 50%;
-            content: "";
-            transform: rotate(-15deg);
-        }
-
-        .contact-inner {
-            position: relative;
-            z-index: 2;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 50px;
-        }
-
-        .contact-copy {
-            max-width: 720px;
-        }
-
-        .contact-copy .eyebrow {
-            color: var(--gold-light);
-        }
-
-        .contact-copy h2 {
-            font-family: "Cormorant Garamond", serif;
-            font-size: clamp(2.8rem, 5vw, 4.8rem);
-            font-weight: 500;
-            line-height: 0.98;
-        }
-
-        .contact-copy h2 span {
-            color: var(--gold-light);
-            font-style: italic;
-        }
-
-        .contact-copy p {
-            max-width: 610px;
-            margin-top: 20px;
-            color: rgba(255, 255, 255, 0.69);
-            line-height: 1.85;
-        }
-
-        .contact-button {
-            flex: 0 0 auto;
-            border-color: var(--gold-light);
-        }
-
-        /* FOOTER */
-
-        .site-footer {
-            padding: 42px 0;
-            background: #241e1b;
-            color: rgba(255, 255, 255, 0.64);
-        }
-
-        .footer-inner {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 30px;
-        }
-
-        .footer-brand {
-            color: var(--white);
-            font-family: "Cormorant Garamond", serif;
-            font-size: 1.5rem;
-        }
-
-        .footer-links {
-            display: flex;
-            gap: 25px;
-            font-size: 0.75rem;
-        }
-
-        .footer-links a:hover {
-            color: var(--gold-light);
-        }
-
-        .copyright {
-            font-size: 0.72rem;
-        }
-
-        /* ANIMATIONS AU SCROLL */
-
-        .reveal {
-            opacity: 0;
-            transform: translateY(35px);
-            transition:
-                opacity 0.85s ease,
-                transform 0.85s cubic-bezier(0.2, 0.75, 0.25, 1);
-        }
-
-        .reveal.is-visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .reveal-delay-1 {
-            transition-delay: 0.1s;
-        }
-
-        .reveal-delay-2 {
-            transition-delay: 0.2s;
-        }
-
-        /* TABLETTE */
-
-        @media (max-width: 1050px) {
-            .main-nav {
-                gap: 20px;
-            }
-
-            .main-nav a:not(.nav-cta) {
-                display: none;
-            }
-
-            .hero-overlay {
-                background:
-                    linear-gradient(
-                        90deg,
-                        rgba(252, 246, 240, 0.97) 0%,
-                        rgba(250, 241, 232, 0.82) 48%,
-                        rgba(62, 38, 28, 0.08) 80%
-                    );
-            }
-
-            .about-grid {
-                gap: 60px;
-            }
-        }
-
-        /* MOBILE */
-
-        @media (max-width: 760px) {
-            :root {
-                --header-height: 78px;
-            }
-
-            .container {
-                width: min(calc(100% - 32px), var(--container));
-            }
-
-            .section {
-                padding: 82px 0;
-            }
-
-            .site-header.scrolled {
-                height: 68px;
-            }
-
-            .brand-icon {
-                width: 43px;
-                height: 43px;
-            }
-
-            .brand-name {
-                font-size: 1.47rem;
-            }
-
-            .brand-tagline {
-                font-size: 0.43rem;
-            }
-
-            .menu-button {
-                display: block;
-            }
-
-            .main-nav {
-                position: fixed;
-                z-index: 1001;
-                inset: 0;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                flex-direction: column;
-                gap: 27px;
-                background:
-                    radial-gradient(
-                        circle at 50% 25%,
-                        rgba(223, 183, 121, 0.18),
-                        transparent 31%
-                    ),
-                    rgba(253, 248, 242, 0.98);
-                opacity: 0;
-                pointer-events: none;
-                transform: translateY(-15px);
-                transition: var(--transition);
-                backdrop-filter: blur(20px);
-                -webkit-backdrop-filter: blur(20px);
-            }
-
-            .main-nav.open {
-                opacity: 1;
-                pointer-events: auto;
-                transform: translateY(0);
-            }
-
-            .main-nav a:not(.nav-cta) {
-                display: block;
-                font-family: "Cormorant Garamond", serif;
-                font-size: 2.1rem;
-                font-weight: 500;
-            }
-
-            .main-nav .nav-cta {
-                margin-top: 10px;
-                padding: 15px 28px;
-            }
-
-            /*
-            BANNIÈRE MOBILE :
-            - texte organisé dans la partie gauche ;
-            - Lise déplacée vers la droite ;
-            - quatre avantages alignés au-dessus de la courbe.
-            */
-
-            .hero {
-                min-height: max(920px, 100svh);
-                background: #ead8ca;
-            }
-
-            .hero-media {
-                overflow: hidden;
-            }
-
-            .hero-media picture {
-                overflow: hidden;
-            }
-
-            .hero-media img {
-                inset: 0 -28% 0 auto;
-                width: 124%;
-                height: 100%;
-                max-width: none;
-                object-fit: cover;
-                object-position: center top;
-                animation: none;
-                transform: none;
-            }
-
-            .hero-overlay {
-                background:
-                    linear-gradient(
-                        90deg,
-                        rgba(251, 244, 236, 0.99) 0%,
-                        rgba(250, 242, 233, 0.97) 31%,
-                        rgba(249, 239, 228, 0.82) 47%,
-                        rgba(245, 229, 213, 0.34) 64%,
-                        rgba(68, 43, 31, 0.05) 82%,
-                        rgba(49, 31, 23, 0.10) 100%
-                    ),
-                    linear-gradient(
-                        180deg,
-                        rgba(255, 251, 246, 0.10) 0%,
-                        rgba(255, 251, 246, 0) 58%,
-                        rgba(56, 35, 26, 0.18) 100%
-                    );
-            }
-
-            .hero-content {
-                justify-content: flex-start;
-                min-height: max(920px, 100svh);
-                padding-top: 142px;
-                padding-bottom: 205px;
-            }
-
-            .hero-copy {
-                width: 54%;
-                max-width: 430px;
-                color: var(--text);
-                text-shadow: none;
-            }
-
-            .hero-services {
-                width: 100%;
-                margin-bottom: 17px;
-                color: var(--gold-dark);
-                font-size: 0.60rem;
-                font-weight: 700;
-                line-height: 1.62;
-                letter-spacing: 0.10em;
-            }
-
-            .hero-title {
-                width: 100%;
-                max-width: none;
-                color: var(--text);
-                font-size: clamp(2.72rem, 12.6vw, 3.85rem);
-                line-height: 0.86;
-                letter-spacing: -0.045em;
-            }
-
-            .hero-title span {
-                display: block;
-                color: var(--gold);
-            }
-
-            .hero-description {
-                width: 100%;
-                max-width: none;
-                margin-top: 21px;
-                color: #554a44;
-                font-size: 0.76rem;
-                line-height: 1.72;
-            }
-
-            .hero-actions {
-                width: 100%;
-                align-items: stretch;
-                flex-direction: column;
-                gap: 10px;
-                margin-top: 24px;
-            }
-
-            .button {
-                width: 100%;
-                min-height: 52px;
-                gap: 8px;
-                padding: 0 13px;
-                font-size: 0.61rem;
-                letter-spacing: 0.025em;
-            }
-
-            .button svg {
-                width: 17px;
-                height: 17px;
-                flex: 0 0 auto;
-            }
-
-            .button-secondary {
-                border-color: rgba(159, 104, 36, 0.42);
-                background: rgba(255, 255, 255, 0.48);
-                color: var(--gold-dark);
-                backdrop-filter: blur(12px);
-                -webkit-backdrop-filter: blur(12px);
-            }
-
-            .hero-features {
-                position: absolute;
-                right: 16px;
-                bottom: 108px;
-                left: 16px;
-                display: grid;
-                width: auto;
-                max-width: none;
-                grid-template-columns: repeat(4, minmax(0, 1fr));
-                gap: 7px;
-                margin: 0;
-            }
-
-            .hero-feature {
-                align-items: center;
-                flex-direction: column;
-                gap: 7px;
-                color: #554a44;
-                font-size: 0.52rem;
-                line-height: 1.3;
-                text-align: center;
-            }
-
-            .feature-icon {
-                width: 34px;
-                height: 34px;
-                border-color: rgba(198, 138, 55, 0.38);
-                background: rgba(255, 255, 255, 0.60);
-                color: var(--gold);
-                backdrop-filter: blur(8px);
-                -webkit-backdrop-filter: blur(8px);
-            }
-
-            .feature-icon svg {
-                width: 17px;
-                height: 17px;
-            }
-
-            .hero-bottom-shape {
-                width: 154%;
-                height: 88px;
-            }
-
-            .hero-center-badge {
-                bottom: 25px;
-                width: 69px;
-                height: 69px;
-            }
-
-            .hero-center-badge svg {
-                width: 33px;
-                height: 33px;
-            }
-
-            .energy-particle {
-                display: none;
-            }
-
-            .services-section {
-                padding-top: 68px;
-            }
-
-            .services-header {
-                display: block;
-                margin-bottom: 37px;
-            }
-
-            .services-header-right {
-                margin-top: 20px;
-            }
-
-            .section-title {
-                font-size: clamp(2.8rem, 13vw, 4rem);
-            }
-
-            .service-card {
-                min-width: 100%;
-                border-radius: 27px;
-            }
-
-            .service-image {
-                height: 280px;
-            }
-
-            .service-content {
-                min-height: 285px;
-                padding: 34px 26px 31px;
-            }
-
-            .service-icon {
-                left: 25px;
-                width: 64px;
-                height: 64px;
-            }
-
-            .service-title {
-                font-size: 2.25rem;
-            }
-
-            .service-description {
-                font-size: 0.84rem;
-            }
-
-            .slider-controls {
-                margin-top: 0;
-            }
-
-            .slider-button {
-                width: 46px;
-                height: 46px;
-            }
-
-            .about-grid {
-                grid-template-columns: 1fr;
-                gap: 65px;
-            }
-
-            .about-image-column {
-                width: calc(100% - 30px);
-            }
-
-            .about-image {
-                border-radius: 46% 46% 25px 25px;
-            }
-
-            .experience-badge {
-                right: -29px;
-                bottom: 25px;
-                width: 125px;
-                height: 125px;
-            }
-
-            .about-points {
-                grid-template-columns: 1fr;
-            }
-
-            .contact-inner {
-                align-items: stretch;
-                flex-direction: column;
-            }
-
-            .contact-button {
-                width: 100%;
-            }
-
-            .footer-inner {
-                align-items: flex-start;
-                flex-direction: column;
-            }
-
-            .footer-links {
-                flex-wrap: wrap;
-            }
-        }
-
-        @media (max-width: 390px) {
-            .brand-tagline {
-                display: none;
-            }
-
-            .brand-name {
-                font-size: 1.34rem;
-            }
-
-            .hero {
-                min-height: max(900px, 100svh);
-            }
-
-            .hero-media img {
-                inset: 0 -34% 0 auto;
-                width: 130%;
-            }
-
-            .hero-content {
-                min-height: max(900px, 100svh);
-                padding-top: 132px;
-            }
-
-            .hero-copy {
-                width: 56%;
-            }
-
-            .hero-services {
-                font-size: 0.54rem;
-            }
-
-            .hero-title {
-                font-size: 2.55rem;
-            }
-
-            .hero-description {
-                font-size: 0.69rem;
-            }
-
-            .button {
-                min-height: 50px;
-                padding-inline: 9px;
-                font-size: 0.55rem;
-            }
-
-            .hero-features {
-                right: 10px;
-                left: 10px;
-                gap: 4px;
-            }
-
-            .hero-feature {
-                font-size: 0.47rem;
-            }
-
-            .feature-icon {
-                width: 31px;
-                height: 31px;
-            }
-        }
-
-        @media (prefers-reduced-motion: reduce) {
-            html {
-                scroll-behavior: auto;
-            }
-
-            *,
-            *::before,
-            *::after {
-                animation-duration: 0.01ms !important;
-                animation-iteration-count: 1 !important;
-                scroll-behavior: auto !important;
-                transition-duration: 0.01ms !important;
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Magnétisme et énergie | Lys’Harmony</title>
+  <meta name="description" content="Découvrez le soin Magnétisme et énergie proposé par Lys’Harmony : une séance douce et personnalisée pour apaiser les tensions, favoriser le relâchement et soutenir votre mieux-être.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #fbf7f1;
+      --surface: #fffdf9;
+      --surface-soft: #f6efe6;
+      --text: #302923;
+      --muted: #756a61;
+      --gold: #bd7b27;
+      --gold-dark: #9a5e18;
+      --gold-soft: #eed8b9;
+      --sage: #87947b;
+      --lavender: #a18caf;
+      --line: rgba(95, 71, 49, 0.13);
+      --shadow: 0 24px 60px rgba(84, 61, 38, 0.13);
+      --radius-lg: 34px;
+      --radius-md: 24px;
+      --container: 1180px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 92% 12%, rgba(221, 203, 226, 0.34), transparent 31rem),
+        radial-gradient(circle at 5% 78%, rgba(225, 205, 168, 0.28), transparent 31rem),
+        var(--bg);
+      font-family: "Manrope", sans-serif;
+      line-height: 1.7;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(calc(100% - 40px), var(--container));
+      margin-inline: auto;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      border-bottom: 1px solid var(--line);
+      background: rgba(255, 252, 247, 0.92);
+      backdrop-filter: blur(16px);
+    }
+
+    .nav {
+      min-height: 84px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 28px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 13px;
+      min-width: max-content;
+    }
+
+    .brand-mark {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--gold-soft);
+      border-radius: 50%;
+      color: var(--gold);
+      background: #fffaf3;
+      box-shadow: 0 8px 24px rgba(184, 121, 38, 0.09);
+    }
+
+    .brand-mark svg {
+      width: 24px;
+      height: 24px;
+    }
+
+    .brand-name {
+      display: block;
+      font-family: "Cormorant Garamond", serif;
+      font-size: 25px;
+      font-weight: 600;
+      line-height: 1;
+    }
+
+    .brand-tagline {
+      display: block;
+      margin-top: 4px;
+      color: var(--muted);
+      font-size: 8px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 30px;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .nav-links a {
+      transition: color 180ms ease;
+    }
+
+    .nav-links a:hover,
+    .nav-links a:focus-visible {
+      color: var(--gold-dark);
+    }
+
+    .nav-cta,
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 50px;
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: 700;
+      transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease;
+    }
+
+    .nav-cta {
+      padding: 0 23px;
+      border: 1px solid var(--gold);
+      color: var(--gold-dark);
+      background: rgba(255, 253, 249, 0.72);
+    }
+
+    .nav-cta:hover,
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .menu-button {
+      display: none;
+      width: 44px;
+      height: 44px;
+      border: 1px solid var(--line);
+      border-radius: 50%;
+      color: var(--text);
+      background: var(--surface);
+      cursor: pointer;
+    }
+
+    .hero {
+      padding: 70px 0 42px;
+    }
+
+    .breadcrumb {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 28px;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .breadcrumb span {
+      color: var(--gold);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.03fr) minmax(330px, 0.97fr);
+      gap: clamp(42px, 7vw, 88px);
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin: 0 0 16px;
+      color: var(--gold-dark);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 28px;
+      height: 1px;
+      background: var(--gold);
+    }
+
+    h1,
+    h2,
+    h3 {
+      margin-top: 0;
+      font-family: "Cormorant Garamond", serif;
+      font-weight: 600;
+      line-height: 1.05;
+    }
+
+    h1 {
+      max-width: 760px;
+      margin-bottom: 24px;
+      font-size: clamp(52px, 7vw, 84px);
+      letter-spacing: -0.04em;
+    }
+
+    .intro {
+      max-width: 680px;
+      margin: 0;
+      color: var(--muted);
+      font-size: clamp(16px, 2vw, 19px);
+    }
+
+    .hero-points {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 11px;
+      margin: 29px 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .hero-points li {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 14px;
+      border: 1px solid rgba(180, 124, 57, 0.17);
+      border-radius: 999px;
+      color: #64584e;
+      background: rgba(255, 253, 249, 0.68);
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .hero-points li::before {
+      content: "";
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--lavender), var(--gold));
+      box-shadow: 0 0 0 5px rgba(179, 138, 181, 0.10);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 13px;
+      margin-top: 32px;
+    }
+
+    .btn {
+      min-width: 184px;
+      padding: 0 24px;
+      border: 1px solid transparent;
+    }
+
+    .btn-primary {
+      color: white;
+      background: linear-gradient(135deg, #c28332, #a9661b);
+      box-shadow: 0 16px 32px rgba(166, 99, 25, 0.20);
+    }
+
+    .btn-secondary {
+      border-color: var(--line);
+      color: var(--text);
+      background: rgba(255, 253, 249, 0.75);
+    }
+
+    .image-shell {
+      position: relative;
+      max-width: 530px;
+      margin-left: auto;
+      padding: 10px;
+      border: 1px solid rgba(183, 124, 47, 0.19);
+      border-radius: 48% 48% 30px 30px / 18% 18% 30px 30px;
+      background: linear-gradient(145deg, rgba(255,255,255,0.90), rgba(245,235,221,0.75));
+      box-shadow: var(--shadow);
+    }
+
+    .image-shell::before {
+      content: "";
+      position: absolute;
+      inset: -18px 28px auto auto;
+      width: 82px;
+      aspect-ratio: 1;
+      border: 1px solid rgba(165, 136, 180, 0.18);
+      border-radius: 50%;
+      background:
+        radial-gradient(circle, rgba(255,255,255,.96) 0 8%, transparent 9%),
+        conic-gradient(from 20deg, transparent, rgba(188, 154, 202, .12), transparent);
+      z-index: -1;
+    }
+
+    .image-shell img {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      object-position: center 45%;
+      border-radius: 46% 46% 24px 24px / 17% 17% 24px 24px;
+    }
+
+
+    .image-shell-placeholder {
+      min-height: 420px;
+    }
+
+    .image-placeholder {
+      min-height: 400px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 14px;
+      padding: 34px;
+      border-radius: 46% 46% 24px 24px / 17% 17% 24px 24px;
+      text-align: center;
+      color: #77655d;
+      background:
+        radial-gradient(circle at 30% 25%, rgba(207, 184, 218, 0.34), transparent 12rem),
+        radial-gradient(circle at 75% 78%, rgba(212, 181, 132, 0.28), transparent 14rem),
+        linear-gradient(145deg, #f8f0e8, #efe4da);
+    }
+
+    .image-placeholder-icon {
+      display: grid;
+      width: 86px;
+      height: 86px;
+      place-items: center;
+      border: 1px solid rgba(165, 136, 180, 0.28);
+      border-radius: 50%;
+      color: var(--lavender);
+      background: rgba(255, 255, 255, 0.68);
+      box-shadow: 0 14px 32px rgba(85, 63, 48, 0.09);
+    }
+
+    .image-placeholder-icon svg {
+      width: 42px;
+      height: 42px;
+    }
+
+    .image-placeholder strong {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 31px;
+      line-height: 1.05;
+      color: var(--text);
+    }
+
+    .image-placeholder > span:last-child {
+      max-width: 280px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .image-caption {
+      position: absolute;
+      left: -32px;
+      bottom: 30px;
+      max-width: 205px;
+      padding: 17px 19px;
+      border: 1px solid rgba(104, 83, 65, 0.10);
+      border-radius: 20px;
+      color: #5b4f45;
+      background: rgba(255, 253, 249, 0.91);
+      box-shadow: 0 16px 35px rgba(84, 61, 38, 0.12);
+      backdrop-filter: blur(12px);
+      font-size: 13px;
+      line-height: 1.55;
+    }
+
+    .image-caption strong {
+      display: block;
+      margin-bottom: 2px;
+      color: var(--gold-dark);
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .section {
+      padding: 72px 0;
+    }
+
+    .section-heading {
+      max-width: 760px;
+      margin-bottom: 34px;
+    }
+
+    .section-heading h2 {
+      margin-bottom: 16px;
+      font-size: clamp(38px, 5vw, 58px);
+      letter-spacing: -0.03em;
+    }
+
+    .section-heading p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 17px;
+    }
+
+    .benefit-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .benefit-card {
+      min-height: 220px;
+      padding: 29px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      background: rgba(255, 253, 249, 0.78);
+      box-shadow: 0 15px 40px rgba(84, 61, 38, 0.06);
+    }
+
+    .benefit-number {
+      display: grid;
+      place-items: center;
+      width: 42px;
+      height: 42px;
+      margin-bottom: 24px;
+      border-radius: 50%;
+      color: var(--gold-dark);
+      background: #fbf0df;
+      font-family: "Cormorant Garamond", serif;
+      font-size: 18px;
+      font-weight: 600;
+    }
+
+    .benefit-card h3 {
+      margin-bottom: 10px;
+      font-size: 28px;
+    }
+
+    .benefit-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .experience {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 390px;
+      gap: clamp(32px, 6vw, 76px);
+      align-items: start;
+    }
+
+    .experience-copy {
+      padding: clamp(30px, 5vw, 54px);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      background: rgba(255, 253, 249, 0.78);
+      box-shadow: 0 18px 48px rgba(84, 61, 38, 0.07);
+    }
+
+    .experience-copy h2 {
+      margin-bottom: 22px;
+      font-size: clamp(38px, 5vw, 56px);
+    }
+
+    .experience-copy p {
+      color: var(--muted);
+    }
+
+    .steps {
+      display: grid;
+      gap: 21px;
+      margin-top: 32px;
+    }
+
+    .step {
+      display: grid;
+      grid-template-columns: 48px 1fr;
+      gap: 17px;
+      align-items: start;
+    }
+
+    .step-icon {
+      display: grid;
+      place-items: center;
+      width: 48px;
+      height: 48px;
+      border: 1px solid rgba(183, 124, 47, 0.18);
+      border-radius: 50%;
+      color: var(--gold-dark);
+      background: var(--surface-soft);
+      font-family: "Cormorant Garamond", serif;
+      font-size: 18px;
+      font-weight: 600;
+    }
+
+    .step h3 {
+      margin-bottom: 5px;
+      font-size: 24px;
+    }
+
+    .step p {
+      margin: 0;
+      font-size: 14px;
+    }
+
+    .booking-card {
+      position: sticky;
+      top: 110px;
+      padding: 30px;
+      border: 1px solid rgba(183, 124, 47, 0.18);
+      border-radius: 30px;
+      background:
+        linear-gradient(160deg, rgba(255, 253, 249, 0.96), rgba(243, 232, 217, 0.96));
+      box-shadow: var(--shadow);
+    }
+
+    .booking-icon {
+      display: grid;
+      place-items: center;
+      width: 58px;
+      height: 58px;
+      margin-bottom: 22px;
+      border-radius: 50%;
+      color: var(--lavender);
+      background: #fff;
+      box-shadow: 0 10px 25px rgba(83, 62, 40, 0.09);
+    }
+
+    .booking-icon svg {
+      width: 28px;
+      height: 28px;
+    }
+
+    .booking-card h2 {
+      margin-bottom: 14px;
+      font-size: 39px;
+    }
+
+    .booking-card > p {
+      margin-top: 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .details {
+      display: grid;
+      gap: 10px;
+      margin: 24px 0;
+      padding: 19px 0;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .detail-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      font-size: 14px;
+    }
+
+    .detail-row span {
+      color: var(--muted);
+    }
+
+    .detail-row strong {
+      text-align: right;
+    }
+
+    .booking-actions {
+      display: grid;
+      gap: 11px;
+    }
+
+    .booking-actions .btn {
+      width: 100%;
+    }
+
+    .booking-note {
+      margin: 15px 0 0;
+      text-align: center;
+      font-size: 12px !important;
+    }
+
+    .reassurance {
+      padding-top: 0;
+    }
+
+    .reassurance-box {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 32px;
+      align-items: center;
+      padding: clamp(28px, 5vw, 48px);
+      border-radius: var(--radius-lg);
+      color: #fff;
+      background:
+        radial-gradient(circle at 90% 15%, rgba(255,255,255,0.14), transparent 14rem),
+        linear-gradient(135deg, #7c6c80, #9b7f78 58%, #ad7a3e);
+      box-shadow: 0 28px 58px rgba(80, 58, 53, 0.18);
+    }
+
+    .reassurance-box h2 {
+      max-width: 720px;
+      margin-bottom: 10px;
+      font-size: clamp(34px, 5vw, 51px);
+    }
+
+    .reassurance-box p {
+      max-width: 690px;
+      margin: 0;
+      color: rgba(255,255,255,0.78);
+    }
+
+    .reassurance-box .btn {
+      min-width: 210px;
+      color: #6f4b24;
+      background: #fffaf4;
+      box-shadow: 0 14px 30px rgba(55, 36, 25, 0.16);
+    }
+
+    .site-footer {
+      padding: 34px 0 40px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      gap: 24px;
+      padding-top: 26px;
+      border-top: 1px solid var(--line);
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+    }
+
+    @media (max-width: 980px) {
+      .nav-links,
+      .nav-cta {
+        display: none;
+      }
+
+      .menu-button {
+        display: grid;
+        place-items: center;
+      }
+
+      .nav.is-open {
+        flex-wrap: wrap;
+      }
+
+      .nav.is-open .nav-links {
+        order: 3;
+        width: 100%;
+        display: grid;
+        gap: 0;
+        padding: 8px 0 20px;
+      }
+
+      .nav.is-open .nav-links a {
+        padding: 13px 0;
+        border-top: 1px solid var(--line);
+      }
+
+      .hero-grid,
+      .experience {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-copy {
+        text-align: center;
+      }
+
+      .eyebrow,
+      .breadcrumb {
+        justify-content: center;
+      }
+
+      .intro {
+        margin-inline: auto;
+      }
+
+      .hero-points,
+      .hero-actions {
+        justify-content: center;
+      }
+
+      .image-shell {
+        width: min(100%, 620px);
+        margin: 12px auto 0;
+      }
+
+      .booking-card {
+        position: static;
+      }
+
+      .benefit-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .reassurance-box {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .reassurance-box h2,
+      .reassurance-box p {
+        margin-inline: auto;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .container {
+        width: min(calc(100% - 24px), var(--container));
+      }
+
+      .site-header {
+        position: relative;
+      }
+
+      .nav {
+        min-height: 72px;
+      }
+
+      .brand-name {
+        font-size: 22px;
+      }
+
+      .brand-tagline {
+        max-width: 205px;
+        font-size: 7px;
+      }
+
+      .hero {
+        padding-top: 42px;
+      }
+
+      .breadcrumb {
+        margin-bottom: 20px;
+      }
+
+      h1 {
+        font-size: clamp(46px, 15vw, 64px);
+      }
+
+      .hero-actions,
+      .hero-actions .btn {
+        width: 100%;
+      }
+
+      .image-shell {
+        border-radius: 42% 42% 24px 24px / 14% 14% 24px 24px;
+      }
+
+      .image-shell img {
+        aspect-ratio: 4 / 3;
+        object-position: 55% 45%;
+        border-radius: 40% 40% 18px 18px / 13% 13% 18px 18px;
+      }
+
+      .image-caption {
+        position: static;
+        max-width: none;
+        margin-top: 10px;
+        border-radius: 16px;
+        text-align: center;
+      }
+
+      .section {
+        padding: 54px 0;
+      }
+
+      .benefit-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .benefit-card {
+        min-height: auto;
+      }
+
+      .experience-copy,
+      .booking-card {
+        padding: 24px;
+        border-radius: 24px;
+      }
+
+      .booking-card h2 {
+        font-size: 35px;
+      }
+
+      .reassurance-box {
+        padding: 30px 22px;
+        border-radius: 24px;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+      }
+    }
+  </style>
 </head>
 
 <body>
+  <header class="site-header">
+    <nav class="nav container" aria-label="Navigation principale">
+      <a class="brand" href="index.html" aria-label="Retour à l’accueil Lys’Harmony">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none">
+            <path d="M12 20c0-4.5 2.7-8 7-10-0.1 4.9-2.4 8.4-7 10Z" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+            <path d="M12 20c0-4.5-2.7-8-7-10 .1 4.9 2.4 8.4 7 10Z" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+            <path d="M12 20c3.2-3.9 3.3-8.4 0-13-3.3 4.6-3.2 9.1 0 13Z" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+          </svg>
+        </span>
 
-    <!-- HEADER -->
+        <span>
+          <span class="brand-name">Lys’Harmony</span>
+          <span class="brand-tagline">Harmonie du corps, de l’âme et de l’énergie</span>
+        </span>
+      </a>
 
-    <header class="site-header" id="siteHeader">
-        <div class="container header-inner">
+      <button class="menu-button" type="button" aria-expanded="false" aria-controls="menu-principal" aria-label="Ouvrir le menu">
+        ☰
+      </button>
 
-            <a href="#accueil" class="brand" aria-label="Accueil Lys’Harmony">
+      <div class="nav-links" id="menu-principal">
+        <a href="index.html">Accueil</a>
+        <a href="index.html#soins">Mes soins</a>
+        <a href="index.html#a-propos">À propos</a>
+        <a href="index.html#contact">Contact</a>
+      </div>
 
-                <span class="brand-icon" aria-hidden="true">
-                    <svg
-                        viewBox="0 0 64 64"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                    >
-                        <path
-                            d="M32 48C23 40 19 31 32 14C45 31 41 40 32 48Z"
-                            stroke="currentColor"
-                            stroke-width="2"
-                        />
-                        <path
-                            d="M30 49C20 47 12 41 12 27C25 29 31 37 30 49Z"
-                            stroke="currentColor"
-                            stroke-width="2"
-                        />
-                        <path
-                            d="M34 49C44 47 52 41 52 27C39 29 33 37 34 49Z"
-                            stroke="currentColor"
-                            stroke-width="2"
-                        />
-                        <path
-                            d="M31 51C21 56 13 54 7 45C17 41 25 43 31 51Z"
-                            stroke="currentColor"
-                            stroke-width="2"
-                        />
-                        <path
-                            d="M33 51C43 56 51 54 57 45C47 41 39 43 33 51Z"
-                            stroke="currentColor"
-                            stroke-width="2"
-                        />
-                    </svg>
-                </span>
+      <a class="nav-cta" href="disponibilites.html">Prendre rendez-vous</a>
+    </nav>
+  </header>
 
-                <span class="brand-text">
-                    <span class="brand-name">Lys’Harmony</span>
-                    <span class="brand-tagline">
-                        Harmonie du corps, de l’âme et de l’énergie
-                    </span>
-                </span>
-
-            </a>
-
-            <nav class="main-nav" id="mainNav" aria-label="Navigation principale">
-                <a href="#accueil">Accueil</a>
-                <a href="#services">Mes soins</a>
-                <a href="#a-propos">À propos</a>
-                <a href="#contact">Contact</a>
-                <a href="#contact" class="nav-cta">Prendre rendez-vous</a>
-            </nav>
-
-            <button
-                class="menu-button"
-                id="menuButton"
-                type="button"
-                aria-label="Ouvrir le menu"
-                aria-expanded="false"
-                aria-controls="mainNav"
-            >
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-
+  <main>
+    <section class="hero">
+      <div class="container">
+        <div class="breadcrumb">
+          <a href="index.html">Accueil</a>
+          <span>•</span>
+          <a href="index.html#soins">Mes soins</a>
+          <span>•</span>
+          <strong>Magnétisme et énergie</strong>
         </div>
-    </header>
 
+        <div class="hero-grid">
+          <div class="hero-copy">
+            <p class="eyebrow">Soin personnalisé</p>
+            <h1>Magnétisme<br>et énergie</h1>
 
-    <main>
+            <p class="intro">
+              Une séance douce et personnalisée pour favoriser le relâchement, apaiser les tensions ressenties
+              et retrouver une sensation de calme et d’équilibre.
+            </p>
 
-        <!-- HERO / BANNIÈRE -->
+            <ul class="hero-points" aria-label="Les intentions du soin">
+              <li>Apaisement</li>
+              <li>Relâchement</li>
+              <li>Mieux-être</li>
+            </ul>
 
-        <section class="hero" id="accueil">
-
-            <div class="hero-media" aria-hidden="true">
-                <picture>
-                    <source
-                        media="(max-width: 760px)"
-                        srcset="lisetel.png"
-                    >
-
-                    <img
-                        src="lisepc.png"
-                        alt=""
-                        fetchpriority="high"
-                    >
-                </picture>
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="disponibilites.html">Consulter les disponibilités</a>
+              <a class="btn btn-secondary" href="#deroulement">Découvrir la séance</a>
             </div>
+          </div>
 
-            <div class="hero-overlay"></div>
-
-            <span class="energy-particle"></span>
-            <span class="energy-particle"></span>
-            <span class="energy-particle"></span>
-            <span class="energy-particle"></span>
-
-            <div class="container hero-content">
-                <div class="hero-copy">
-
-                    <p class="hero-services">
-                        Magnétisme et énergétique<br>
-                        Alignement et harmonisation<br>
-                        Accompagnement énergétique
-                    </p>
-
-                    <h1 class="hero-title">
-                        Révélez votre
-                        <span>énergie naturelle</span>
-                    </h1>
-
-                    <p class="hero-description">
-                        Un accompagnement doux et personnalisé pour apaiser
-                        les tensions, libérer les blocages et retrouver
-                        une harmonie profonde entre le corps et l’esprit.
-                    </p>
-
-                    <div class="hero-actions">
-
-                        <a href="#services" class="button button-primary">
-                            <svg
-                                viewBox="0 0 24 24"
-                                fill="none"
-                                stroke="currentColor"
-                                stroke-width="1.8"
-                                aria-hidden="true"
-                            >
-                                <rect x="3" y="5" width="18" height="16" rx="2"/>
-                                <path d="M16 3v4M8 3v4M3 10h18"/>
-                                <path d="M8 14h2M14 14h2M8 18h2M14 18h2"/>
-                            </svg>
-
-                            Découvrir mes soins
-                        </a>
-
-                        <a href="#a-propos" class="button button-secondary">
-                            <svg
-                                viewBox="0 0 24 24"
-                                fill="none"
-                                stroke="currentColor"
-                                stroke-width="1.8"
-                                aria-hidden="true"
-                            >
-                                <circle cx="12" cy="12" r="9"/>
-                                <path d="M10 8.5L16 12L10 15.5V8.5Z"/>
-                            </svg>
-
-                            Découvrir mon approche
-                        </a>
-
-                    </div>
-
-                    <div class="hero-features">
-
-                        <div class="hero-feature">
-                            <span class="feature-icon">
-                                <svg
-                                    viewBox="0 0 24 24"
-                                    fill="none"
-                                    stroke="currentColor"
-                                    stroke-width="1.7"
-                                >
-                                    <path d="M12 21C8 16 5 12 5 8a7 7 0 0 1 14 0c0 4-3 8-7 13Z"/>
-                                    <circle cx="12" cy="8" r="2.5"/>
-                                </svg>
-                            </span>
-                            Approche personnalisée
-                        </div>
-
-                        <div class="hero-feature">
-                            <span class="feature-icon">
-                                <svg
-                                    viewBox="0 0 24 24"
-                                    fill="none"
-                                    stroke="currentColor"
-                                    stroke-width="1.7"
-                                >
-                                    <path d="M12 21V8"/>
-                                    <path d="M12 13C8 13 5 10 5 6c4 0 7 2 7 7Z"/>
-                                    <path d="M12 17c4 0 7-3 7-7-4 0-7 2-7 7Z"/>
-                                </svg>
-                            </span>
-                            Bien-être naturel
-                        </div>
-
-                        <div class="hero-feature">
-                            <span class="feature-icon">
-                                <svg
-                                    viewBox="0 0 24 24"
-                                    fill="none"
-                                    stroke="currentColor"
-                                    stroke-width="1.7"
-                                >
-                                    <path d="M12 2c2.5 4 5 6.5 5 10a5 5 0 0 1-10 0c0-3.5 2.5-6 5-10Z"/>
-                                    <path d="M12 21v-5"/>
-                                </svg>
-                            </span>
-                            Énergie équilibrée
-                        </div>
-
-                        <div class="hero-feature">
-                            <span class="feature-icon">
-                                <svg
-                                    viewBox="0 0 24 24"
-                                    fill="none"
-                                    stroke="currentColor"
-                                    stroke-width="1.7"
-                                >
-                                    <path d="M12 21s-8-4.5-8-11a4.5 4.5 0 0 1 8-2.8A4.5 4.5 0 0 1 20 10c0 6.5-8 11-8 11Z"/>
-                                </svg>
-                            </span>
-                            Harmonie profonde
-                        </div>
-
-                    </div>
-
-                </div>
-            </div>
-
-
-            <div class="hero-bottom-shape" aria-hidden="true"></div>
-
-            <div class="hero-center-badge" aria-hidden="true">
-                <svg
-                    viewBox="0 0 64 64"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                >
-                    <path d="M32 48C23 40 19 31 32 14C45 31 41 40 32 48Z" stroke="currentColor" stroke-width="2"/>
-                    <path d="M30 49C20 47 12 41 12 27C25 29 31 37 30 49Z" stroke="currentColor" stroke-width="2"/>
-                    <path d="M34 49C44 47 52 41 52 27C39 29 33 37 34 49Z" stroke="currentColor" stroke-width="2"/>
-                    <path d="M31 51C21 56 13 54 7 45C17 41 25 43 31 51Z" stroke="currentColor" stroke-width="2"/>
-                    <path d="M33 51C43 56 51 54 57 45C47 41 39 43 33 51Z" stroke="currentColor" stroke-width="2"/>
+          <div class="image-shell image-shell-placeholder" aria-label="Emplacement de la future image du soin">
+            <div class="image-placeholder">
+              <span class="image-placeholder-icon" aria-hidden="true">
+                <svg viewBox="0 0 64 64" fill="none">
+                  <path d="M32 54V25" stroke="currentColor" stroke-width="2"/>
+                  <path d="M32 36C21 36 13 28 13 16C24 16 32 24 32 36Z" stroke="currentColor" stroke-width="2"/>
+                  <path d="M32 43C43 43 51 35 51 23C40 23 32 31 32 43Z" stroke="currentColor" stroke-width="2"/>
+                  <path d="M20 54H44" stroke="currentColor" stroke-width="2"/>
                 </svg>
+              </span>
+              <strong>Magnétisme et énergie</strong>
+              <span>L’image du soin sera ajoutée ici ensuite.</span>
             </div>
 
-        </section>
-
-
-        <!-- SERVICES -->
-
-        <section class="section services-section" id="services">
-            <div class="container">
-
-                <div class="services-header reveal">
-
-                    <div class="services-header-left">
-                        <span class="eyebrow">Mes accompagnements</span>
-
-                        <h2 class="section-title">
-                            Des soins pensés pour
-                            <span>vous recentrer</span>
-                        </h2>
-                    </div>
-
-                    <p class="services-header-right">
-                        Chaque séance est adaptée à vos besoins et à vos
-                        ressentis, dans un espace d’écoute, de douceur
-                        et de bienveillance.
-                    </p>
-
-                </div>
-
-                <div
-                    class="services-slider reveal reveal-delay-1"
-                    id="servicesSlider"
-                    aria-label="Carrousel des accompagnements"
-                >
-
-                    <div class="services-viewport">
-
-                        <div class="services-track">
-
-                            <!-- CARTE 1 -->
-
-                            <article class="service-card">
-
-                                <div class="service-image">
-                                    <img
-                                        src="magneto.png"
-                                        alt="Séance de magnétisme et soin énergétique"
-                                        loading="lazy"
-                                    >
-
-                                    <span class="service-number">01</span>
-                                </div>
-
-                                <div class="service-content">
-
-                                    <span class="service-icon" aria-hidden="true">
-                                        <svg
-                                            viewBox="0 0 64 64"
-                                            fill="none"
-                                            stroke="currentColor"
-                                            stroke-width="2"
-                                        >
-                                            <path d="M32 49C24 42 20 34 32 17C44 34 40 42 32 49Z"/>
-                                            <path d="M30 50C20 49 13 43 13 30C25 32 31 39 30 50Z"/>
-                                            <path d="M34 50C44 49 51 43 51 30C39 32 33 39 34 50Z"/>
-                                        </svg>
-                                    </span>
-
-                                    <h3 class="service-title">
-                                        Magnétisme<br>
-                                        et énergétique
-                                    </h3>
-
-                                    <p class="service-description">
-                                        Une séance douce pour apaiser les tensions,
-                                        soulager les inconforts et favoriser une
-                                        meilleure circulation de l’énergie dans le corps.
-                                    </p>
-
-                                    <a href="#contact" class="service-link">
-                                        Découvrir ce soin
-                                        <span aria-hidden="true">→</span>
-                                    </a>
-
-                                </div>
-                            </article>
-
-
-                            <!-- CARTE 2 -->
-
-                            <article class="service-card">
-
-                                <div class="service-image">
-                                    <img
-                                        src="harmour.png"
-                                        alt="Soin d’alignement et d’harmonisation énergétique"
-                                        loading="lazy"
-                                    >
-
-                                    <span class="service-number">02</span>
-                                </div>
-
-                                <div class="service-content">
-
-                                    <span
-                                        class="service-icon"
-                                        aria-hidden="true"
-                                        style="color: var(--lavender);"
-                                    >
-                                        <svg
-                                            viewBox="0 0 64 64"
-                                            fill="none"
-                                            stroke="currentColor"
-                                            stroke-width="2"
-                                        >
-                                            <circle cx="32" cy="32" r="7"/>
-                                            <circle cx="32" cy="32" r="17"/>
-                                            <path d="M32 5V18M32 46V59M5 32H18M46 32H59"/>
-                                            <path d="M13 13L22 22M42 42L51 51M51 13L42 22M22 42L13 51"/>
-                                        </svg>
-                                    </span>
-
-                                    <h3 class="service-title">
-                                        Alignement<br>
-                                        et harmonisation
-                                    </h3>
-
-                                    <p class="service-description">
-                                        Un soin global pour libérer les blocages
-                                        énergétiques, retrouver un équilibre intérieur
-                                        et harmoniser le corps et l’esprit.
-                                    </p>
-
-                                    <a href="alignement-harmonisation.html" class="service-link">
-                                        Découvrir ce soin
-                                        <span aria-hidden="true">→</span>
-                                    </a>
-
-                                </div>
-                            </article>
-
-
-                            <!-- CARTE 3 -->
-
-                            <article class="service-card">
-
-                                <div class="service-image">
-                                    <img
-                                        src="energie.png"
-                                        alt="Accompagnement énergétique personnalisé"
-                                        loading="lazy"
-                                    >
-
-                                    <span class="service-number">03</span>
-                                </div>
-
-                                <div class="service-content">
-
-                                    <span
-                                        class="service-icon"
-                                        aria-hidden="true"
-                                        style="color: var(--sage);"
-                                    >
-                                        <svg
-                                            viewBox="0 0 64 64"
-                                            fill="none"
-                                            stroke="currentColor"
-                                            stroke-width="2"
-                                        >
-                                            <path d="M32 54V25"/>
-                                            <path d="M32 36C21 36 13 28 13 16C24 16 32 24 32 36Z"/>
-                                            <path d="M32 43C43 43 51 35 51 23C40 23 32 31 32 43Z"/>
-                                            <path d="M20 54H44"/>
-                                        </svg>
-                                    </span>
-
-                                    <h3 class="service-title">
-                                        Accompagnement<br>
-                                        énergétique
-                                    </h3>
-
-                                    <p class="service-description">
-                                        Un accompagnement personnalisé pour traverser
-                                        une période de changement, mieux comprendre vos
-                                        ressentis et avancer avec plus de sérénité.
-                                    </p>
-
-                                    <a href="accompagnement-energetique.html" class="service-link">
-                                        Découvrir ce soin
-                                        <span aria-hidden="true">→</span>
-                                    </a>
-
-                                </div>
-                            </article>
-
-
-                            <!-- CARTE 4 -->
-
-                            <article class="service-card">
-
-                                <div class="service-image">
-                                    <img
-                                        src="magneto.png"
-                                        alt="Séance de magnétisme et d’énergie"
-                                        loading="lazy"
-                                    >
-
-                                    <span class="service-number">04</span>
-                                </div>
-
-                                <div class="service-content">
-
-                                    <span
-                                        class="service-icon"
-                                        aria-hidden="true"
-                                        style="color: var(--rose);"
-                                    >
-                                        <svg
-                                            viewBox="0 0 64 64"
-                                            fill="none"
-                                            stroke="currentColor"
-                                            stroke-width="2"
-                                        >
-                                            <circle cx="32" cy="32" r="7"/>
-                                            <circle cx="32" cy="32" r="17"/>
-                                            <path d="M9 32C15 22 22 17 32 17"/>
-                                            <path d="M55 32C49 42 42 47 32 47"/>
-                                            <path d="M13 18C21 10 30 8 39 11"/>
-                                            <path d="M51 46C43 54 34 56 25 53"/>
-                                        </svg>
-                                    </span>
-
-                                    <h3 class="service-title">
-                                        Magnétisme<br>
-                                        et énergie
-                                    </h3>
-
-                                    <p class="service-description">
-                                        Une séance personnalisée pour apaiser les tensions,
-                                        soutenir le mieux-être et favoriser une circulation
-                                        énergétique plus harmonieuse.
-                                    </p>
-
-                                    <a href="#contact" class="service-link">
-                                        Découvrir ce soin
-                                        <span aria-hidden="true">→</span>
-                                    </a>
-
-                                </div>
-                            </article>
-
-                        </div>
-                    </div>
-
-                    <div class="slider-controls">
-
-                        <button
-                            class="slider-button slider-prev"
-                            type="button"
-                            aria-label="Voir les soins précédents"
-                        >
-                            <svg
-                                viewBox="0 0 24 24"
-                                fill="none"
-                                stroke="currentColor"
-                                stroke-width="1.8"
-                            >
-                                <path d="M15 18L9 12L15 6"/>
-                            </svg>
-                        </button>
-
-                        <div
-                            class="slider-dots"
-                            aria-label="Navigation du carrousel"
-                        ></div>
-
-                        <button
-                            class="slider-button slider-next"
-                            type="button"
-                            aria-label="Voir les soins suivants"
-                        >
-                            <svg
-                                viewBox="0 0 24 24"
-                                fill="none"
-                                stroke="currentColor"
-                                stroke-width="1.8"
-                            >
-                                <path d="M9 18L15 12L9 6"/>
-                            </svg>
-                        </button>
-
-                    </div>
-
-                </div>
-
+            <div class="image-caption">
+              <strong>Une approche douce</strong>
+              Chaque séance est adaptée à vos besoins, à votre sensibilité et à votre ressenti du moment.
             </div>
-        </section>
-
-
-        <!-- À PROPOS -->
-
-        <section class="section about-section" id="a-propos">
-            <div class="container about-grid">
-
-                <div class="about-image-column reveal">
-
-                    <div class="about-image">
-                        <img
-                            src="lisetel.png"
-                            alt="Lise, praticienne en soins énergétiques"
-                            loading="lazy"
-                        >
-                    </div>
-
-                    <div class="experience-badge">
-                        <div>
-                            <strong>Lise</strong>
-                            <span>Une approche douce et intuitive</span>
-                        </div>
-                    </div>
-
-                </div>
-
-                <div class="about-text reveal reveal-delay-1">
-
-                    <span class="eyebrow">À propos de moi</span>
-
-                    <h2 class="section-title">
-                        Guidée par l’écoute,
-                        <span>l’énergie et l’humain</span>
-                    </h2>
-
-                    <p>
-                        Je vous accueille dans un espace chaleureux et
-                        bienveillant afin de vous aider à retrouver plus
-                        de calme, de légèreté et d’harmonie intérieure.
-                    </p>
-
-                    <p>
-                        Chaque accompagnement est unique. Il prend en compte
-                        votre sensibilité, vos ressentis et les besoins du
-                        moment, sans jugement et dans le respect de votre rythme.
-                    </p>
-
-                    <div class="about-points">
-
-                        <div class="about-point">
-                            <span>✓</span>
-                            Écoute et bienveillance
-                        </div>
-
-                        <div class="about-point">
-                            <span>✓</span>
-                            Séances personnalisées
-                        </div>
-
-                        <div class="about-point">
-                            <span>✓</span>
-                            Approche douce et globale
-                        </div>
-
-                        <div class="about-point">
-                            <span>✓</span>
-                            Respect de votre rythme
-                        </div>
-
-                    </div>
-
-                    <div class="about-actions">
-                        <a href="#contact" class="button button-primary">
-                            En savoir plus sur mon approche
-                        </a>
-                    </div>
-
-                </div>
-
-            </div>
-        </section>
-
-
-        <!-- CONTACT / RENDEZ-VOUS -->
-
-        <section class="section contact-section" id="contact">
-            <div class="container contact-inner">
-
-                <div class="contact-copy reveal">
-
-                    <span class="eyebrow">Prendre soin de vous</span>
-
-                    <h2>
-                        Accordez-vous un moment pour
-                        <span>vous retrouver</span>
-                    </h2>
-
-                    <p>
-                        Contactez-moi pour échanger sur vos besoins et choisir
-                        ensemble l’accompagnement le plus adapté à votre situation.
-                    </p>
-
-                </div>
-
-                <!-- Remplacer # par le lien de réservation -->
-
-                <a
-                    href="#"
-                    class="button button-primary contact-button reveal reveal-delay-1"
-                >
-                    Prendre rendez-vous
-                </a>
-
-            </div>
-        </section>
-
-    </main>
-
-
-    <!-- FOOTER -->
-
-    <footer class="site-footer">
-        <div class="container footer-inner">
-
-            <div>
-                <div class="footer-brand">Lys’Harmony</div>
-
-                <p class="copyright">
-                    © <span id="currentYear"></span> Lys’Harmony.
-                    Tous droits réservés.
-                </p>
-            </div>
-
-            <div class="footer-links">
-                <a href="#accueil">Accueil</a>
-                <a href="#services">Mes soins</a>
-                <a href="#a-propos">À propos</a>
-                <a href="#contact">Contact</a>
-                <a href="#">Mentions légales</a>
-            </div>
-
+          </div>
         </div>
-    </footer>
-
-
-    <script>
-        "use strict";
-
-        /*
-        ====================================================
-        HEADER AU DÉFILEMENT
-        ====================================================
-        */
-
-        const siteHeader = document.getElementById("siteHeader");
-
-        function updateHeader() {
-            siteHeader.classList.toggle("scrolled", window.scrollY > 30);
-        }
-
-        updateHeader();
-        window.addEventListener("scroll", updateHeader, { passive: true });
-
-
-        /*
-        ====================================================
-        MENU MOBILE
-        ====================================================
-        */
-
-        const menuButton = document.getElementById("menuButton");
-        const mainNav = document.getElementById("mainNav");
-        const navigationLinks = mainNav.querySelectorAll("a");
-
-        function closeMobileMenu() {
-            menuButton.classList.remove("active");
-            mainNav.classList.remove("open");
-            document.body.classList.remove("menu-open");
-
-            menuButton.setAttribute("aria-expanded", "false");
-            menuButton.setAttribute("aria-label", "Ouvrir le menu");
-        }
-
-        menuButton.addEventListener("click", () => {
-            const menuIsOpen = mainNav.classList.toggle("open");
-
-            menuButton.classList.toggle("active", menuIsOpen);
-            document.body.classList.toggle("menu-open", menuIsOpen);
-
-            menuButton.setAttribute(
-                "aria-expanded",
-                String(menuIsOpen)
-            );
-
-            menuButton.setAttribute(
-                "aria-label",
-                menuIsOpen ? "Fermer le menu" : "Ouvrir le menu"
-            );
-        });
-
-        navigationLinks.forEach((link) => {
-            link.addEventListener("click", closeMobileMenu);
-        });
-
-        window.addEventListener("resize", () => {
-            if (window.innerWidth > 760) {
-                closeMobileMenu();
-            }
-        });
-
-
-        /*
-        ====================================================
-        APPARITION DES ÉLÉMENTS AU DÉFILEMENT
-        ====================================================
-        */
-
-        const revealElements = document.querySelectorAll(".reveal");
-
-        const revealObserver = new IntersectionObserver(
-            (entries, observer) => {
-                entries.forEach((entry) => {
-                    if (!entry.isIntersecting) {
-                        return;
-                    }
-
-                    entry.target.classList.add("is-visible");
-                    observer.unobserve(entry.target);
-                });
-            },
-            {
-                threshold: 0.14,
-                rootMargin: "0px 0px -50px 0px"
-            }
-        );
-
-        revealElements.forEach((element) => {
-            revealObserver.observe(element);
-        });
-
-
-        /*
-        ====================================================
-        CARROUSEL DES SERVICES
-        ====================================================
-        */
-
-        class ServicesSlider {
-            constructor(sliderElement) {
-                this.slider = sliderElement;
-                this.viewport =
-                    sliderElement.querySelector(".services-viewport");
-
-                this.track =
-                    sliderElement.querySelector(".services-track");
-
-                this.cards = Array.from(
-                    sliderElement.querySelectorAll(".service-card")
-                );
-
-                this.previousButton =
-                    sliderElement.querySelector(".slider-prev");
-
-                this.nextButton =
-                    sliderElement.querySelector(".slider-next");
-
-                this.dotsContainer =
-                    sliderElement.querySelector(".slider-dots");
-
-                this.currentIndex = 0;
-                this.visibleCards = 1;
-                this.maximumIndex = 0;
-                this.autoplayTimer = null;
-
-                this.pointerStartX = 0;
-                this.pointerCurrentX = 0;
-                this.isDragging = false;
-
-                this.initialize();
-            }
-
-            initialize() {
-                this.updateDimensions();
-                this.createDots();
-                this.updateSlider(false);
-                this.bindEvents();
-                this.startAutoplay();
-            }
-
-            getVisibleCards() {
-                return window.innerWidth > 760 ? 2 : 1;
-            }
-
-            updateDimensions() {
-                this.visibleCards = this.getVisibleCards();
-
-                this.maximumIndex = Math.max(
-                    0,
-                    this.cards.length - this.visibleCards
-                );
-
-                this.currentIndex = Math.min(
-                    this.currentIndex,
-                    this.maximumIndex
-                );
-            }
-
-            getCardStep() {
-                const firstCard = this.cards[0];
-
-                if (!firstCard) {
-                    return 0;
-                }
-
-                const trackStyle = window.getComputedStyle(this.track);
-                const gap = parseFloat(trackStyle.columnGap) || 0;
-
-                return firstCard.getBoundingClientRect().width + gap;
-            }
-
-            createDots() {
-                this.dotsContainer.innerHTML = "";
-
-                for (let index = 0; index <= this.maximumIndex; index += 1) {
-                    const dot = document.createElement("button");
-
-                    dot.type = "button";
-                    dot.className = "slider-dot";
-                    dot.setAttribute(
-                        "aria-label",
-                        `Afficher la position ${index + 1}`
-                    );
-
-                    dot.addEventListener("click", () => {
-                        this.goTo(index);
-                        this.restartAutoplay();
-                    });
-
-                    this.dotsContainer.appendChild(dot);
-                }
-            }
-
-            updateSlider(animate = true) {
-                if (!animate) {
-                    this.track.style.transition = "none";
-                }
-
-                const offset = this.currentIndex * this.getCardStep();
-
-                this.track.style.transform =
-                    `translate3d(${-offset}px, 0, 0)`;
-
-                this.previousButton.disabled =
-                    this.currentIndex === 0;
-
-                this.nextButton.disabled =
-                    this.currentIndex === this.maximumIndex;
-
-                const dots = this.dotsContainer.querySelectorAll(".slider-dot");
-
-                dots.forEach((dot, index) => {
-                    dot.classList.toggle(
-                        "active",
-                        index === this.currentIndex
-                    );
-                });
-
-                if (!animate) {
-                    requestAnimationFrame(() => {
-                        requestAnimationFrame(() => {
-                            this.track.style.transition = "";
-                        });
-                    });
-                }
-            }
-
-            goTo(index) {
-                this.currentIndex = Math.max(
-                    0,
-                    Math.min(index, this.maximumIndex)
-                );
-
-                this.updateSlider();
-            }
-
-            next() {
-                if (this.currentIndex >= this.maximumIndex) {
-                    this.goTo(0);
-                    return;
-                }
-
-                this.goTo(this.currentIndex + 1);
-            }
-
-            previous() {
-                if (this.currentIndex <= 0) {
-                    this.goTo(this.maximumIndex);
-                    return;
-                }
-
-                this.goTo(this.currentIndex - 1);
-            }
-
-            startAutoplay() {
-                this.stopAutoplay();
-
-                this.autoplayTimer = window.setInterval(() => {
-                    this.next();
-                }, 5500);
-            }
-
-            stopAutoplay() {
-                if (this.autoplayTimer) {
-                    window.clearInterval(this.autoplayTimer);
-                    this.autoplayTimer = null;
-                }
-            }
-
-            restartAutoplay() {
-                this.stopAutoplay();
-                this.startAutoplay();
-            }
-
-            bindEvents() {
-                this.previousButton.addEventListener("click", () => {
-                    this.previous();
-                    this.restartAutoplay();
-                });
-
-                this.nextButton.addEventListener("click", () => {
-                    this.next();
-                    this.restartAutoplay();
-                });
-
-                this.slider.addEventListener("mouseenter", () => {
-                    this.stopAutoplay();
-                });
-
-                this.slider.addEventListener("mouseleave", () => {
-                    this.startAutoplay();
-                });
-
-                this.slider.addEventListener("focusin", () => {
-                    this.stopAutoplay();
-                });
-
-                this.slider.addEventListener("focusout", () => {
-                    this.startAutoplay();
-                });
-
-                this.viewport.querySelectorAll("img").forEach((image) => {
-                    image.addEventListener("dragstart", (event) => {
-                        event.preventDefault();
-                    });
-                });
-
-                this.viewport.addEventListener("pointerdown", (event) => {
-                    /*
-                    Sur ordinateur, la souris ne déclenche pas le glissement.
-                    Cela laisse les liens fonctionner normalement au clic gauche.
-                    Le glissement reste actif au doigt sur mobile et tablette.
-                    */
-                    if (
-                        event.pointerType === "mouse" ||
-                        event.target.closest("a, button")
-                    ) {
-                        this.isDragging = false;
-                        return;
-                    }
-
-                    this.isDragging = true;
-                    this.pointerStartX = event.clientX;
-                    this.pointerCurrentX = event.clientX;
-
-                    this.stopAutoplay();
-
-                    this.viewport.setPointerCapture(event.pointerId);
-                });
-
-                this.viewport.addEventListener("pointermove", (event) => {
-                    if (!this.isDragging) {
-                        return;
-                    }
-
-                    this.pointerCurrentX = event.clientX;
-                });
-
-                this.viewport.addEventListener("pointerup", (event) => {
-                    if (!this.isDragging) {
-                        return;
-                    }
-
-                    this.isDragging = false;
-
-                    const movement =
-                        this.pointerCurrentX - this.pointerStartX;
-
-                    if (Math.abs(movement) > 55) {
-                        if (movement < 0) {
-                            this.next();
-                        } else {
-                            this.previous();
-                        }
-                    }
-
-                    try {
-                        this.viewport.releasePointerCapture(event.pointerId);
-                    } catch (error) {
-                        // Le pointeur peut déjà avoir été libéré.
-                    }
-
-                    this.startAutoplay();
-                });
-
-                this.viewport.addEventListener("pointercancel", () => {
-                    this.isDragging = false;
-                    this.startAutoplay();
-                });
-
-                this.slider.addEventListener("keydown", (event) => {
-                    if (event.key === "ArrowLeft") {
-                        this.previous();
-                        this.restartAutoplay();
-                    }
-
-                    if (event.key === "ArrowRight") {
-                        this.next();
-                        this.restartAutoplay();
-                    }
-                });
-
-                let resizeTimer;
-
-                window.addEventListener("resize", () => {
-                    window.clearTimeout(resizeTimer);
-
-                    resizeTimer = window.setTimeout(() => {
-                        const previousVisibleCards = this.visibleCards;
-
-                        this.updateDimensions();
-
-                        if (previousVisibleCards !== this.visibleCards) {
-                            this.createDots();
-                        }
-
-                        this.updateSlider(false);
-                    }, 120);
-                });
-            }
-        }
-
-        const servicesSlider =
-            document.getElementById("servicesSlider");
-
-        if (servicesSlider) {
-            new ServicesSlider(servicesSlider);
-        }
-
-
-        /*
-        ====================================================
-        ANNÉE AUTOMATIQUE
-        ====================================================
-        */
-
-        document.getElementById("currentYear").textContent =
-            new Date().getFullYear();
-    </script>
-
-    
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="bienfaits-title">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Retrouver plus de calme</p>
+          <h2 id="bienfaits-title">Une séance pour favoriser le relâchement et le mieux-être</h2>
+          <p>
+            Le magnétisme propose un temps de pause et d’écoute du corps, dans une ambiance rassurante,
+            afin de favoriser l’apaisement et une sensation d’équilibre plus globale.
+          </p>
+        </div>
+
+        <div class="benefit-grid">
+          <article class="benefit-card">
+            <span class="benefit-number">01</span>
+            <h3>Apaiser les tensions</h3>
+            <p>
+              Offrir au corps et au mental un moment de calme pour favoriser le relâchement et diminuer la sensation de surcharge.
+            </p>
+          </article>
+
+          <article class="benefit-card">
+            <span class="benefit-number">02</span>
+            <h3>Favoriser le relâchement</h3>
+            <p>
+              Vous installer confortablement dans un espace chaleureux afin de ralentir, respirer et retrouver plus de disponibilité intérieure.
+            </p>
+          </article>
+
+          <article class="benefit-card">
+            <span class="benefit-number">03</span>
+            <h3>Retrouver votre équilibre</h3>
+            <p>
+              Revenir vers une sensation de stabilité et de mieux-être, à votre rythme, dans le respect de votre sensibilité.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="deroulement">
+      <div class="container experience">
+        <div class="experience-copy">
+          <p class="eyebrow">Le déroulement</p>
+          <h2>Une séance simple, douce et personnalisée</h2>
+
+          <p>
+            La séance commence par un court échange afin de comprendre votre besoin du moment. Vous restez ensuite habillé(e),
+            confortablement installé(e), pendant que Lise réalise un travail de magnétisme et d’énergie adapté à votre ressenti.
+          </p>
+
+          <div class="steps">
+            <div class="step">
+              <span class="step-icon">1</span>
+              <div>
+                <h3>Un temps d’échange</h3>
+                <p>Quelques minutes pour vous accueillir, écouter votre ressenti et définir l’intention de la séance.</p>
+              </div>
+            </div>
+
+            <div class="step">
+              <span class="step-icon">2</span>
+              <div>
+                <h3>Le temps du soin</h3>
+                <p>
+                  Vous restez habillé(e), assis(e) ou allongé(e) selon votre confort, pendant que Lise travaille par apposition ou approche des mains.
+                </p>
+              </div>
+            </div>
+
+            <div class="step">
+              <span class="step-icon">3</span>
+              <div>
+                <h3>Un retour en douceur</h3>
+                <p>
+                  La séance se termine par un court échange pour revenir tranquillement sur vos sensations et votre ressenti.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <aside class="booking-card" aria-label="Réserver ce soin">
+          <span class="booking-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none">
+              <circle cx="12" cy="12" r="3.3" stroke="currentColor" stroke-width="1.4"/>
+              <path d="M12 2.5v3M12 18.5v3M2.5 12h3M18.5 12h3M5.3 5.3l2.1 2.1M16.6 16.6l2.1 2.1M18.7 5.3l-2.1 2.1M7.4 16.6l-2.1 2.1" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+            </svg>
+          </span>
+
+          <p class="eyebrow">Votre rendez-vous</p>
+          <h2>Magnétisme et énergie</h2>
+          <p>
+            Choisissez votre créneau en ligne parmi les prochaines disponibilités.
+          </p>
+
+          <div class="details">
+            <div class="detail-row">
+              <span>Durée</span>
+              <strong>À renseigner</strong>
+            </div>
+            <div class="detail-row">
+              <span>Tarif</span>
+              <strong>À renseigner</strong>
+            </div>
+            <div class="detail-row">
+              <span>Lieu</span>
+              <strong>Cabinet Lys’Harmony</strong>
+            </div>
+          </div>
+
+          <div class="booking-actions">
+            <a class="btn btn-primary" href="disponibilites.html">Consulter les disponibilités</a>
+            <a class="btn btn-secondary" href="contact.html">Poser une question</a>
+          </div>
+
+          <p class="booking-note">
+            Le magnétisme est une pratique de bien-être complémentaire et ne remplace pas un avis, un diagnostic ou un traitement médical.
+          </p>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section reassurance">
+      <div class="container">
+        <div class="reassurance-box">
+          <div>
+            <h2>Accordez-vous un moment pour souffler</h2>
+            <p>
+              Une séance douce et respectueuse, pensée pour vous aider à ralentir, relâcher les tensions et retrouver davantage de calme.
+            </p>
+          </div>
+
+          <a class="btn" href="disponibilites.html">Réserver en ligne</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <span>© <span id="year"></span> Lys’Harmony — Tous droits réservés.</span>
+
+      <div class="footer-links">
+        <a href="mentions-legales.html">Mentions légales</a>
+        <a href="politique-confidentialite.html">Confidentialité</a>
+        <a href="index.html#contact">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const menuButton = document.querySelector(".menu-button");
+    const nav = document.querySelector(".nav");
+
+    menuButton?.addEventListener("click", () => {
+      const isOpen = nav.classList.toggle("is-open");
+      menuButton.setAttribute("aria-expanded", String(isOpen));
+      menuButton.textContent = isOpen ? "✕" : "☰";
+    });
+
+    document.querySelector("#year").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
