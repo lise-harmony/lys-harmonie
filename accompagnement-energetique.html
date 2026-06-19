@@ -1,0 +1,1095 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Accompagnement énergétique | Lys’Harmony</title>
+  <meta name="description" content="Découvrez l’accompagnement énergétique proposé par Lys’Harmony : un espace d’écoute et de recentrage pour mieux comprendre vos ressentis et avancer avec plus de sérénité.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #fbf7f1;
+      --surface: #fffdf9;
+      --surface-soft: #f6efe6;
+      --text: #302923;
+      --muted: #756a61;
+      --gold: #bd7b27;
+      --gold-dark: #9a5e18;
+      --gold-soft: #eed8b9;
+      --sage: #87947b;
+      --lavender: #a18caf;
+      --line: rgba(95, 71, 49, 0.13);
+      --shadow: 0 24px 60px rgba(84, 61, 38, 0.13);
+      --radius-lg: 34px;
+      --radius-md: 24px;
+      --container: 1180px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 92% 12%, rgba(221, 203, 226, 0.34), transparent 31rem),
+        radial-gradient(circle at 5% 78%, rgba(225, 205, 168, 0.28), transparent 31rem),
+        var(--bg);
+      font-family: "Manrope", sans-serif;
+      line-height: 1.7;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(calc(100% - 40px), var(--container));
+      margin-inline: auto;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      border-bottom: 1px solid var(--line);
+      background: rgba(255, 252, 247, 0.92);
+      backdrop-filter: blur(16px);
+    }
+
+    .nav {
+      min-height: 84px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 28px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 13px;
+      min-width: max-content;
+    }
+
+    .brand-mark {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--gold-soft);
+      border-radius: 50%;
+      color: var(--gold);
+      background: #fffaf3;
+      box-shadow: 0 8px 24px rgba(184, 121, 38, 0.09);
+    }
+
+    .brand-mark svg {
+      width: 24px;
+      height: 24px;
+    }
+
+    .brand-name {
+      display: block;
+      font-family: "Cormorant Garamond", serif;
+      font-size: 25px;
+      font-weight: 600;
+      line-height: 1;
+    }
+
+    .brand-tagline {
+      display: block;
+      margin-top: 4px;
+      color: var(--muted);
+      font-size: 8px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 30px;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .nav-links a {
+      transition: color 180ms ease;
+    }
+
+    .nav-links a:hover,
+    .nav-links a:focus-visible {
+      color: var(--gold-dark);
+    }
+
+    .nav-cta,
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 50px;
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: 700;
+      transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease;
+    }
+
+    .nav-cta {
+      padding: 0 23px;
+      border: 1px solid var(--gold);
+      color: var(--gold-dark);
+      background: rgba(255, 253, 249, 0.72);
+    }
+
+    .nav-cta:hover,
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .menu-button {
+      display: none;
+      width: 44px;
+      height: 44px;
+      border: 1px solid var(--line);
+      border-radius: 50%;
+      color: var(--text);
+      background: var(--surface);
+      cursor: pointer;
+    }
+
+    .hero {
+      padding: 70px 0 42px;
+    }
+
+    .breadcrumb {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 28px;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .breadcrumb span {
+      color: var(--gold);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.03fr) minmax(330px, 0.97fr);
+      gap: clamp(42px, 7vw, 88px);
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin: 0 0 16px;
+      color: var(--gold-dark);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 28px;
+      height: 1px;
+      background: var(--gold);
+    }
+
+    h1,
+    h2,
+    h3 {
+      margin-top: 0;
+      font-family: "Cormorant Garamond", serif;
+      font-weight: 600;
+      line-height: 1.05;
+    }
+
+    h1 {
+      max-width: 760px;
+      margin-bottom: 24px;
+      font-size: clamp(52px, 7vw, 84px);
+      letter-spacing: -0.04em;
+    }
+
+    .intro {
+      max-width: 680px;
+      margin: 0;
+      color: var(--muted);
+      font-size: clamp(16px, 2vw, 19px);
+    }
+
+    .hero-points {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 11px;
+      margin: 29px 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .hero-points li {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 14px;
+      border: 1px solid rgba(180, 124, 57, 0.17);
+      border-radius: 999px;
+      color: #64584e;
+      background: rgba(255, 253, 249, 0.68);
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .hero-points li::before {
+      content: "";
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--lavender), var(--gold));
+      box-shadow: 0 0 0 5px rgba(179, 138, 181, 0.10);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 13px;
+      margin-top: 32px;
+    }
+
+    .btn {
+      min-width: 184px;
+      padding: 0 24px;
+      border: 1px solid transparent;
+    }
+
+    .btn-primary {
+      color: white;
+      background: linear-gradient(135deg, #c28332, #a9661b);
+      box-shadow: 0 16px 32px rgba(166, 99, 25, 0.20);
+    }
+
+    .btn-secondary {
+      border-color: var(--line);
+      color: var(--text);
+      background: rgba(255, 253, 249, 0.75);
+    }
+
+    .image-shell {
+      position: relative;
+      max-width: 530px;
+      margin-left: auto;
+      padding: 10px;
+      border: 1px solid rgba(183, 124, 47, 0.19);
+      border-radius: 48% 48% 30px 30px / 18% 18% 30px 30px;
+      background: linear-gradient(145deg, rgba(255,255,255,0.90), rgba(245,235,221,0.75));
+      box-shadow: var(--shadow);
+    }
+
+    .image-shell::before {
+      content: "";
+      position: absolute;
+      inset: -18px 28px auto auto;
+      width: 82px;
+      aspect-ratio: 1;
+      border: 1px solid rgba(165, 136, 180, 0.18);
+      border-radius: 50%;
+      background:
+        radial-gradient(circle, rgba(255,255,255,.96) 0 8%, transparent 9%),
+        conic-gradient(from 20deg, transparent, rgba(188, 154, 202, .12), transparent);
+      z-index: -1;
+    }
+
+    .image-shell img {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      object-position: center 45%;
+      border-radius: 46% 46% 24px 24px / 17% 17% 24px 24px;
+    }
+
+
+    .image-shell-placeholder {
+      min-height: 420px;
+    }
+
+    .image-placeholder {
+      min-height: 400px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 14px;
+      padding: 34px;
+      border-radius: 46% 46% 24px 24px / 17% 17% 24px 24px;
+      text-align: center;
+      color: #77655d;
+      background:
+        radial-gradient(circle at 30% 25%, rgba(207, 184, 218, 0.34), transparent 12rem),
+        radial-gradient(circle at 75% 78%, rgba(212, 181, 132, 0.28), transparent 14rem),
+        linear-gradient(145deg, #f8f0e8, #efe4da);
+    }
+
+    .image-placeholder-icon {
+      display: grid;
+      width: 86px;
+      height: 86px;
+      place-items: center;
+      border: 1px solid rgba(165, 136, 180, 0.28);
+      border-radius: 50%;
+      color: var(--lavender);
+      background: rgba(255, 255, 255, 0.68);
+      box-shadow: 0 14px 32px rgba(85, 63, 48, 0.09);
+    }
+
+    .image-placeholder-icon svg {
+      width: 42px;
+      height: 42px;
+    }
+
+    .image-placeholder strong {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 31px;
+      line-height: 1.05;
+      color: var(--text);
+    }
+
+    .image-placeholder > span:last-child {
+      max-width: 280px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .image-caption {
+      position: absolute;
+      left: -32px;
+      bottom: 30px;
+      max-width: 205px;
+      padding: 17px 19px;
+      border: 1px solid rgba(104, 83, 65, 0.10);
+      border-radius: 20px;
+      color: #5b4f45;
+      background: rgba(255, 253, 249, 0.91);
+      box-shadow: 0 16px 35px rgba(84, 61, 38, 0.12);
+      backdrop-filter: blur(12px);
+      font-size: 13px;
+      line-height: 1.55;
+    }
+
+    .image-caption strong {
+      display: block;
+      margin-bottom: 2px;
+      color: var(--gold-dark);
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .section {
+      padding: 72px 0;
+    }
+
+    .section-heading {
+      max-width: 760px;
+      margin-bottom: 34px;
+    }
+
+    .section-heading h2 {
+      margin-bottom: 16px;
+      font-size: clamp(38px, 5vw, 58px);
+      letter-spacing: -0.03em;
+    }
+
+    .section-heading p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 17px;
+    }
+
+    .benefit-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .benefit-card {
+      min-height: 220px;
+      padding: 29px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      background: rgba(255, 253, 249, 0.78);
+      box-shadow: 0 15px 40px rgba(84, 61, 38, 0.06);
+    }
+
+    .benefit-number {
+      display: grid;
+      place-items: center;
+      width: 42px;
+      height: 42px;
+      margin-bottom: 24px;
+      border-radius: 50%;
+      color: var(--gold-dark);
+      background: #fbf0df;
+      font-family: "Cormorant Garamond", serif;
+      font-size: 18px;
+      font-weight: 600;
+    }
+
+    .benefit-card h3 {
+      margin-bottom: 10px;
+      font-size: 28px;
+    }
+
+    .benefit-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .experience {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 390px;
+      gap: clamp(32px, 6vw, 76px);
+      align-items: start;
+    }
+
+    .experience-copy {
+      padding: clamp(30px, 5vw, 54px);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      background: rgba(255, 253, 249, 0.78);
+      box-shadow: 0 18px 48px rgba(84, 61, 38, 0.07);
+    }
+
+    .experience-copy h2 {
+      margin-bottom: 22px;
+      font-size: clamp(38px, 5vw, 56px);
+    }
+
+    .experience-copy p {
+      color: var(--muted);
+    }
+
+    .steps {
+      display: grid;
+      gap: 21px;
+      margin-top: 32px;
+    }
+
+    .step {
+      display: grid;
+      grid-template-columns: 48px 1fr;
+      gap: 17px;
+      align-items: start;
+    }
+
+    .step-icon {
+      display: grid;
+      place-items: center;
+      width: 48px;
+      height: 48px;
+      border: 1px solid rgba(183, 124, 47, 0.18);
+      border-radius: 50%;
+      color: var(--gold-dark);
+      background: var(--surface-soft);
+      font-family: "Cormorant Garamond", serif;
+      font-size: 18px;
+      font-weight: 600;
+    }
+
+    .step h3 {
+      margin-bottom: 5px;
+      font-size: 24px;
+    }
+
+    .step p {
+      margin: 0;
+      font-size: 14px;
+    }
+
+    .booking-card {
+      position: sticky;
+      top: 110px;
+      padding: 30px;
+      border: 1px solid rgba(183, 124, 47, 0.18);
+      border-radius: 30px;
+      background:
+        linear-gradient(160deg, rgba(255, 253, 249, 0.96), rgba(243, 232, 217, 0.96));
+      box-shadow: var(--shadow);
+    }
+
+    .booking-icon {
+      display: grid;
+      place-items: center;
+      width: 58px;
+      height: 58px;
+      margin-bottom: 22px;
+      border-radius: 50%;
+      color: var(--lavender);
+      background: #fff;
+      box-shadow: 0 10px 25px rgba(83, 62, 40, 0.09);
+    }
+
+    .booking-icon svg {
+      width: 28px;
+      height: 28px;
+    }
+
+    .booking-card h2 {
+      margin-bottom: 14px;
+      font-size: 39px;
+    }
+
+    .booking-card > p {
+      margin-top: 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .details {
+      display: grid;
+      gap: 10px;
+      margin: 24px 0;
+      padding: 19px 0;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .detail-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      font-size: 14px;
+    }
+
+    .detail-row span {
+      color: var(--muted);
+    }
+
+    .detail-row strong {
+      text-align: right;
+    }
+
+    .booking-actions {
+      display: grid;
+      gap: 11px;
+    }
+
+    .booking-actions .btn {
+      width: 100%;
+    }
+
+    .booking-note {
+      margin: 15px 0 0;
+      text-align: center;
+      font-size: 12px !important;
+    }
+
+    .reassurance {
+      padding-top: 0;
+    }
+
+    .reassurance-box {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 32px;
+      align-items: center;
+      padding: clamp(28px, 5vw, 48px);
+      border-radius: var(--radius-lg);
+      color: #fff;
+      background:
+        radial-gradient(circle at 90% 15%, rgba(255,255,255,0.14), transparent 14rem),
+        linear-gradient(135deg, #7c6c80, #9b7f78 58%, #ad7a3e);
+      box-shadow: 0 28px 58px rgba(80, 58, 53, 0.18);
+    }
+
+    .reassurance-box h2 {
+      max-width: 720px;
+      margin-bottom: 10px;
+      font-size: clamp(34px, 5vw, 51px);
+    }
+
+    .reassurance-box p {
+      max-width: 690px;
+      margin: 0;
+      color: rgba(255,255,255,0.78);
+    }
+
+    .reassurance-box .btn {
+      min-width: 210px;
+      color: #6f4b24;
+      background: #fffaf4;
+      box-shadow: 0 14px 30px rgba(55, 36, 25, 0.16);
+    }
+
+    .site-footer {
+      padding: 34px 0 40px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      gap: 24px;
+      padding-top: 26px;
+      border-top: 1px solid var(--line);
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+    }
+
+    @media (max-width: 980px) {
+      .nav-links,
+      .nav-cta {
+        display: none;
+      }
+
+      .menu-button {
+        display: grid;
+        place-items: center;
+      }
+
+      .nav.is-open {
+        flex-wrap: wrap;
+      }
+
+      .nav.is-open .nav-links {
+        order: 3;
+        width: 100%;
+        display: grid;
+        gap: 0;
+        padding: 8px 0 20px;
+      }
+
+      .nav.is-open .nav-links a {
+        padding: 13px 0;
+        border-top: 1px solid var(--line);
+      }
+
+      .hero-grid,
+      .experience {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-copy {
+        text-align: center;
+      }
+
+      .eyebrow,
+      .breadcrumb {
+        justify-content: center;
+      }
+
+      .intro {
+        margin-inline: auto;
+      }
+
+      .hero-points,
+      .hero-actions {
+        justify-content: center;
+      }
+
+      .image-shell {
+        width: min(100%, 620px);
+        margin: 12px auto 0;
+      }
+
+      .booking-card {
+        position: static;
+      }
+
+      .benefit-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .reassurance-box {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .reassurance-box h2,
+      .reassurance-box p {
+        margin-inline: auto;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .container {
+        width: min(calc(100% - 24px), var(--container));
+      }
+
+      .site-header {
+        position: relative;
+      }
+
+      .nav {
+        min-height: 72px;
+      }
+
+      .brand-name {
+        font-size: 22px;
+      }
+
+      .brand-tagline {
+        max-width: 205px;
+        font-size: 7px;
+      }
+
+      .hero {
+        padding-top: 42px;
+      }
+
+      .breadcrumb {
+        margin-bottom: 20px;
+      }
+
+      h1 {
+        font-size: clamp(46px, 15vw, 64px);
+      }
+
+      .hero-actions,
+      .hero-actions .btn {
+        width: 100%;
+      }
+
+      .image-shell {
+        border-radius: 42% 42% 24px 24px / 14% 14% 24px 24px;
+      }
+
+      .image-shell img {
+        aspect-ratio: 4 / 3;
+        object-position: 55% 45%;
+        border-radius: 40% 40% 18px 18px / 13% 13% 18px 18px;
+      }
+
+      .image-caption {
+        position: static;
+        max-width: none;
+        margin-top: 10px;
+        border-radius: 16px;
+        text-align: center;
+      }
+
+      .section {
+        padding: 54px 0;
+      }
+
+      .benefit-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .benefit-card {
+        min-height: auto;
+      }
+
+      .experience-copy,
+      .booking-card {
+        padding: 24px;
+        border-radius: 24px;
+      }
+
+      .booking-card h2 {
+        font-size: 35px;
+      }
+
+      .reassurance-box {
+        padding: 30px 22px;
+        border-radius: 24px;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="site-header">
+    <nav class="nav container" aria-label="Navigation principale">
+      <a class="brand" href="index.html" aria-label="Retour à l’accueil Lys’Harmony">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none">
+            <path d="M12 20c0-4.5 2.7-8 7-10-0.1 4.9-2.4 8.4-7 10Z" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+            <path d="M12 20c0-4.5-2.7-8-7-10 .1 4.9 2.4 8.4 7 10Z" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+            <path d="M12 20c3.2-3.9 3.3-8.4 0-13-3.3 4.6-3.2 9.1 0 13Z" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+          </svg>
+        </span>
+
+        <span>
+          <span class="brand-name">Lys’Harmony</span>
+          <span class="brand-tagline">Harmonie du corps, de l’âme et de l’énergie</span>
+        </span>
+      </a>
+
+      <button class="menu-button" type="button" aria-expanded="false" aria-controls="menu-principal" aria-label="Ouvrir le menu">
+        ☰
+      </button>
+
+      <div class="nav-links" id="menu-principal">
+        <a href="index.html">Accueil</a>
+        <a href="index.html#soins">Mes soins</a>
+        <a href="index.html#a-propos">À propos</a>
+        <a href="index.html#contact">Contact</a>
+      </div>
+
+      <a class="nav-cta" href="disponibilites.html">Prendre rendez-vous</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <div class="breadcrumb">
+          <a href="index.html">Accueil</a>
+          <span>•</span>
+          <a href="index.html#soins">Mes soins</a>
+          <span>•</span>
+          <strong>Accompagnement énergétique</strong>
+        </div>
+
+        <div class="hero-grid">
+          <div class="hero-copy">
+            <p class="eyebrow">Accompagnement personnalisé</p>
+            <h1>Accompagnement<br>énergétique</h1>
+
+            <p class="intro">
+              Un accompagnement doux pour mieux comprendre vos ressentis, traverser une période de changement
+              et retrouver davantage de clarté et de sérénité intérieure.
+            </p>
+
+            <ul class="hero-points" aria-label="Les intentions du soin">
+              <li>Écoute intérieure</li>
+              <li>Clarté</li>
+              <li>Avancer sereinement</li>
+            </ul>
+
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="disponibilites.html">Consulter les disponibilités</a>
+              <a class="btn btn-secondary" href="#deroulement">Découvrir la séance</a>
+            </div>
+          </div>
+
+          <div class="image-shell image-shell-placeholder" aria-label="Emplacement de la future image du soin">
+            <div class="image-placeholder">
+              <span class="image-placeholder-icon" aria-hidden="true">
+                <svg viewBox="0 0 64 64" fill="none">
+                  <path d="M32 54V25" stroke="currentColor" stroke-width="2"/>
+                  <path d="M32 36C21 36 13 28 13 16C24 16 32 24 32 36Z" stroke="currentColor" stroke-width="2"/>
+                  <path d="M32 43C43 43 51 35 51 23C40 23 32 31 32 43Z" stroke="currentColor" stroke-width="2"/>
+                  <path d="M20 54H44" stroke="currentColor" stroke-width="2"/>
+                </svg>
+              </span>
+              <strong>Accompagnement énergétique</strong>
+              <span>L’image du soin sera ajoutée ici ensuite.</span>
+            </div>
+
+            <div class="image-caption">
+              <strong>Un espace pour vous</strong>
+              Chaque accompagnement s’adapte à votre histoire, à votre rythme et à vos ressentis.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="bienfaits-title">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Mieux comprendre ce qui vous traverse</p>
+          <h2 id="bienfaits-title">Un accompagnement pour avancer avec plus de clarté</h2>
+          <p>
+            Cet accompagnement vous offre un espace pour accueillir ce que vous vivez, mettre du sens
+            sur vos ressentis et retrouver une direction plus apaisée.
+          </p>
+        </div>
+
+        <div class="benefit-grid">
+          <article class="benefit-card">
+            <span class="benefit-number">01</span>
+            <h3>Accueillir vos ressentis</h3>
+            <p>
+              Prendre le temps d’écouter ce qui se manifeste, sans jugement, et de reconnaître plus clairement
+              vos besoins du moment.
+            </p>
+          </article>
+
+          <article class="benefit-card">
+            <span class="benefit-number">02</span>
+            <h3>Traverser les changements</h3>
+            <p>
+              Être accompagné(e) lors d’une période de transition, de doute ou de fatigue émotionnelle,
+              dans un cadre calme et rassurant.
+            </p>
+          </article>
+
+          <article class="benefit-card">
+            <span class="benefit-number">03</span>
+            <h3>Avancer avec plus de sérénité</h3>
+            <p>
+              Retrouver davantage de clarté intérieure afin d’avancer à votre rythme, avec plus de confiance
+              et de stabilité.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="deroulement">
+      <div class="container experience">
+        <div class="experience-copy">
+          <p class="eyebrow">Le déroulement</p>
+          <h2>Un temps d’écoute et d’accompagnement personnalisé</h2>
+
+          <p>
+            L’accompagnement commence par un échange afin de mieux comprendre ce que vous traversez.
+            Selon vos besoins, la séance peut ensuite se poursuivre par un temps de recentrage
+            et un travail énergétique doux, toujours dans le respect de votre rythme.
+          </p>
+
+          <div class="steps">
+            <div class="step">
+              <span class="step-icon">1</span>
+              <div>
+                <h3>Vous accueillir</h3>
+                <p>Un premier échange pour poser ce que vous vivez, clarifier votre besoin et définir l’intention de la séance.</p>
+              </div>
+            </div>
+
+            <div class="step">
+              <span class="step-icon">2</span>
+              <div>
+                <h3>Vous accompagner</h3>
+                <p>
+                  Vous restez habillé(e), assis(e) ou allongé(e) selon votre confort, pendant que Lise vous accompagne
+                  avec une présence attentive et un travail énergétique adapté.
+                </p>
+              </div>
+            </div>
+
+            <div class="step">
+              <span class="step-icon">3</span>
+              <div>
+                <h3>Faire le point</h3>
+                <p>
+                  La séance se termine par un temps de retour pour mettre des mots sur vos ressentis
+                  et repartir avec une vision plus claire de la suite.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <aside class="booking-card" aria-label="Réserver ce soin">
+          <span class="booking-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none">
+              <circle cx="12" cy="12" r="3.3" stroke="currentColor" stroke-width="1.4"/>
+              <path d="M12 2.5v3M12 18.5v3M2.5 12h3M18.5 12h3M5.3 5.3l2.1 2.1M16.6 16.6l2.1 2.1M18.7 5.3l-2.1 2.1M7.4 16.6l-2.1 2.1" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+            </svg>
+          </span>
+
+          <p class="eyebrow">Votre rendez-vous</p>
+          <h2>Accompagnement énergétique</h2>
+          <p>
+            Choisissez votre créneau en ligne parmi les prochaines disponibilités.
+          </p>
+
+          <div class="details">
+            <div class="detail-row">
+              <span>Durée</span>
+              <strong>À renseigner</strong>
+            </div>
+            <div class="detail-row">
+              <span>Tarif</span>
+              <strong>À renseigner</strong>
+            </div>
+            <div class="detail-row">
+              <span>Lieu</span>
+              <strong>Cabinet Lys’Harmony</strong>
+            </div>
+          </div>
+
+          <div class="booking-actions">
+            <a class="btn btn-primary" href="disponibilites.html">Consulter les disponibilités</a>
+            <a class="btn btn-secondary" href="contact.html">Poser une question</a>
+          </div>
+
+          <p class="booking-note">
+            Les disponibilités pourront ensuite être reliées à votre futur carnet de rendez-vous intelligent.
+          </p>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section reassurance">
+      <div class="container">
+        <div class="reassurance-box">
+          <div>
+            <h2>Offrez-vous un espace pour avancer autrement</h2>
+            <p>
+              Un accompagnement respectueux et sans jugement, pensé pour vous aider à mieux comprendre
+              ce que vous traversez et retrouver plus de sérénité.
+            </p>
+          </div>
+
+          <a class="btn" href="disponibilites.html">Réserver en ligne</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <span>© <span id="year"></span> Lys’Harmony — Tous droits réservés.</span>
+
+      <div class="footer-links">
+        <a href="mentions-legales.html">Mentions légales</a>
+        <a href="politique-confidentialite.html">Confidentialité</a>
+        <a href="index.html#contact">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const menuButton = document.querySelector(".menu-button");
+    const nav = document.querySelector(".nav");
+
+    menuButton?.addEventListener("click", () => {
+      const isOpen = nav.classList.toggle("is-open");
+      menuButton.setAttribute("aria-expanded", String(isOpen));
+      menuButton.textContent = isOpen ? "✕" : "☰";
+    });
+
+    document.querySelector("#year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
