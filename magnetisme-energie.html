@@ -667,6 +667,208 @@
       gap: 18px;
     }
 
+
+
+    /* AVIS / RESSENTIS */
+
+    .reviews-section {
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 88% 18%, rgba(161, 140, 175, 0.15), transparent 26rem),
+        linear-gradient(180deg, rgba(255, 253, 249, 0.18), rgba(246, 239, 230, 0.72));
+    }
+
+    .reviews-heading-row {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 42px;
+      margin-bottom: 34px;
+    }
+
+    .reviews-heading-row .section-heading {
+      margin-bottom: 0;
+    }
+
+    .reviews-summary {
+      flex: 0 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 13px;
+      padding: 13px 17px;
+      border: 1px solid rgba(183, 124, 47, 0.16);
+      border-radius: 999px;
+      color: #65584f;
+      background: rgba(255, 253, 249, 0.78);
+      box-shadow: 0 12px 30px rgba(84, 61, 38, 0.06);
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .reviews-summary-stars,
+    .review-stars {
+      color: #c48730;
+      letter-spacing: 0.12em;
+      line-height: 1;
+    }
+
+    .reviews-slider {
+      position: relative;
+    }
+
+    .reviews-viewport {
+      overflow: hidden;
+      padding: 9px 4px 34px;
+      touch-action: pan-y;
+    }
+
+    .reviews-track {
+      display: flex;
+      gap: 20px;
+      transition: transform 0.65s cubic-bezier(0.22, 0.8, 0.25, 1);
+      will-change: transform;
+    }
+
+    .review-card {
+      position: relative;
+      min-width: calc((100% - 20px) / 2);
+      min-height: 292px;
+      padding: 31px 31px 28px;
+      border: 1px solid rgba(111, 84, 60, 0.11);
+      border-radius: 28px;
+      background:
+        radial-gradient(circle at 94% 5%, rgba(238, 216, 185, 0.42), transparent 9rem),
+        rgba(255, 253, 249, 0.92);
+      box-shadow: 0 18px 46px rgba(84, 61, 38, 0.09);
+    }
+
+    .review-card::after {
+      content: "";
+      position: absolute;
+      left: 36px;
+      bottom: -13px;
+      width: 25px;
+      height: 25px;
+      border-right: 1px solid rgba(111, 84, 60, 0.11);
+      border-bottom: 1px solid rgba(111, 84, 60, 0.11);
+      background: #fffdf9;
+      transform: rotate(45deg);
+    }
+
+    .review-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      margin-bottom: 22px;
+    }
+
+    .review-stars {
+      font-size: 16px;
+    }
+
+    .review-topic {
+      padding: 7px 11px;
+      border-radius: 999px;
+      color: #725d74;
+      background: rgba(161, 140, 175, 0.12);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .review-quote {
+      margin: 0;
+      color: #4d433c;
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(24px, 2.7vw, 31px);
+      line-height: 1.28;
+    }
+
+    .review-author {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-top: 24px;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .review-avatar {
+      display: grid;
+      width: 39px;
+      height: 39px;
+      flex: 0 0 auto;
+      place-items: center;
+      border: 1px solid rgba(183, 124, 47, 0.18);
+      border-radius: 50%;
+      color: var(--gold-dark);
+      background: #fbf0df;
+      font-family: "Cormorant Garamond", serif;
+      font-size: 18px;
+    }
+
+    .reviews-controls {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      margin-top: 8px;
+    }
+
+    .reviews-arrow {
+      display: grid;
+      width: 48px;
+      height: 48px;
+      place-items: center;
+      border: 1px solid rgba(183, 124, 47, 0.23);
+      border-radius: 50%;
+      color: var(--gold-dark);
+      background: rgba(255, 253, 249, 0.78);
+      cursor: pointer;
+      transition: transform 180ms ease, color 180ms ease, background 180ms ease;
+    }
+
+    .reviews-arrow:hover {
+      color: #fff;
+      background: var(--gold);
+      transform: translateY(-2px);
+    }
+
+    .reviews-dots {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+    }
+
+    .reviews-dot {
+      width: 8px;
+      height: 8px;
+      padding: 0;
+      border: 0;
+      border-radius: 999px;
+      background: #d8ccc1;
+      cursor: pointer;
+      transition: width 180ms ease, background 180ms ease;
+    }
+
+    .reviews-dot.is-active {
+      width: 26px;
+      background: var(--gold);
+    }
+
+    .reviews-disclaimer {
+      max-width: 820px;
+      margin: 24px auto 0;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.6;
+      text-align: center;
+    }
+
     @media (max-width: 980px) {
       .nav-links,
       .nav-cta {
@@ -825,6 +1027,37 @@
         padding: 30px 22px;
         border-radius: 24px;
       }
+
+
+
+      .reviews-heading-row {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      .reviews-summary {
+        align-self: stretch;
+        justify-content: center;
+      }
+
+      .review-card {
+        min-width: 100%;
+        min-height: 0;
+        padding: 25px 23px 24px;
+        border-radius: 23px;
+      }
+
+      .review-top {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .review-quote {
+        font-size: 25px;
+      }
+
 
       .footer-inner {
         flex-direction: column;
@@ -1035,6 +1268,119 @@
       </div>
     </section>
 
+
+
+    <section class="section reviews-section" aria-labelledby="reviews-title">
+      <div class="container">
+        <div class="reviews-heading-row">
+          <div class="section-heading">
+            <p class="eyebrow">Ressentis après une séance</p>
+            <h2 id="reviews-title">Des instants de calme et de relâchement</h2>
+            <p>
+              Des exemples de ressentis liés au magnétisme, à la détente et au mieux-être
+              après une séance personnalisée.
+            </p>
+          </div>
+
+          <div class="reviews-summary" aria-label="Avis notés quatre et cinq étoiles">
+            <span class="reviews-summary-stars" aria-hidden="true">★★★★★</span>
+            <span>4 et 5 étoiles</span>
+          </div>
+        </div>
+
+        <div class="reviews-slider" id="magnetismReviews" aria-label="Carrousel des ressentis">
+          <div class="reviews-viewport">
+            <div class="reviews-track">
+              <article class="review-card">
+                <div class="review-top">
+                  <span class="review-stars" aria-label="5 étoiles">★★★★★</span>
+                  <span class="review-topic">Migraines et tensions</span>
+                </div>
+
+                <p class="review-quote">
+                  « Je suis venue très tendue, avec une sensation de pression dans la tête.
+                  Pendant la séance, j’ai senti mon corps se relâcher progressivement.
+                  Je suis repartie beaucoup plus calme et détendue. »
+                </p>
+
+                <div class="review-author">
+                  <span class="review-avatar" aria-hidden="true">E</span>
+                  <span>Exemple de retour à remplacer</span>
+                </div>
+              </article>
+
+              <article class="review-card">
+                <div class="review-top">
+                  <span class="review-stars" aria-label="5 étoiles">★★★★★</span>
+                  <span class="review-topic">Sommeil agité</span>
+                </div>
+
+                <p class="review-quote">
+                  « Je traversais une période où mon sommeil était très agité.
+                  La séance avec Lise m’a apporté une vraie sensation d’apaisement.
+                  Le soir même, je me suis sentie plus posée et détendue. »
+                </p>
+
+                <div class="review-author">
+                  <span class="review-avatar" aria-hidden="true">E</span>
+                  <span>Exemple de retour à remplacer</span>
+                </div>
+              </article>
+
+              <article class="review-card">
+                <div class="review-top">
+                  <span class="review-stars" aria-label="4 étoiles">★★★★☆</span>
+                  <span class="review-topic">Fatigue et surcharge</span>
+                </div>
+
+                <p class="review-quote">
+                  « J’étais épuisée et mentalement surchargée. Lise a pris le temps de m’écouter
+                  et la séance m’a permis de faire une vraie pause. Je suis repartie avec une
+                  sensation de légèreté et davantage d’énergie. »
+                </p>
+
+                <div class="review-author">
+                  <span class="review-avatar" aria-hidden="true">E</span>
+                  <span>Exemple de retour à remplacer</span>
+                </div>
+              </article>
+
+              <article class="review-card">
+                <div class="review-top">
+                  <span class="review-stars" aria-label="5 étoiles">★★★★★</span>
+                  <span class="review-topic">Tensions musculaires</span>
+                </div>
+
+                <p class="review-quote">
+                  « J’avais le dos et la nuque très contractés depuis plusieurs jours.
+                  J’ai apprécié la douceur de Lise et l’ambiance rassurante de la séance.
+                  À la fin, je me sentais profondément relâchée. »
+                </p>
+
+                <div class="review-author">
+                  <span class="review-avatar" aria-hidden="true">E</span>
+                  <span>Exemple de retour à remplacer</span>
+                </div>
+              </article>
+            </div>
+          </div>
+
+          <div class="reviews-controls">
+            <button class="reviews-arrow reviews-prev" type="button" aria-label="Voir le ressenti précédent">←</button>
+            <div class="reviews-dots" aria-label="Navigation des ressentis"></div>
+            <button class="reviews-arrow reviews-next" type="button" aria-label="Voir le ressenti suivant">→</button>
+          </div>
+        </div>
+
+        <p class="reviews-disclaimer">
+          Textes d’exemple à remplacer par des témoignages clients authentiques avant publication.
+          Le magnétisme est une pratique de bien-être complémentaire et ne remplace pas un avis,
+          un diagnostic ou un traitement médical.
+        </p>
+      </div>
+    </section>
+
+
     <section class="section reassurance">
       <div class="container">
         <div class="reassurance-box">
@@ -1072,6 +1418,177 @@
       menuButton.setAttribute("aria-expanded", String(isOpen));
       menuButton.textContent = isOpen ? "✕" : "☰";
     });
+
+
+
+    class ReviewsSlider {
+      constructor(root) {
+        this.root = root;
+        this.viewport = root.querySelector(".reviews-viewport");
+        this.track = root.querySelector(".reviews-track");
+        this.cards = [...root.querySelectorAll(".review-card")];
+        this.prev = root.querySelector(".reviews-prev");
+        this.next = root.querySelector(".reviews-next");
+        this.dots = root.querySelector(".reviews-dots");
+        this.index = 0;
+        this.timer = null;
+        this.startX = 0;
+        this.currentX = 0;
+        this.dragging = false;
+
+        this.createDots();
+        this.update(false);
+        this.bind();
+        this.start();
+      }
+
+      visibleCards() {
+        return window.innerWidth > 640 ? 2 : 1;
+      }
+
+      maxIndex() {
+        return Math.max(0, this.cards.length - this.visibleCards());
+      }
+
+      step() {
+        const card = this.cards[0];
+        if (!card) return 0;
+        const gap = parseFloat(getComputedStyle(this.track).columnGap) || 0;
+        return card.getBoundingClientRect().width + gap;
+      }
+
+      createDots() {
+        this.dots.innerHTML = "";
+        for (let i = 0; i <= this.maxIndex(); i += 1) {
+          const dot = document.createElement("button");
+          dot.type = "button";
+          dot.className = "reviews-dot";
+          dot.setAttribute("aria-label", `Afficher la position ${i + 1}`);
+          dot.addEventListener("click", () => {
+            this.goTo(i);
+            this.restart();
+          });
+          this.dots.appendChild(dot);
+        }
+      }
+
+      update(animate = true) {
+        this.index = Math.min(this.index, this.maxIndex());
+
+        if (!animate) {
+          this.track.style.transition = "none";
+        }
+
+        this.track.style.transform = `translate3d(${-this.index * this.step()}px, 0, 0)`;
+
+        this.dots.querySelectorAll(".reviews-dot").forEach((dot, i) => {
+          dot.classList.toggle("is-active", i === this.index);
+        });
+
+        if (!animate) {
+          requestAnimationFrame(() => {
+            requestAnimationFrame(() => {
+              this.track.style.transition = "";
+            });
+          });
+        }
+      }
+
+      goTo(index) {
+        this.index = Math.max(0, Math.min(index, this.maxIndex()));
+        this.update();
+      }
+
+      goNext() {
+        this.goTo(this.index >= this.maxIndex() ? 0 : this.index + 1);
+      }
+
+      goPrevious() {
+        this.goTo(this.index <= 0 ? this.maxIndex() : this.index - 1);
+      }
+
+      start() {
+        this.stop();
+        this.timer = window.setInterval(() => this.goNext(), 4000);
+      }
+
+      stop() {
+        if (this.timer) {
+          window.clearInterval(this.timer);
+          this.timer = null;
+        }
+      }
+
+      restart() {
+        this.stop();
+        this.start();
+      }
+
+      bind() {
+        this.next.addEventListener("click", () => {
+          this.goNext();
+          this.restart();
+        });
+
+        this.prev.addEventListener("click", () => {
+          this.goPrevious();
+          this.restart();
+        });
+
+        this.root.addEventListener("mouseenter", () => this.stop());
+        this.root.addEventListener("mouseleave", () => this.start());
+        this.root.addEventListener("focusin", () => this.stop());
+        this.root.addEventListener("focusout", () => this.start());
+
+        this.viewport.addEventListener("pointerdown", (event) => {
+          if (event.pointerType === "mouse" || event.target.closest("button, a")) return;
+          this.dragging = true;
+          this.startX = event.clientX;
+          this.currentX = event.clientX;
+          this.stop();
+          this.viewport.setPointerCapture(event.pointerId);
+        });
+
+        this.viewport.addEventListener("pointermove", (event) => {
+          if (this.dragging) this.currentX = event.clientX;
+        });
+
+        this.viewport.addEventListener("pointerup", (event) => {
+          if (!this.dragging) return;
+          this.dragging = false;
+          const movement = this.currentX - this.startX;
+          if (Math.abs(movement) > 50) {
+            movement < 0 ? this.goNext() : this.goPrevious();
+          }
+          try {
+            this.viewport.releasePointerCapture(event.pointerId);
+          } catch (error) {
+            // Le pointeur peut déjà être libéré.
+          }
+          this.start();
+        });
+
+        this.viewport.addEventListener("pointercancel", () => {
+          this.dragging = false;
+          this.start();
+        });
+
+        let resizeTimer;
+        window.addEventListener("resize", () => {
+          window.clearTimeout(resizeTimer);
+          resizeTimer = window.setTimeout(() => {
+            this.createDots();
+            this.update(false);
+          }, 120);
+        });
+      }
+    }
+
+    const magnetismReviews = document.querySelector("#magnetismReviews");
+    if (magnetismReviews) {
+      new ReviewsSlider(magnetismReviews);
+    }
+
 
     document.querySelector("#year").textContent = new Date().getFullYear();
   </script>
