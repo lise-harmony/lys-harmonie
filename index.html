@@ -8,11 +8,11 @@
         content="width=device-width, initial-scale=1.0, viewport-fit=cover"
     >
 
-    <title>Lys’Harmonie | Magnétisme et soins énergétiques</title>
+    <title>Lys’Harmony | Magnétisme et soins énergétiques</title>
 
     <meta
         name="description"
-        content="Lys’Harmonie vous accompagne avec des séances de magnétisme, d’harmonisation et des soins énergétiques personnalisés."
+        content="Lys’Harmony vous accompagne avec des séances de magnétisme, d’harmonisation et des soins énergétiques personnalisés."
     >
 
     <meta name="theme-color" content="#f7f0e8">
@@ -1217,16 +1217,25 @@
                 background:
                     radial-gradient(
                         circle at 50% 25%,
-                        rgba(223, 183, 121, 0.18),
+                        rgba(223, 183, 121, 0.20),
                         transparent 31%
                     ),
-                    rgba(253, 248, 242, 0.98);
+                    #fdf8f2;
                 opacity: 0;
                 pointer-events: none;
                 transform: translateY(-15px);
                 transition: var(--transition);
-                backdrop-filter: blur(20px);
-                -webkit-backdrop-filter: blur(20px);
+                backdrop-filter: none;
+                -webkit-backdrop-filter: none;
+            }
+
+            body.menu-open .site-header,
+            body.menu-open .site-header.scrolled {
+                border-color: transparent;
+                background: #fdf8f2;
+                box-shadow: none;
+                backdrop-filter: none;
+                -webkit-backdrop-filter: none;
             }
 
             .main-nav.open {
@@ -1615,7 +1624,7 @@
     <header class="site-header" id="siteHeader">
         <div class="container header-inner">
 
-            <a href="#accueil" class="brand" aria-label="Accueil Lys’Harmonie">
+            <a href="#accueil" class="brand" aria-label="Accueil Lys’Harmony">
 
                 <span class="brand-icon" aria-hidden="true">
                     <svg
@@ -1652,7 +1661,7 @@
                 </span>
 
                 <span class="brand-text">
-                    <span class="brand-name">Lys’Harmonie</span>
+                    <span class="brand-name">Lys’Harmony</span>
                     <span class="brand-tagline">
                         Harmonie du corps, de l’âme et de l’énergie
                     </span>
@@ -1665,7 +1674,7 @@
                 <a href="#services">Mes soins</a>
                 <a href="#a-propos">À propos</a>
                 <a href="#contact">Contact</a>
-                <a href="#contact" class="nav-cta">Prendre rendez-vous</a>
+                <a href="disponibilites.html" class="nav-cta">Prendre rendez-vous</a>
             </nav>
 
             <button
@@ -1695,11 +1704,11 @@
                 <picture>
                     <source
                         media="(max-width: 760px)"
-                        srcset="lisetel.png"
+                        srcset="images/lisetel.png"
                     >
 
                     <img
-                        src="lisepc.png"
+                        src="images/lisepc.png"
                         alt=""
                         fetchpriority="high"
                     >
@@ -1895,7 +1904,7 @@
 
                                 <div class="service-image">
                                     <img
-                                        src="magneto.png"
+                                        src="images/magneto.png"
                                         alt="Séance de magnétisme et soin énergétique"
                                         loading="lazy"
                                     >
@@ -1929,7 +1938,7 @@
                                         meilleure circulation de l’énergie dans le corps.
                                     </p>
 
-                                    <a href="#contact" class="service-link">
+                                    <a href="magnetisme-energie.html" class="service-link">
                                         Découvrir ce soin
                                         <span aria-hidden="true">→</span>
                                     </a>
@@ -1944,7 +1953,7 @@
 
                                 <div class="service-image">
                                     <img
-                                        src="harmour.png"
+                                        src="images/harmour.png"
                                         alt="Soin d’alignement et d’harmonisation énergétique"
                                         loading="lazy"
                                     >
@@ -1983,7 +1992,7 @@
                                         et harmoniser le corps et l’esprit.
                                     </p>
 
-                                    <a href="#contact" class="service-link">
+                                    <a href="alignement-harmonisation.html" class="service-link">
                                         Découvrir ce soin
                                         <span aria-hidden="true">→</span>
                                     </a>
@@ -1998,7 +2007,7 @@
 
                                 <div class="service-image">
                                     <img
-                                        src="energie.png"
+                                        src="images/energie.png"
                                         alt="Accompagnement énergétique personnalisé"
                                         loading="lazy"
                                     >
@@ -2037,63 +2046,7 @@
                                         ressentis et avancer avec plus de sérénité.
                                     </p>
 
-                                    <a href="#contact" class="service-link">
-                                        Découvrir ce soin
-                                        <span aria-hidden="true">→</span>
-                                    </a>
-
-                                </div>
-                            </article>
-
-
-                            <!-- CARTE 4 -->
-
-                            <article class="service-card">
-
-                                <div class="service-image">
-                                    <img
-                                        src="massage.png"
-                                        alt="Massage bien-être personnalisé"
-                                        loading="lazy"
-                                        onerror="this.onerror=null; this.src='magneto.png';"
-                                    >
-
-                                    <span class="service-number">04</span>
-                                </div>
-
-                                <div class="service-content">
-
-                                    <span
-                                        class="service-icon"
-                                        aria-hidden="true"
-                                        style="color: var(--rose);"
-                                    >
-                                        <svg
-                                            viewBox="0 0 64 64"
-                                            fill="none"
-                                            stroke="currentColor"
-                                            stroke-width="2"
-                                        >
-                                            <path d="M14 38C22 35 26 27 28 17"/>
-                                            <path d="M50 38C42 35 38 27 36 17"/>
-                                            <path d="M14 38C14 49 21 55 32 55C43 55 50 49 50 38"/>
-                                            <path d="M32 12V46"/>
-                                            <path d="M24 25L32 33L40 25"/>
-                                        </svg>
-                                    </span>
-
-                                    <h3 class="service-title">
-                                        Massage<br>
-                                        bien-être
-                                    </h3>
-
-                                    <p class="service-description">
-                                        Un moment de détente adapté à vos besoins
-                                        pour relâcher les tensions, apaiser le corps
-                                        et retrouver une sensation profonde de bien-être.
-                                    </p>
-
-                                    <a href="#contact" class="service-link">
+                                    <a href="accompagnement-energetique.html" class="service-link">
                                         Découvrir ce soin
                                         <span aria-hidden="true">→</span>
                                     </a>
@@ -2158,7 +2111,7 @@
 
                     <div class="about-image">
                         <img
-                            src="lisetel.png"
+                            src="images/lisetel.png"
                             alt="Lise, praticienne en soins énergétiques"
                             loading="lazy"
                         >
@@ -2254,7 +2207,7 @@
                 <!-- Remplacer # par le lien de réservation -->
 
                 <a
-                    href="#"
+                    href="disponibilites.html"
                     class="button button-primary contact-button reveal reveal-delay-1"
                 >
                     Prendre rendez-vous
@@ -2272,10 +2225,10 @@
         <div class="container footer-inner">
 
             <div>
-                <div class="footer-brand">Lys’Harmonie</div>
+                <div class="footer-brand">Lys’Harmony</div>
 
                 <p class="copyright">
-                    © <span id="currentYear"></span> Lys’Harmonie.
+                    © <span id="currentYear"></span> Lys’Harmony.
                     Tous droits réservés.
                 </p>
             </div>
@@ -2555,7 +2508,7 @@
 
                 this.autoplayTimer = window.setInterval(() => {
                     this.next();
-                }, 5500);
+                }, 4000);
             }
 
             stopAutoplay() {
@@ -2597,7 +2550,26 @@
                     this.startAutoplay();
                 });
 
+                this.viewport.querySelectorAll("img").forEach((image) => {
+                    image.addEventListener("dragstart", (event) => {
+                        event.preventDefault();
+                    });
+                });
+
                 this.viewport.addEventListener("pointerdown", (event) => {
+                    /*
+                    Sur ordinateur, la souris ne déclenche pas le glissement.
+                    Cela laisse les liens fonctionner normalement au clic gauche.
+                    Le glissement reste actif au doigt sur mobile et tablette.
+                    */
+                    if (
+                        event.pointerType === "mouse" ||
+                        event.target.closest("a, button")
+                    ) {
+                        this.isDragging = false;
+                        return;
+                    }
+
                     this.isDragging = true;
                     this.pointerStartX = event.clientX;
                     this.pointerCurrentX = event.clientX;
