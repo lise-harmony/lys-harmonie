@@ -1012,6 +1012,227 @@
             margin-top: 34px;
         }
 
+
+
+        /* AVIS */
+
+        .reviews-section {
+            overflow: hidden;
+            background:
+                radial-gradient(
+                    circle at 12% 18%,
+                    rgba(230, 187, 117, 0.18),
+                    transparent 28%
+                ),
+                radial-gradient(
+                    circle at 88% 72%,
+                    rgba(152, 130, 168, 0.14),
+                    transparent 27%
+                ),
+                #fffaf6;
+        }
+
+        .reviews-header {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            gap: 50px;
+            margin-bottom: 48px;
+        }
+
+        .reviews-header-left {
+            max-width: 760px;
+        }
+
+        .reviews-header-right {
+            max-width: 340px;
+            color: var(--text-soft);
+            font-size: 0.92rem;
+            line-height: 1.8;
+        }
+
+        .reviews-slider {
+            position: relative;
+        }
+
+        .reviews-viewport {
+            overflow: hidden;
+            padding: 10px 5px 44px;
+            touch-action: pan-y;
+        }
+
+        .reviews-track {
+            display: flex;
+            gap: 24px;
+            transition:
+                transform 0.65s cubic-bezier(0.22, 0.8, 0.25, 1);
+            will-change: transform;
+        }
+
+        .review-card {
+            position: relative;
+            min-width: calc((100% - 24px) / 2);
+            min-height: 315px;
+            padding: 38px 38px 34px;
+            border: 1px solid rgba(198, 138, 55, 0.17);
+            border-radius: 30px;
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(255, 255, 255, 0.96),
+                    rgba(251, 244, 237, 0.91)
+                );
+            box-shadow: var(--shadow-card);
+        }
+
+        .review-card::after {
+            position: absolute;
+            bottom: -11px;
+            left: 54px;
+            width: 23px;
+            height: 23px;
+            border-right: 1px solid rgba(198, 138, 55, 0.17);
+            border-bottom: 1px solid rgba(198, 138, 55, 0.17);
+            background: #fcf6f0;
+            content: "";
+            transform: rotate(45deg);
+        }
+
+        .review-topline {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .review-stars {
+            display: flex;
+            gap: 4px;
+            color: var(--gold);
+            font-size: 1.08rem;
+            letter-spacing: 0.04em;
+        }
+
+        .review-rating {
+            color: var(--text-soft);
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        .review-quote-mark {
+            margin-top: 22px;
+            color: rgba(198, 138, 55, 0.26);
+            font-family: "Cormorant Garamond", serif;
+            font-size: 4.5rem;
+            font-weight: 700;
+            line-height: 0.55;
+        }
+
+        .review-text {
+            margin-top: 16px;
+            color: #594e48;
+            font-family: "Cormorant Garamond", serif;
+            font-size: clamp(1.35rem, 2.2vw, 1.72rem);
+            line-height: 1.42;
+        }
+
+        .review-author {
+            display: flex;
+            align-items: center;
+            gap: 13px;
+            margin-top: 27px;
+        }
+
+        .review-avatar {
+            display: grid;
+            width: 45px;
+            height: 45px;
+            flex: 0 0 auto;
+            place-items: center;
+            border: 1px solid rgba(198, 138, 55, 0.28);
+            border-radius: 50%;
+            background: rgba(198, 138, 55, 0.10);
+            color: var(--gold-dark);
+            font-family: "Cormorant Garamond", serif;
+            font-size: 1.05rem;
+            font-weight: 700;
+        }
+
+        .review-author strong {
+            display: block;
+            font-family: "Cormorant Garamond", serif;
+            font-size: 1.22rem;
+            font-weight: 600;
+            line-height: 1;
+        }
+
+        .review-author span {
+            display: block;
+            margin-top: 5px;
+            color: var(--text-soft);
+            font-size: 0.68rem;
+            font-weight: 600;
+            letter-spacing: 0.07em;
+            text-transform: uppercase;
+        }
+
+        .reviews-controls {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 4px;
+        }
+
+        .reviews-button {
+            display: grid;
+            width: 52px;
+            height: 52px;
+            cursor: pointer;
+            place-items: center;
+            border: 1px solid rgba(198, 138, 55, 0.3);
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.72);
+            color: var(--gold-dark);
+            transition: var(--transition);
+        }
+
+        .reviews-button:hover {
+            border-color: var(--gold);
+            background: var(--gold);
+            color: var(--white);
+            transform: scale(1.07);
+        }
+
+        .reviews-button svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        .reviews-dots {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .reviews-dot {
+            width: 9px;
+            height: 9px;
+            cursor: pointer;
+            border: 0;
+            border-radius: 50%;
+            background: #d9cec5;
+            transition: var(--transition);
+        }
+
+        .reviews-dot.active {
+            width: 28px;
+            border-radius: 999px;
+            background: var(--gold);
+        }
+
+
         /* CTA */
 
         .contact-section {
@@ -1519,6 +1740,38 @@
             .about-points {
                 grid-template-columns: 1fr;
             }
+
+
+
+            .reviews-header {
+                display: block;
+                margin-bottom: 35px;
+            }
+
+            .reviews-header-right {
+                margin-top: 20px;
+            }
+
+            .review-card {
+                min-width: 100%;
+                min-height: 0;
+                padding: 31px 25px 29px;
+                border-radius: 26px;
+            }
+
+            .review-card::after {
+                left: 42px;
+            }
+
+            .review-text {
+                font-size: 1.34rem;
+            }
+
+            .reviews-button {
+                width: 46px;
+                height: 46px;
+            }
+
 
             .contact-inner {
                 align-items: stretch;
@@ -2183,6 +2436,154 @@
         </section>
 
 
+
+
+        <!-- AVIS -->
+
+        <section class="section reviews-section" id="avis">
+            <div class="container">
+
+                <div class="reviews-header reveal">
+                    <div class="reviews-header-left">
+                        <span class="eyebrow">Témoignages</span>
+
+                        <h2 class="section-title">
+                            Quelques mots qui viennent
+                            <span>du cœur</span>
+                        </h2>
+                    </div>
+
+                    <p class="reviews-header-right">
+                        Des ressentis partagés après une rencontre ou un
+                        accompagnement avec Lise.
+                    </p>
+                </div>
+
+                <div
+                    class="reviews-slider reveal reveal-delay-1"
+                    id="reviewsSlider"
+                    aria-label="Carrousel des témoignages"
+                    tabindex="0"
+                >
+                    <div class="reviews-viewport">
+                        <div class="reviews-track">
+
+                            <article class="review-card">
+                                <div class="review-topline">
+                                    <div class="review-stars" aria-label="5 étoiles sur 5">★★★★★</div>
+                                    <span class="review-rating">5 / 5</span>
+                                </div>
+
+                                <div class="review-quote-mark" aria-hidden="true">“</div>
+
+                                <p class="review-text">
+                                    Dès que j’ai vu Lise, j’ai senti que c’était une femme pleine de lumière et de bienveillance. J’ai adoré son humour et j’ai très envie de la revoir, car je tiens déjà à elle. 🥰
+                                </p>
+
+                                <div class="review-author">
+                                    <span class="review-avatar" aria-hidden="true">S</span>
+                                    <div>
+                                        <strong>Stevens</strong>
+                                        <span>Message personnel</span>
+                                    </div>
+                                </div>
+                            </article>
+
+                            <article class="review-card">
+                                <div class="review-topline">
+                                    <div class="review-stars" aria-label="5 étoiles sur 5">★★★★★</div>
+                                    <span class="review-rating">5 / 5</span>
+                                </div>
+
+                                <div class="review-quote-mark" aria-hidden="true">“</div>
+
+                                <p class="review-text">
+                                    Je suis reconnaissante pour le travail énergétique de Lise. Ses séances ont dissipé mes blocages et m’ont apporté une nouvelle perspective sur la vie. Merci pour tout.
+                                </p>
+
+                                <div class="review-author">
+                                    <span class="review-avatar" aria-hidden="true">S</span>
+                                    <div>
+                                        <strong>Sophie</strong>
+                                        <span>Témoignage</span>
+                                    </div>
+                                </div>
+                            </article>
+
+                            <article class="review-card">
+                                <div class="review-topline">
+                                    <div class="review-stars" aria-label="5 étoiles sur 5">★★★★★</div>
+                                    <span class="review-rating">5 / 5</span>
+                                </div>
+
+                                <div class="review-quote-mark" aria-hidden="true">“</div>
+
+                                <p class="review-text">
+                                    Les séances avec Lise ont transformé ma vie. Son énergie apaisante et son professionnalisme m’ont permis de me reconnecter avec moi-même. Je recommande vivement ses services.
+                                </p>
+
+                                <div class="review-author">
+                                    <span class="review-avatar" aria-hidden="true">M</span>
+                                    <div>
+                                        <strong>Marie-Claire</strong>
+                                        <span>Témoignage</span>
+                                    </div>
+                                </div>
+                            </article>
+
+                            <article class="review-card">
+                                <div class="review-topline">
+                                    <div class="review-stars" aria-label="4 étoiles sur 5">★★★★<span aria-hidden="true" style="color:#d9cec5;">★</span></div>
+                                    <span class="review-rating">4 / 5</span>
+                                </div>
+
+                                <div class="review-quote-mark" aria-hidden="true">“</div>
+
+                                <p class="review-text">
+                                    Lise est une véritable source de bien-être. Ses séances m’ont aidé à retrouver mon équilibre intérieur et à me sentir revitalisé. Une expérience exceptionnelle.
+                                </p>
+
+                                <div class="review-author">
+                                    <span class="review-avatar" aria-hidden="true">T</span>
+                                    <div>
+                                        <strong>Thomas</strong>
+                                        <span>Témoignage</span>
+                                    </div>
+                                </div>
+                            </article>
+
+                        </div>
+                    </div>
+
+                    <div class="reviews-controls">
+                        <button
+                            class="reviews-button reviews-prev"
+                            type="button"
+                            aria-label="Voir le témoignage précédent"
+                        >
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                                <path d="M15 18L9 12L15 6"/>
+                            </svg>
+                        </button>
+
+                        <div class="reviews-dots" aria-label="Navigation des témoignages"></div>
+
+                        <button
+                            class="reviews-button reviews-next"
+                            type="button"
+                            aria-label="Voir le témoignage suivant"
+                        >
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                                <path d="M9 18L15 12L9 6"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+
         <!-- CONTACT / RENDEZ-VOUS -->
 
         <section class="section contact-section" id="contact">
@@ -2656,6 +3057,261 @@
 
         if (servicesSlider) {
             new ServicesSlider(servicesSlider);
+        }
+
+
+
+
+        /*
+        ====================================================
+        CARROUSEL DES TÉMOIGNAGES
+        ====================================================
+        */
+
+        class ReviewsSlider {
+            constructor(sliderElement) {
+                this.slider = sliderElement;
+                this.viewport = sliderElement.querySelector(".reviews-viewport");
+                this.track = sliderElement.querySelector(".reviews-track");
+                this.cards = Array.from(sliderElement.querySelectorAll(".review-card"));
+                this.previousButton = sliderElement.querySelector(".reviews-prev");
+                this.nextButton = sliderElement.querySelector(".reviews-next");
+                this.dotsContainer = sliderElement.querySelector(".reviews-dots");
+
+                this.currentIndex = 0;
+                this.visibleCards = 1;
+                this.maximumIndex = 0;
+                this.autoplayTimer = null;
+                this.pointerStartX = 0;
+                this.pointerCurrentX = 0;
+                this.isDragging = false;
+
+                this.initialize();
+            }
+
+            initialize() {
+                this.updateDimensions();
+                this.createDots();
+                this.updateSlider(false);
+                this.bindEvents();
+                this.startAutoplay();
+            }
+
+            getVisibleCards() {
+                return window.innerWidth > 760 ? 2 : 1;
+            }
+
+            updateDimensions() {
+                this.visibleCards = this.getVisibleCards();
+                this.maximumIndex = Math.max(0, this.cards.length - this.visibleCards);
+                this.currentIndex = Math.min(this.currentIndex, this.maximumIndex);
+            }
+
+            getCardStep() {
+                const firstCard = this.cards[0];
+
+                if (!firstCard) {
+                    return 0;
+                }
+
+                const trackStyle = window.getComputedStyle(this.track);
+                const gap = parseFloat(trackStyle.columnGap) || 0;
+
+                return firstCard.getBoundingClientRect().width + gap;
+            }
+
+            createDots() {
+                this.dotsContainer.innerHTML = "";
+
+                for (let index = 0; index <= this.maximumIndex; index += 1) {
+                    const dot = document.createElement("button");
+                    dot.type = "button";
+                    dot.className = "reviews-dot";
+                    dot.setAttribute("aria-label", `Afficher le témoignage ${index + 1}`);
+
+                    dot.addEventListener("click", () => {
+                        this.goTo(index);
+                        this.restartAutoplay();
+                    });
+
+                    this.dotsContainer.appendChild(dot);
+                }
+            }
+
+            updateSlider(animate = true) {
+                if (!animate) {
+                    this.track.style.transition = "none";
+                }
+
+                const offset = this.currentIndex * this.getCardStep();
+                this.track.style.transform = `translate3d(${-offset}px, 0, 0)`;
+
+                const dots = this.dotsContainer.querySelectorAll(".reviews-dot");
+                dots.forEach((dot, index) => {
+                    dot.classList.toggle("active", index === this.currentIndex);
+                });
+
+                if (!animate) {
+                    requestAnimationFrame(() => {
+                        requestAnimationFrame(() => {
+                            this.track.style.transition = "";
+                        });
+                    });
+                }
+            }
+
+            goTo(index) {
+                this.currentIndex = Math.max(0, Math.min(index, this.maximumIndex));
+                this.updateSlider();
+            }
+
+            next() {
+                this.goTo(
+                    this.currentIndex >= this.maximumIndex
+                        ? 0
+                        : this.currentIndex + 1
+                );
+            }
+
+            previous() {
+                this.goTo(
+                    this.currentIndex <= 0
+                        ? this.maximumIndex
+                        : this.currentIndex - 1
+                );
+            }
+
+            startAutoplay() {
+                this.stopAutoplay();
+
+                if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+                    return;
+                }
+
+                this.autoplayTimer = window.setInterval(() => {
+                    this.next();
+                }, 4000);
+            }
+
+            stopAutoplay() {
+                if (this.autoplayTimer) {
+                    window.clearInterval(this.autoplayTimer);
+                    this.autoplayTimer = null;
+                }
+            }
+
+            restartAutoplay() {
+                this.stopAutoplay();
+                this.startAutoplay();
+            }
+
+            bindEvents() {
+                this.previousButton.addEventListener("click", () => {
+                    this.previous();
+                    this.restartAutoplay();
+                });
+
+                this.nextButton.addEventListener("click", () => {
+                    this.next();
+                    this.restartAutoplay();
+                });
+
+                this.slider.addEventListener("mouseenter", () => {
+                    this.stopAutoplay();
+                });
+
+                this.slider.addEventListener("mouseleave", () => {
+                    this.startAutoplay();
+                });
+
+                this.slider.addEventListener("focusin", () => {
+                    this.stopAutoplay();
+                });
+
+                this.slider.addEventListener("focusout", () => {
+                    this.startAutoplay();
+                });
+
+                this.viewport.addEventListener("pointerdown", (event) => {
+                    if (event.pointerType === "mouse" || event.target.closest("button")) {
+                        this.isDragging = false;
+                        return;
+                    }
+
+                    this.isDragging = true;
+                    this.pointerStartX = event.clientX;
+                    this.pointerCurrentX = event.clientX;
+                    this.stopAutoplay();
+                    this.viewport.setPointerCapture(event.pointerId);
+                });
+
+                this.viewport.addEventListener("pointermove", (event) => {
+                    if (this.isDragging) {
+                        this.pointerCurrentX = event.clientX;
+                    }
+                });
+
+                this.viewport.addEventListener("pointerup", (event) => {
+                    if (!this.isDragging) {
+                        return;
+                    }
+
+                    this.isDragging = false;
+                    const movement = this.pointerCurrentX - this.pointerStartX;
+
+                    if (Math.abs(movement) > 55) {
+                        movement < 0 ? this.next() : this.previous();
+                    }
+
+                    try {
+                        this.viewport.releasePointerCapture(event.pointerId);
+                    } catch (error) {
+                        // Le pointeur peut déjà avoir été libéré.
+                    }
+
+                    this.startAutoplay();
+                });
+
+                this.viewport.addEventListener("pointercancel", () => {
+                    this.isDragging = false;
+                    this.startAutoplay();
+                });
+
+                this.slider.addEventListener("keydown", (event) => {
+                    if (event.key === "ArrowLeft") {
+                        this.previous();
+                        this.restartAutoplay();
+                    }
+
+                    if (event.key === "ArrowRight") {
+                        this.next();
+                        this.restartAutoplay();
+                    }
+                });
+
+                let resizeTimer;
+
+                window.addEventListener("resize", () => {
+                    window.clearTimeout(resizeTimer);
+
+                    resizeTimer = window.setTimeout(() => {
+                        const previousVisibleCards = this.visibleCards;
+                        this.updateDimensions();
+
+                        if (previousVisibleCards !== this.visibleCards) {
+                            this.createDots();
+                        }
+
+                        this.updateSlider(false);
+                    }, 120);
+                });
+            }
+        }
+
+        const reviewsSlider = document.getElementById("reviewsSlider");
+
+        if (reviewsSlider) {
+            new ReviewsSlider(reviewsSlider);
         }
 
 
