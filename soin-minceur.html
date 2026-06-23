@@ -1,0 +1,1075 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
+  <title>Soin minceur | Lys’Harmony</title>
+  <meta name="description" content="Découvrez le soin minceur proposé par Lys’Harmony : une séance personnalisée dédiée au bien-être, au confort et à l’accompagnement de votre silhouette.">
+  <meta name="theme-color" content="#fbf7f1">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #fbf7f1;
+      --surface: #fffdf9;
+      --surface-soft: #f5ece2;
+      --text: #302923;
+      --muted: #756a61;
+      --gold: #bd7b27;
+      --gold-dark: #945818;
+      --gold-soft: #eed8b9;
+      --rose: #c9988e;
+      --sage: #87947b;
+      --line: rgba(95, 71, 49, 0.13);
+      --shadow: 0 24px 60px rgba(84, 61, 38, 0.13);
+      --radius-lg: 34px;
+      --radius-md: 24px;
+      --container: 1180px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 100px;
+    }
+
+    body {
+      margin: 0;
+      overflow-x: hidden;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 92% 12%, rgba(201, 152, 142, 0.20), transparent 31rem),
+        radial-gradient(circle at 5% 78%, rgba(225, 205, 168, 0.28), transparent 31rem),
+        var(--bg);
+      font-family: "Manrope", sans-serif;
+      line-height: 1.7;
+    }
+
+    body.menu-open {
+      overflow: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      font: inherit;
+    }
+
+    .container {
+      width: min(calc(100% - 40px), var(--container));
+      margin-inline: auto;
+    }
+
+    .site-header {
+      position: sticky;
+      z-index: 50;
+      top: 0;
+      border-bottom: 1px solid var(--line);
+      background: rgba(255, 252, 247, 0.92);
+      box-shadow: 0 8px 30px rgba(73, 49, 30, 0.04);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+    }
+
+    .nav {
+      display: flex;
+      min-height: 84px;
+      align-items: center;
+      justify-content: space-between;
+      gap: 28px;
+    }
+
+    .brand {
+      display: inline-flex;
+      min-width: max-content;
+      align-items: center;
+      gap: 13px;
+    }
+
+    .brand-mark {
+      display: grid;
+      width: 42px;
+      height: 42px;
+      place-items: center;
+      border: 1px solid var(--gold-soft);
+      border-radius: 50%;
+      background: #fffaf3;
+      color: var(--gold);
+      box-shadow: 0 8px 24px rgba(184, 121, 38, 0.09);
+    }
+
+    .brand-mark svg {
+      width: 24px;
+      height: 24px;
+    }
+
+    .brand-name {
+      display: block;
+      font-family: "Cormorant Garamond", serif;
+      font-size: 25px;
+      font-weight: 600;
+      line-height: 1;
+    }
+
+    .brand-tagline {
+      display: block;
+      margin-top: 4px;
+      color: var(--muted);
+      font-size: 8px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 30px;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .nav-links a {
+      transition: color 180ms ease;
+    }
+
+    .nav-links a:hover,
+    .nav-links a:focus-visible {
+      color: var(--gold-dark);
+    }
+
+    .nav-cta,
+    .btn {
+      display: inline-flex;
+      min-height: 50px;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: 700;
+      transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease;
+    }
+
+    .nav-cta {
+      padding: 0 23px;
+      border: 1px solid var(--gold);
+      background: rgba(255, 253, 249, 0.72);
+      color: var(--gold-dark);
+    }
+
+    .nav-cta:hover,
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .menu-button {
+      display: none;
+      width: 44px;
+      height: 44px;
+      cursor: pointer;
+      border: 1px solid var(--line);
+      border-radius: 50%;
+      background: var(--surface);
+      color: var(--text);
+      font-size: 21px;
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      padding: 70px 0 68px;
+    }
+
+    .hero::after {
+      position: absolute;
+      z-index: -1;
+      top: 80px;
+      right: -180px;
+      width: 490px;
+      height: 490px;
+      border: 1px solid rgba(189, 123, 39, 0.14);
+      border-radius: 50%;
+      content: "";
+    }
+
+    .breadcrumb {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 28px;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .breadcrumb span {
+      color: var(--gold);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 0.95fr) minmax(390px, 1.05fr);
+      align-items: center;
+      gap: clamp(42px, 7vw, 88px);
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin: 0 0 16px;
+      color: var(--gold-dark);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      width: 28px;
+      height: 1px;
+      background: var(--gold);
+      content: "";
+    }
+
+    h1,
+    h2,
+    h3 {
+      margin-top: 0;
+      font-family: "Cormorant Garamond", serif;
+      font-weight: 600;
+      line-height: 1.05;
+    }
+
+    h1 {
+      max-width: 760px;
+      margin-bottom: 24px;
+      font-size: clamp(52px, 7vw, 84px);
+      letter-spacing: -0.04em;
+    }
+
+    h1 span {
+      color: var(--gold);
+      font-style: italic;
+    }
+
+    .intro {
+      max-width: 680px;
+      margin: 0;
+      color: var(--muted);
+      font-size: clamp(16px, 2vw, 19px);
+    }
+
+    .hero-points {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 11px;
+      margin: 29px 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .hero-points li {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 14px;
+      border: 1px solid rgba(180, 124, 57, 0.17);
+      border-radius: 999px;
+      background: rgba(255, 253, 249, 0.68);
+      color: #64584e;
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .hero-points li::before {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--rose), var(--gold));
+      box-shadow: 0 0 0 5px rgba(201, 152, 142, 0.10);
+      content: "";
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 13px;
+      margin-top: 32px;
+    }
+
+    .price-badge {
+      display: inline-flex;
+      align-items: baseline;
+      gap: 8px;
+      margin-top: 24px;
+      padding: 12px 18px;
+      border: 1px solid rgba(189, 123, 39, 0.24);
+      border-radius: 999px;
+      background: rgba(255, 253, 249, 0.82);
+      color: var(--gold-dark);
+      box-shadow: 0 12px 28px rgba(166, 99, 25, 0.08);
+    }
+
+    .price-badge strong {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 29px;
+      line-height: 1;
+    }
+
+    .price-badge span {
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .btn {
+      min-width: 184px;
+      padding: 0 24px;
+      border: 1px solid transparent;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #c28332, #a9661b);
+      color: white;
+      box-shadow: 0 16px 32px rgba(166, 99, 25, 0.20);
+    }
+
+    .btn-secondary {
+      border-color: var(--line);
+      background: rgba(255, 253, 249, 0.75);
+      color: var(--text);
+    }
+
+    .photo-shell {
+      position: relative;
+      max-width: 590px;
+      margin-left: auto;
+      padding: 10px;
+      overflow: visible;
+      border: 1px solid rgba(183, 124, 47, 0.19);
+      border-radius: 38px;
+      background: linear-gradient(145deg, rgba(255,255,255,0.92), rgba(245,235,221,0.78));
+      box-shadow: var(--shadow);
+    }
+
+    .photo-shell::before {
+      position: absolute;
+      z-index: -1;
+      top: -22px;
+      right: 26px;
+      width: 92px;
+      aspect-ratio: 1;
+      border: 1px solid rgba(201, 152, 142, 0.20);
+      border-radius: 50%;
+      background:
+        radial-gradient(circle, rgba(255,255,255,.96) 0 8%, transparent 9%),
+        conic-gradient(from 20deg, transparent, rgba(201, 152, 142, .14), transparent);
+      content: "";
+    }
+
+    .photo-placeholder {
+      display: grid;
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      place-items: center;
+      border: 1px dashed rgba(189, 123, 39, 0.42);
+      border-radius: 29px;
+      background:
+        radial-gradient(circle at 50% 35%, rgba(238, 216, 185, 0.70), transparent 42%),
+        linear-gradient(145deg, #f8efe4, #eadfd2);
+      color: var(--gold-dark);
+      text-align: center;
+    }
+
+    .photo-placeholder-inner {
+      display: grid;
+      gap: 8px;
+      place-items: center;
+      padding: 30px;
+    }
+
+    .photo-placeholder-icon {
+      display: grid;
+      width: 64px;
+      height: 64px;
+      place-items: center;
+      border: 1px solid rgba(189, 123, 39, 0.24);
+      border-radius: 50%;
+      background: rgba(255, 253, 249, 0.78);
+      font-size: 27px;
+    }
+
+    .photo-placeholder strong {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 30px;
+      line-height: 1;
+    }
+
+    .photo-placeholder span {
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .section {
+      position: relative;
+      padding: 92px 0;
+    }
+
+    .section-soft {
+      background: linear-gradient(135deg, rgba(255, 253, 249, 0.94), rgba(245, 236, 226, 0.92));
+    }
+
+    .section-heading {
+      max-width: 760px;
+      margin-bottom: 42px;
+    }
+
+    .section-heading h2 {
+      margin-bottom: 18px;
+      font-size: clamp(38px, 5vw, 58px);
+      letter-spacing: -0.025em;
+    }
+
+    .section-heading > p:not(.eyebrow) {
+      margin: 0;
+      color: var(--muted);
+      font-size: 16px;
+    }
+
+    .benefit-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .benefit-card {
+      min-height: 245px;
+      padding: 31px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      background: rgba(255, 253, 249, 0.76);
+      box-shadow: 0 16px 42px rgba(82, 59, 38, 0.07);
+    }
+
+    .benefit-icon {
+      display: grid;
+      width: 52px;
+      height: 52px;
+      place-items: center;
+      border: 1px solid rgba(189, 123, 39, 0.20);
+      border-radius: 50%;
+      background: rgba(238, 216, 185, 0.25);
+      color: var(--gold-dark);
+      font-size: 23px;
+    }
+
+    .benefit-card h3 {
+      margin: 23px 0 12px;
+      font-size: 30px;
+    }
+
+    .benefit-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .process-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
+      align-items: center;
+      gap: clamp(45px, 8vw, 95px);
+    }
+
+    .process-copy h2 {
+      margin-bottom: 20px;
+      font-size: clamp(40px, 5vw, 62px);
+    }
+
+    .process-copy > p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .steps {
+      display: grid;
+      gap: 15px;
+      margin-top: 30px;
+    }
+
+    .step {
+      display: grid;
+      grid-template-columns: 45px 1fr;
+      gap: 15px;
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: rgba(255,255,255,.60);
+    }
+
+    .step-number {
+      display: grid;
+      width: 45px;
+      height: 45px;
+      place-items: center;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--gold-soft), #fff6e9);
+      color: var(--gold-dark);
+      font-family: "Cormorant Garamond", serif;
+      font-size: 20px;
+      font-weight: 700;
+    }
+
+    .step h3 {
+      margin: 0 0 4px;
+      font-size: 24px;
+    }
+
+    .step p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .info-panel {
+      position: relative;
+      padding: 43px;
+      overflow: hidden;
+      border: 1px solid rgba(189, 123, 39, 0.18);
+      border-radius: var(--radius-lg);
+      background:
+        radial-gradient(circle at 85% 5%, rgba(201, 152, 142, 0.22), transparent 32%),
+        var(--surface);
+      box-shadow: var(--shadow);
+    }
+
+    .info-panel h3 {
+      margin-bottom: 18px;
+      font-size: 37px;
+    }
+
+    .info-list {
+      display: grid;
+      gap: 13px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .info-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      color: #5d5249;
+      font-size: 14px;
+    }
+
+    .info-list li::before {
+      display: grid;
+      width: 25px;
+      height: 25px;
+      flex: 0 0 auto;
+      place-items: center;
+      border-radius: 50%;
+      background: rgba(135, 148, 123, 0.14);
+      color: #66735e;
+      content: "✓";
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .notice {
+      margin-top: 24px;
+      padding: 17px 18px;
+      border-left: 3px solid var(--gold);
+      border-radius: 0 14px 14px 0;
+      background: rgba(238, 216, 185, 0.22);
+      color: #66584d;
+      font-size: 13px;
+    }
+
+    .cta-section {
+      padding: 76px 0;
+      overflow: hidden;
+      background: #302923;
+      color: white;
+    }
+
+    .cta-inner {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 45px;
+    }
+
+    .cta-section::before {
+      position: absolute;
+      top: -230px;
+      right: -90px;
+      width: 520px;
+      height: 520px;
+      border: 1px solid rgba(238, 216, 185, 0.18);
+      border-radius: 50%;
+      content: "";
+    }
+
+    .cta-copy {
+      max-width: 720px;
+    }
+
+    .cta-copy .eyebrow {
+      color: var(--gold-soft);
+    }
+
+    .cta-copy h2 {
+      margin-bottom: 15px;
+      font-size: clamp(40px, 5vw, 62px);
+    }
+
+    .cta-copy p {
+      margin: 0;
+      color: rgba(255,255,255,.68);
+    }
+
+    .site-footer {
+      padding: 37px 0;
+      background: #241f1b;
+      color: rgba(255,255,255,.62);
+      font-size: 12px;
+    }
+
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 25px;
+    }
+
+    .footer-brand {
+      color: white;
+      font-family: "Cormorant Garamond", serif;
+      font-size: 24px;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .footer-links a:hover {
+      color: var(--gold-soft);
+    }
+
+    @media (max-width: 900px) {
+      .nav-links {
+        gap: 18px;
+      }
+
+      .nav-links a {
+        display: none;
+      }
+
+      .hero-grid,
+      .process-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .photo-shell {
+        width: min(100%, 650px);
+        margin: 5px auto 0;
+      }
+
+      .benefit-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 680px) {
+      .container {
+        width: min(calc(100% - 30px), var(--container));
+      }
+
+      .nav {
+        min-height: 72px;
+      }
+
+      .brand-tagline {
+        display: none;
+      }
+
+      .brand-name {
+        font-size: 22px;
+      }
+
+      .nav-cta {
+        display: none;
+      }
+
+      .menu-button {
+        display: grid;
+        place-items: center;
+      }
+
+      .nav-links {
+        position: fixed;
+        z-index: 49;
+        inset: 72px 0 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        gap: 25px;
+        background: #fdf8f2;
+        opacity: 0;
+        pointer-events: none;
+        transform: translateY(-12px);
+        transition: opacity 220ms ease, transform 220ms ease;
+      }
+
+      .nav-links.open {
+        opacity: 1;
+        pointer-events: auto;
+        transform: translateY(0);
+      }
+
+      .nav-links a {
+        display: block;
+        font-family: "Cormorant Garamond", serif;
+        font-size: 31px;
+        font-weight: 600;
+      }
+
+      .hero {
+        padding: 42px 0 58px;
+      }
+
+      .breadcrumb {
+        margin-bottom: 20px;
+        font-size: 11px;
+      }
+
+      .hero-grid {
+        gap: 42px;
+      }
+
+      h1 {
+        font-size: clamp(47px, 15vw, 64px);
+      }
+
+      .hero-actions {
+        align-items: stretch;
+        flex-direction: column;
+      }
+
+      .btn {
+        width: 100%;
+      }
+
+      .photo-shell {
+        padding: 7px;
+        border-radius: 26px;
+      }
+
+      .photo-placeholder {
+        aspect-ratio: 9 / 12;
+        border-radius: 20px;
+      }
+
+      .section {
+        padding: 72px 0;
+      }
+
+      .benefit-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .benefit-card {
+        min-height: 0;
+      }
+
+      .info-panel {
+        padding: 30px 23px;
+      }
+
+      .cta-inner,
+      .footer-inner {
+        align-items: stretch;
+        flex-direction: column;
+      }
+
+      .cta-inner .btn {
+        flex: 0 0 auto;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="site-header">
+    <nav class="container nav" aria-label="Navigation principale">
+      <a class="brand" href="index.html" aria-label="Retour à l’accueil Lys’Harmony">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M32 48C23 40 19 31 32 14C45 31 41 40 32 48Z"/>
+            <path d="M30 49C20 47 12 41 12 27C25 29 31 37 30 49Z"/>
+            <path d="M34 49C44 47 52 41 52 27C39 29 33 39 34 49Z"/>
+          </svg>
+        </span>
+
+        <span>
+          <span class="brand-name">Lys’Harmony</span>
+          <span class="brand-tagline">Harmonie du corps, de l’âme et de l’énergie</span>
+        </span>
+      </a>
+
+      <button class="menu-button" type="button" aria-expanded="false" aria-controls="menu-principal" aria-label="Ouvrir le menu">☰</button>
+
+      <div class="nav-links" id="menu-principal">
+        <a href="index.html">Accueil</a>
+        <a href="index.html#services">Mes soins</a>
+        <a href="index.html#a-propos">À propos</a>
+        <a href="index.html#contact">Contact</a>
+      </div>
+
+      <a class="nav-cta" href="disponibilites.html">Prendre rendez-vous</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <div class="breadcrumb">
+          <a href="index.html">Accueil</a>
+          <span>•</span>
+          <a href="index.html#services">Mes soins</a>
+          <span>•</span>
+          <strong>Soin minceur</strong>
+        </div>
+
+        <div class="hero-grid">
+          <div class="hero-copy">
+            <p class="eyebrow">Bien-être et silhouette</p>
+            <h1>Soin<br><span>minceur</span></h1>
+
+            <p class="intro">
+              Une séance personnalisée pour prendre soin de votre silhouette,
+              vous accorder un moment de bien-être et avancer à votre rythme dans un cadre bienveillant.
+            </p>
+
+            <ul class="hero-points" aria-label="Les intentions du soin minceur">
+              <li>Soin ciblé</li>
+              <li>Confort et bien-être</li>
+              <li>Accompagnement personnalisé</li>
+            </ul>
+
+            <div class="price-badge" aria-label="Tarif du soin minceur : 70 euros la séance">
+              <strong>70 €</strong>
+              <span>la séance</span>
+            </div>
+
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="disponibilites.html">Consulter les disponibilités</a>
+              <a class="btn btn-secondary" href="#deroulement">Découvrir le soin</a>
+            </div>
+          </div>
+
+          <div class="photo-shell" aria-label="Emplacement réservé pour la future photo du soin minceur">
+            <div class="photo-placeholder">
+              <div class="photo-placeholder-inner">
+                <span class="photo-placeholder-icon" aria-hidden="true">▧</span>
+                <strong>Photo à venir</strong>
+                <span>La photo du soin minceur sera ajoutée prochainement.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-soft" aria-labelledby="bienfaits-title">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Prendre soin de sa silhouette</p>
+          <h2 id="bienfaits-title">Une approche douce, personnalisée et bienveillante</h2>
+          <p>
+            Le soin minceur est pensé comme un accompagnement sur mesure, adapté à vos attentes,
+            à votre confort et aux zones que vous souhaitez privilégier pendant la séance.
+          </p>
+        </div>
+
+        <div class="benefit-grid">
+          <article class="benefit-card">
+            <span class="benefit-icon" aria-hidden="true">✦</span>
+            <h3>Un soin ciblé</h3>
+            <p>
+              La séance est adaptée aux zones que vous souhaitez travailler,
+              dans le respect de votre confort et de votre sensibilité.
+            </p>
+          </article>
+
+          <article class="benefit-card">
+            <span class="benefit-icon" aria-hidden="true">○</span>
+            <h3>Un moment pour soi</h3>
+            <p>
+              L’ambiance chaleureuse vous permet de ralentir, de vous recentrer
+              et de profiter pleinement d’une parenthèse de bien-être.
+            </p>
+          </article>
+
+          <article class="benefit-card">
+            <span class="benefit-icon" aria-hidden="true">♡</span>
+            <h3>Un accompagnement personnalisé</h3>
+            <p>
+              Chaque séance est ajustée à vos objectifs, à vos préférences
+              et à votre ressenti du moment, sans promesse irréaliste.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="deroulement" aria-labelledby="deroulement-title">
+      <div class="container process-grid">
+        <div class="process-copy">
+          <p class="eyebrow">Déroulement de la séance</p>
+          <h2 id="deroulement-title">Une séance construite autour de vos besoins</h2>
+          <p>
+            Avant de commencer, un court échange permet de comprendre vos attentes,
+            de définir les zones à privilégier et d’adapter la séance à votre confort.
+          </p>
+
+          <div class="steps">
+            <article class="step">
+              <span class="step-number">01</span>
+              <div>
+                <h3>Temps d’échange</h3>
+                <p>Vos attentes, votre niveau de confort et les zones à privilégier sont définis ensemble.</p>
+              </div>
+            </article>
+
+            <article class="step">
+              <span class="step-number">02</span>
+              <div>
+                <h3>Soin personnalisé</h3>
+                <p>Le soin est réalisé de manière ciblée et ajusté à votre sensibilité tout au long de la séance.</p>
+              </div>
+            </article>
+
+            <article class="step">
+              <span class="step-number">03</span>
+              <div>
+                <h3>Fin de séance</h3>
+                <p>Un temps est prévu pour recueillir votre ressenti et terminer la séance en douceur.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <aside class="info-panel" aria-label="Informations sur le soin minceur">
+          <p class="eyebrow">À savoir</p>
+          <h3>Un soin en toute sérénité</h3>
+
+          <ul class="info-list">
+            <li>Accueil dans un espace calme, chaleureux et bienveillant.</li>
+            <li>Soin adapté à vos attentes, à votre sensibilité et à votre confort.</li>
+            <li>Tarif : 70 € la séance.</li>
+            <li>Respect permanent de votre intimité et de vos limites.</li>
+            <li>Possibilité de signaler à tout moment une gêne ou une zone sensible.</li>
+            <li>Prise de rendez-vous directement depuis la page des disponibilités.</li>
+          </ul>
+
+          <p class="notice">
+            Le soin minceur est une prestation de bien-être sans finalité médicale ni thérapeutique.
+            Il ne garantit pas une perte de poids et ne remplace pas l’avis d’un professionnel de santé.
+          </p>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section cta-section">
+      <div class="container cta-inner">
+        <div class="cta-copy">
+          <p class="eyebrow">Votre rendez-vous bien-être</p>
+          <h2>Prenez soin de votre silhouette à votre rythme</h2>
+          <p>
+            Consultez les disponibilités et choisissez le moment qui vous convient
+            pour votre séance de soin minceur avec Lise.
+          </p>
+        </div>
+
+        <a class="btn btn-primary" href="disponibilites.html">Prendre rendez-vous</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <span class="footer-brand">Lys’Harmony</span>
+
+      <div class="footer-links">
+        <a href="index.html">Accueil</a>
+        <a href="index.html#services">Mes soins</a>
+        <a href="disponibilites.html">Rendez-vous</a>
+        <a href="mentions-legales.html">Mentions légales</a>
+      </div>
+
+      <span>© 2026 Lys’Harmony</span>
+    </div>
+  </footer>
+
+  <script>
+    const menuButton = document.querySelector('.menu-button');
+    const menu = document.querySelector('.nav-links');
+
+    if (menuButton && menu) {
+      menuButton.addEventListener('click', () => {
+        const isOpen = menu.classList.toggle('open');
+        document.body.classList.toggle('menu-open', isOpen);
+        menuButton.setAttribute('aria-expanded', String(isOpen));
+        menuButton.setAttribute('aria-label', isOpen ? 'Fermer le menu' : 'Ouvrir le menu');
+        menuButton.textContent = isOpen ? '×' : '☰';
+      });
+
+      menu.querySelectorAll('a').forEach((link) => {
+        link.addEventListener('click', () => {
+          menu.classList.remove('open');
+          document.body.classList.remove('menu-open');
+          menuButton.setAttribute('aria-expanded', 'false');
+          menuButton.setAttribute('aria-label', 'Ouvrir le menu');
+          menuButton.textContent = '☰';
+        });
+      });
+    }
+
+  </script>
+</body>
+</html>
