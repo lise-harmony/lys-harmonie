@@ -727,7 +727,16 @@
 
     <section class="booking-section" id="reservation">
       <div class="container booking-layout">
-        <form class="booking-form" id="bookingForm" novalidate>
+        <form class="booking-form" id="bookingForm"
+              action="https://formspree.io/f/meeboddz"
+              method="POST"
+              accept-charset="UTF-8"
+              novalidate>
+          <input type="hidden" name="_subject" value="Nouvelle demande de rendez-vous Lys’Harmony">
+          <input type="hidden" id="servicePrice" name="tarif" value="55 € TTC">
+          <input type="hidden" id="formattedRequest" name="demande_complete" value="">
+          <input type="text" name="_gotcha" tabindex="-1" autocomplete="off"
+                 style="position:absolute;left:-9999px;opacity:0;" aria-hidden="true">
           <section class="form-panel" aria-labelledby="soin-title">
             <div class="panel-heading">
               <span class="panel-number">1</span>
@@ -862,8 +871,8 @@
             </div>
 
             <div class="form-actions">
-              <button class="btn btn-primary" type="submit">Préparer ma demande</button>
-              <small>* Champs obligatoires — aucun paiement n’est demandé sur cette page.</small>
+              <button class="btn btn-primary" id="submitBooking" type="submit">Envoyer ma demande</button>
+              <small id="formStatus" role="status" aria-live="polite">* Champs obligatoires — aucun paiement n’est demandé sur cette page.</small>
             </div>
           </section>
         </form>
@@ -902,8 +911,8 @@
           </div>
 
           <div class="result-panel" id="resultPanel" aria-live="polite">
-            <h3>Votre demande est prête</h3>
-            <p>Choisissez comment l’envoyer à Lise. Toutes les informations seront déjà préparées.</p>
+            <h3 id="resultTitle">Demande envoyée ✓</h3>
+            <p id="resultText">Votre demande a bien été transmise à Lise. Elle vous répondra afin de confirmer le rendez-vous.</p>
             <div class="result-actions">
               <a class="btn btn-primary" id="emailRequest" href="mailto:lys.harmony@mail.fr">Envoyer par e-mail</a>
               <a class="btn btn-secondary" id="whatsappRequest" href="https://wa.me/33787033356" target="_blank" rel="noopener">Envoyer par WhatsApp</a>
@@ -958,6 +967,12 @@
     const emailRequest = document.querySelector("#emailRequest");
     const whatsappRequest = document.querySelector("#whatsappRequest");
     const copyRequest = document.querySelector("#copyRequest");
+    const submitBooking = document.querySelector("#submitBooking");
+    const formStatus = document.querySelector("#formStatus");
+    const servicePrice = document.querySelector("#servicePrice");
+    const formattedRequest = document.querySelector("#formattedRequest");
+    const resultTitle = document.querySelector("#resultTitle");
+    const resultText = document.querySelector("#resultText");
 
     let preparedMessage = "";
 
@@ -1003,7 +1018,7 @@
     dateInput.addEventListener("change", updateSummary);
     timeInput.addEventListener("change", updateSummary);
 
-    form.addEventListener("submit", (event) => {
+    form.addEventListener("submit", async (event) => {
       event.preventDefault();
 
       if (!form.checkValidity()) {
@@ -1011,8 +1026,8 @@
         return;
       }
 
-      const data = new FormData(form);
       const selected = selectedService();
+      const data = new FormData(form);
       const subject = `Demande de rendez-vous Lys’Harmony — ${selected.value}`;
 
       preparedMessage = [
@@ -1036,11 +1051,57 @@
         "Merci de me confirmer si ce créneau est disponible."
       ].join("\n");
 
+      servicePrice.value = selected.dataset.price;
+      formattedRequest.value = preparedMessage;
+
+      data.set("_subject", subject);
+      data.set("tarif", selected.dataset.price);
+      data.set("demande_complete", preparedMessage);
+      data.set("date_lisible", formatDate(data.get("date")));
+
       emailRequest.href = `mailto:lys.harmony@mail.fr?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(preparedMessage)}`;
       whatsappRequest.href = `https://wa.me/33787033356?text=${encodeURIComponent(preparedMessage)}`;
 
-      resultPanel.classList.add("is-visible");
-      resultPanel.scrollIntoView({ behavior: "smooth", block: "center" });
+      submitBooking.disabled = true;
+      submitBooking.textContent = "Envoi en cours…";
+      formStatus.textContent = "Transmission sécurisée de votre demande…";
+      resultPanel.classList.remove("is-visible");
+
+      try {
+        const response = await fetch(form.action, {
+          method: "POST",
+          body: data,
+          headers: {
+            "Accept": "application/json"
+          }
+        });
+
+        if (!response.ok) {
+          const responseData = await response.json().catch(() => ({}));
+          const errorMessage = responseData?.errors
+            ?.map((error) => error.message)
+            .filter(Boolean)
+            .join(" ");
+
+          throw new Error(errorMessage || "Formspree n’a pas pu transmettre la demande.");
+        }
+
+        resultTitle.textContent = "Demande envoyée ✓";
+        resultText.textContent = "Votre demande a bien été transmise à Lise. Elle vous répondra afin de confirmer le rendez-vous.";
+        formStatus.textContent = "Votre demande a bien été envoyée.";
+        resultPanel.classList.add("is-visible");
+        resultPanel.scrollIntoView({ behavior: "smooth", block: "center" });
+      } catch (error) {
+        console.error(error);
+        resultTitle.textContent = "L’envoi automatique a échoué";
+        resultText.textContent = "Vous pouvez tout de même transmettre immédiatement la demande par e-mail ou WhatsApp avec les boutons ci-dessous.";
+        formStatus.textContent = "Erreur d’envoi. Utilisez l’e-mail ou WhatsApp proposé dans le récapitulatif.";
+        resultPanel.classList.add("is-visible");
+        resultPanel.scrollIntoView({ behavior: "smooth", block: "center" });
+      } finally {
+        submitBooking.disabled = false;
+        submitBooking.textContent = "Envoyer ma demande";
+      }
     });
 
     copyRequest.addEventListener("click", async () => {
