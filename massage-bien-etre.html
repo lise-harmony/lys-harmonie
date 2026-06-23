@@ -309,6 +309,31 @@
       margin-top: 32px;
     }
 
+    .price-badge {
+      display: inline-flex;
+      align-items: baseline;
+      gap: 8px;
+      margin-top: 24px;
+      padding: 12px 18px;
+      border: 1px solid rgba(189, 123, 39, 0.24);
+      border-radius: 999px;
+      background: rgba(255, 253, 249, 0.82);
+      color: var(--gold-dark);
+      box-shadow: 0 12px 28px rgba(166, 99, 25, 0.08);
+    }
+
+    .price-badge strong {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 29px;
+      line-height: 1;
+    }
+
+    .price-badge span {
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 600;
+    }
+
     .btn {
       min-width: 184px;
       padding: 0 24px;
@@ -867,6 +892,11 @@
               <li>Moment pour soi</li>
             </ul>
 
+            <div class="price-badge" aria-label="Tarif du massage : 60 euros pour une heure">
+              <strong>60 €</strong>
+              <span>la séance d’une heure</span>
+            </div>
+
             <div class="hero-actions">
               <a class="btn btn-primary" href="disponibilites.html">Consulter les disponibilités</a>
               <a class="btn btn-secondary" href="#deroulement">Découvrir la séance</a>
@@ -983,6 +1013,7 @@
           <ul class="info-list">
             <li>Accueil dans un espace calme, chaleureux et bienveillant.</li>
             <li>Massage adapté à vos préférences et à votre confort.</li>
+            <li>Tarif : 60 € pour une séance d’une heure.</li>
             <li>Respect permanent de votre intimité et de vos limites.</li>
             <li>Possibilité de signaler à tout moment une gêne ou une zone sensible.</li>
             <li>Prise de rendez-vous directement depuis la page des disponibilités.</li>
