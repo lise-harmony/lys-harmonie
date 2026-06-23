@@ -1,1197 +1,3535 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-
-  <title>Soin minceur | Lys’Harmony</title>
-  <meta name="description" content="Découvrez le soin minceur proposé par Lys’Harmony : une séance personnalisée dédiée au bien-être, au confort et à l’accompagnement de votre silhouette.">
-  <meta name="theme-color" content="#fbf7f1">
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-  <style>
-    :root {
-      --bg: #fbf7f1;
-      --surface: #fffdf9;
-      --surface-soft: #f5ece2;
-      --text: #302923;
-      --muted: #756a61;
-      --gold: #bd7b27;
-      --gold-dark: #945818;
-      --gold-soft: #eed8b9;
-      --rose: #c9988e;
-      --sage: #87947b;
-      --line: rgba(95, 71, 49, 0.13);
-      --shadow: 0 24px 60px rgba(84, 61, 38, 0.13);
-      --radius-lg: 34px;
-      --radius-md: 24px;
-      --container: 1180px;
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-      scroll-padding-top: 100px;
-    }
-
-    body {
-      margin: 0;
-      overflow-x: hidden;
-      color: var(--text);
-      background:
-        radial-gradient(circle at 92% 12%, rgba(201, 152, 142, 0.20), transparent 31rem),
-        radial-gradient(circle at 5% 78%, rgba(225, 205, 168, 0.28), transparent 31rem),
-        var(--bg);
-      font-family: "Manrope", sans-serif;
-      line-height: 1.7;
-    }
-
-    body.menu-open {
-      overflow: hidden;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    button {
-      font: inherit;
-    }
-
-    .container {
-      width: min(calc(100% - 40px), var(--container));
-      margin-inline: auto;
-    }
-
-    .site-header {
-      position: sticky;
-      z-index: 50;
-      top: 0;
-      border-bottom: 1px solid var(--line);
-      background: rgba(255, 252, 247, 0.92);
-      box-shadow: 0 8px 30px rgba(73, 49, 30, 0.04);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-    }
-
-    .nav {
-      display: flex;
-      min-height: 84px;
-      align-items: center;
-      justify-content: space-between;
-      gap: 28px;
-    }
-
-    .brand {
-      display: inline-flex;
-      min-width: max-content;
-      align-items: center;
-      gap: 13px;
-    }
-
-    .brand-mark {
-      display: grid;
-      width: 42px;
-      height: 42px;
-      place-items: center;
-      border: 1px solid var(--gold-soft);
-      border-radius: 50%;
-      background: #fffaf3;
-      color: var(--gold);
-      box-shadow: 0 8px 24px rgba(184, 121, 38, 0.09);
-    }
-
-    .brand-mark svg {
-      width: 24px;
-      height: 24px;
-    }
-
-    .brand-name {
-      display: block;
-      font-family: "Cormorant Garamond", serif;
-      font-size: 25px;
-      font-weight: 600;
-      line-height: 1;
-    }
-
-    .brand-tagline {
-      display: block;
-      margin-top: 4px;
-      color: var(--muted);
-      font-size: 8px;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-    }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 30px;
-      font-size: 14px;
-      font-weight: 600;
-    }
-
-    .nav-links a {
-      transition: color 180ms ease;
-    }
-
-    .nav-links a:hover,
-    .nav-links a:focus-visible {
-      color: var(--gold-dark);
-    }
-
-    .nav-cta,
-    .btn {
-      display: inline-flex;
-      min-height: 50px;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      border-radius: 999px;
-      font-size: 14px;
-      font-weight: 700;
-      transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease;
-    }
-
-    .nav-cta {
-      padding: 0 23px;
-      border: 1px solid var(--gold);
-      background: rgba(255, 253, 249, 0.72);
-      color: var(--gold-dark);
-    }
-
-    .nav-cta:hover,
-    .btn:hover {
-      transform: translateY(-2px);
-    }
-
-    .menu-button {
-      display: none;
-      width: 44px;
-      height: 44px;
-      cursor: pointer;
-      border: 1px solid var(--line);
-      border-radius: 50%;
-      background: var(--surface);
-      color: var(--text);
-      font-size: 21px;
-    }
-
-    .hero {
-      position: relative;
-      overflow: hidden;
-      padding: 70px 0 68px;
-    }
-
-    .hero::after {
-      position: absolute;
-      z-index: -1;
-      top: 80px;
-      right: -180px;
-      width: 490px;
-      height: 490px;
-      border: 1px solid rgba(189, 123, 39, 0.14);
-      border-radius: 50%;
-      content: "";
-    }
-
-    .breadcrumb {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      margin-bottom: 28px;
-      color: var(--muted);
-      font-size: 13px;
-      font-weight: 600;
-    }
-
-    .breadcrumb span {
-      color: var(--gold);
-    }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 0.95fr) minmax(390px, 1.05fr);
-      align-items: center;
-      gap: clamp(42px, 7vw, 88px);
-    }
-
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      margin: 0 0 16px;
-      color: var(--gold-dark);
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-    }
-
-    .eyebrow::before {
-      width: 28px;
-      height: 1px;
-      background: var(--gold);
-      content: "";
-    }
-
-    h1,
-    h2,
-    h3 {
-      margin-top: 0;
-      font-family: "Cormorant Garamond", serif;
-      font-weight: 600;
-      line-height: 1.05;
-    }
-
-    h1 {
-      max-width: 760px;
-      margin-bottom: 24px;
-      font-size: clamp(52px, 7vw, 84px);
-      letter-spacing: -0.04em;
-    }
-
-    h1 span {
-      color: var(--gold);
-      font-style: italic;
-    }
-
-    .intro {
-      max-width: 680px;
-      margin: 0;
-      color: var(--muted);
-      font-size: clamp(16px, 2vw, 19px);
-    }
-
-    .hero-points {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 11px;
-      margin: 29px 0 0;
-      padding: 0;
-      list-style: none;
-    }
-
-    .hero-points li {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 10px 14px;
-      border: 1px solid rgba(180, 124, 57, 0.17);
-      border-radius: 999px;
-      background: rgba(255, 253, 249, 0.68);
-      color: #64584e;
-      font-size: 13px;
-      font-weight: 600;
-    }
-
-    .hero-points li::before {
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, var(--rose), var(--gold));
-      box-shadow: 0 0 0 5px rgba(201, 152, 142, 0.10);
-      content: "";
-    }
-
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 13px;
-      margin-top: 32px;
-    }
-
-    .price-badge {
-      display: inline-flex;
-      align-items: baseline;
-      gap: 8px;
-      margin-top: 24px;
-      padding: 12px 18px;
-      border: 1px solid rgba(189, 123, 39, 0.24);
-      border-radius: 999px;
-      background: rgba(255, 253, 249, 0.82);
-      color: var(--gold-dark);
-      box-shadow: 0 12px 28px rgba(166, 99, 25, 0.08);
-    }
-
-    .price-badge strong {
-      font-family: "Cormorant Garamond", serif;
-      font-size: 29px;
-      line-height: 1;
-    }
-
-    .price-badge span {
-      color: var(--muted);
-      font-size: 13px;
-      font-weight: 600;
-    }
-
-    .btn {
-      min-width: 184px;
-      padding: 0 24px;
-      border: 1px solid transparent;
-    }
-
-    .btn-primary {
-      background: linear-gradient(135deg, #c28332, #a9661b);
-      color: white;
-      box-shadow: 0 16px 32px rgba(166, 99, 25, 0.20);
-    }
-
-    .btn-secondary {
-      border-color: var(--line);
-      background: rgba(255, 253, 249, 0.75);
-      color: var(--text);
-    }
-
-    .photo-shell {
-      position: relative;
-      max-width: 590px;
-      margin-left: auto;
-      padding: 10px;
-      overflow: visible;
-      border: 1px solid rgba(183, 124, 47, 0.19);
-      border-radius: 38px;
-      background: linear-gradient(145deg, rgba(255,255,255,0.92), rgba(245,235,221,0.78));
-      box-shadow: var(--shadow);
-    }
-
-    .photo-shell::before {
-      position: absolute;
-      z-index: -1;
-      top: -22px;
-      right: 26px;
-      width: 92px;
-      aspect-ratio: 1;
-      border: 1px solid rgba(201, 152, 142, 0.20);
-      border-radius: 50%;
-      background:
-        radial-gradient(circle, rgba(255,255,255,.96) 0 8%, transparent 9%),
-        conic-gradient(from 20deg, transparent, rgba(201, 152, 142, .14), transparent);
-      content: "";
-    }
-
-    .photo-gallery {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 10px;
-    }
-
-    .photo-card {
-      position: relative;
-      min-height: 175px;
-      margin: 0;
-      overflow: hidden;
-      border: 1px dashed rgba(189, 123, 39, 0.36);
-      border-radius: 22px;
-      background:
-        radial-gradient(circle at 50% 35%, rgba(238, 216, 185, 0.72), transparent 44%),
-        linear-gradient(145deg, #f8efe4, #eadfd2);
-    }
-
-    .photo-card:first-child {
-      grid-column: 1 / -1;
-      min-height: 255px;
-    }
-
-    .photo-card img {
-      position: absolute;
-      z-index: 1;
-      inset: 0;
-      display: block;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      opacity: 0;
-      transition: opacity 260ms ease, transform 400ms ease;
-    }
-
-    .photo-card.has-image img {
-      opacity: 1;
-    }
-
-    .photo-card:hover img {
-      transform: scale(1.025);
-    }
-
-    .photo-fallback {
-      position: absolute;
-      inset: 0;
-      display: grid;
-      place-content: center;
-      gap: 8px;
-      padding: 18px;
-      color: var(--gold-dark);
-      text-align: center;
-      transition: opacity 180ms ease;
-    }
-
-    .photo-card.has-image .photo-fallback {
-      opacity: 0;
-      pointer-events: none;
-    }
-
-    .photo-fallback-icon {
-      display: grid;
-      width: 48px;
-      height: 48px;
-      margin-inline: auto;
-      place-items: center;
-      border: 1px solid rgba(189, 123, 39, 0.24);
-      border-radius: 50%;
-      background: rgba(255, 253, 249, 0.80);
-      font-size: 21px;
-    }
-
-    .photo-fallback strong {
-      font-family: "Cormorant Garamond", serif;
-      font-size: 24px;
-      line-height: 1;
-    }
-
-    .photo-fallback span {
-      color: var(--muted);
-      font-size: 11px;
-      font-weight: 600;
-    }
-
-    .photo-caption {
-      position: absolute;
-      z-index: 2;
-      right: 10px;
-      bottom: 10px;
-      left: 10px;
-      padding: 9px 11px;
-      border: 1px solid rgba(255,255,255,.38);
-      border-radius: 13px;
-      background: rgba(48, 41, 35, 0.72);
-      color: white;
-      font-size: 11px;
-      font-weight: 700;
-      line-height: 1.35;
-      opacity: 0;
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
-      transition: opacity 180ms ease;
-    }
-
-    .photo-card.has-image .photo-caption {
-      opacity: 1;
-    }
-
-    .section {
-      position: relative;
-      padding: 92px 0;
-    }
-
-    .section-soft {
-      background: linear-gradient(135deg, rgba(255, 253, 249, 0.94), rgba(245, 236, 226, 0.92));
-    }
-
-    .section-heading {
-      max-width: 760px;
-      margin-bottom: 42px;
-    }
-
-    .section-heading h2 {
-      margin-bottom: 18px;
-      font-size: clamp(38px, 5vw, 58px);
-      letter-spacing: -0.025em;
-    }
-
-    .section-heading > p:not(.eyebrow) {
-      margin: 0;
-      color: var(--muted);
-      font-size: 16px;
-    }
-
-    .benefit-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 22px;
-    }
-
-    .benefit-card {
-      min-height: 245px;
-      padding: 31px;
-      border: 1px solid var(--line);
-      border-radius: var(--radius-md);
-      background: rgba(255, 253, 249, 0.76);
-      box-shadow: 0 16px 42px rgba(82, 59, 38, 0.07);
-    }
-
-    .benefit-icon {
-      display: grid;
-      width: 52px;
-      height: 52px;
-      place-items: center;
-      border: 1px solid rgba(189, 123, 39, 0.20);
-      border-radius: 50%;
-      background: rgba(238, 216, 185, 0.25);
-      color: var(--gold-dark);
-      font-size: 23px;
-    }
-
-    .benefit-card h3 {
-      margin: 23px 0 12px;
-      font-size: 30px;
-    }
-
-    .benefit-card p {
-      margin: 0;
-      color: var(--muted);
-      font-size: 14px;
-    }
-
-    .process-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
-      align-items: center;
-      gap: clamp(45px, 8vw, 95px);
-    }
-
-    .process-copy h2 {
-      margin-bottom: 20px;
-      font-size: clamp(40px, 5vw, 62px);
-    }
-
-    .process-copy > p {
-      margin: 0;
-      color: var(--muted);
-    }
-
-    .steps {
-      display: grid;
-      gap: 15px;
-      margin-top: 30px;
-    }
-
-    .step {
-      display: grid;
-      grid-template-columns: 45px 1fr;
-      gap: 15px;
-      padding: 18px;
-      border: 1px solid var(--line);
-      border-radius: 18px;
-      background: rgba(255,255,255,.60);
-    }
-
-    .step-number {
-      display: grid;
-      width: 45px;
-      height: 45px;
-      place-items: center;
-      border-radius: 50%;
-      background: linear-gradient(135deg, var(--gold-soft), #fff6e9);
-      color: var(--gold-dark);
-      font-family: "Cormorant Garamond", serif;
-      font-size: 20px;
-      font-weight: 700;
-    }
-
-    .step h3 {
-      margin: 0 0 4px;
-      font-size: 24px;
-    }
-
-    .step p {
-      margin: 0;
-      color: var(--muted);
-      font-size: 14px;
-    }
-
-    .info-panel {
-      position: relative;
-      padding: 43px;
-      overflow: hidden;
-      border: 1px solid rgba(189, 123, 39, 0.18);
-      border-radius: var(--radius-lg);
-      background:
-        radial-gradient(circle at 85% 5%, rgba(201, 152, 142, 0.22), transparent 32%),
-        var(--surface);
-      box-shadow: var(--shadow);
-    }
-
-    .info-panel h3 {
-      margin-bottom: 18px;
-      font-size: 37px;
-    }
-
-    .info-list {
-      display: grid;
-      gap: 13px;
-      margin: 0;
-      padding: 0;
-      list-style: none;
-    }
-
-    .info-list li {
-      display: flex;
-      align-items: flex-start;
-      gap: 12px;
-      color: #5d5249;
-      font-size: 14px;
-    }
-
-    .info-list li::before {
-      display: grid;
-      width: 25px;
-      height: 25px;
-      flex: 0 0 auto;
-      place-items: center;
-      border-radius: 50%;
-      background: rgba(135, 148, 123, 0.14);
-      color: #66735e;
-      content: "✓";
-      font-size: 13px;
-      font-weight: 700;
-    }
-
-    .notice {
-      margin-top: 24px;
-      padding: 17px 18px;
-      border-left: 3px solid var(--gold);
-      border-radius: 0 14px 14px 0;
-      background: rgba(238, 216, 185, 0.22);
-      color: #66584d;
-      font-size: 13px;
-    }
-
-    .cta-section {
-      padding: 76px 0;
-      overflow: hidden;
-      background: #302923;
-      color: white;
-    }
-
-    .cta-inner {
-      position: relative;
-      z-index: 1;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 45px;
-    }
-
-    .cta-section::before {
-      position: absolute;
-      top: -230px;
-      right: -90px;
-      width: 520px;
-      height: 520px;
-      border: 1px solid rgba(238, 216, 185, 0.18);
-      border-radius: 50%;
-      content: "";
-    }
-
-    .cta-copy {
-      max-width: 720px;
-    }
-
-    .cta-copy .eyebrow {
-      color: var(--gold-soft);
-    }
-
-    .cta-copy h2 {
-      margin-bottom: 15px;
-      font-size: clamp(40px, 5vw, 62px);
-    }
-
-    .cta-copy p {
-      margin: 0;
-      color: rgba(255,255,255,.68);
-    }
-
-    .site-footer {
-      padding: 37px 0;
-      background: #241f1b;
-      color: rgba(255,255,255,.62);
-      font-size: 12px;
-    }
-
-    .footer-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 25px;
-    }
-
-    .footer-brand {
-      color: white;
-      font-family: "Cormorant Garamond", serif;
-      font-size: 24px;
-    }
-
-    .footer-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 20px;
-    }
-
-    .footer-links a:hover {
-      color: var(--gold-soft);
-    }
-
-    @media (max-width: 900px) {
-      .nav-links {
-        gap: 18px;
-      }
-
-      .nav-links a {
-        display: none;
-      }
-
-      .hero-grid,
-      .process-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .photo-shell {
-        width: min(100%, 650px);
-        margin: 5px auto 0;
-      }
-
-      .benefit-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-
-    @media (max-width: 680px) {
-      .container {
-        width: min(calc(100% - 30px), var(--container));
-      }
-
-      .nav {
-        min-height: 72px;
-      }
-
-      .brand-tagline {
-        display: none;
-      }
-
-      .brand-name {
-        font-size: 22px;
-      }
-
-      .nav-cta {
-        display: none;
-      }
-
-      .menu-button {
-        display: grid;
-        place-items: center;
-      }
-
-      .nav-links {
-        position: fixed;
-        z-index: 49;
-        inset: 72px 0 0;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
-        gap: 25px;
-        background: #fdf8f2;
-        opacity: 0;
-        pointer-events: none;
-        transform: translateY(-12px);
-        transition: opacity 220ms ease, transform 220ms ease;
-      }
-
-      .nav-links.open {
-        opacity: 1;
-        pointer-events: auto;
-        transform: translateY(0);
-      }
-
-      .nav-links a {
-        display: block;
-        font-family: "Cormorant Garamond", serif;
-        font-size: 31px;
-        font-weight: 600;
-      }
-
-      .hero {
-        padding: 42px 0 58px;
-      }
-
-      .breadcrumb {
-        margin-bottom: 20px;
-        font-size: 11px;
-      }
-
-      .hero-grid {
-        gap: 42px;
-      }
-
-      h1 {
-        font-size: clamp(47px, 15vw, 64px);
-      }
-
-      .hero-actions {
-        align-items: stretch;
-        flex-direction: column;
-      }
-
-      .btn {
-        width: 100%;
-      }
-
-      .photo-shell {
-        padding: 7px;
-        border-radius: 26px;
-      }
-
-      .photo-gallery {
-        gap: 7px;
-      }
-
-      .photo-card {
-        min-height: 145px;
-        border-radius: 18px;
-      }
-
-      .photo-card:first-child {
-        min-height: 220px;
-      }
-
-      .photo-caption {
-        right: 7px;
-        bottom: 7px;
-        left: 7px;
-        padding: 7px 8px;
-        font-size: 10px;
-      }
-
-      .section {
-        padding: 72px 0;
-      }
-
-      .benefit-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .benefit-card {
-        min-height: 0;
-      }
-
-      .info-panel {
-        padding: 30px 23px;
-      }
-
-      .cta-inner,
-      .footer-inner {
-        align-items: stretch;
-        flex-direction: column;
-      }
-
-      .cta-inner .btn {
-        flex: 0 0 auto;
-      }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      html {
-        scroll-behavior: auto;
-      }
-
-      *,
-      *::before,
-      *::after {
-        scroll-behavior: auto !important;
-        transition-duration: 0.01ms !important;
-      }
-    }
-  </style>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    >
+
+    <title>Lys’Harmony | Massage bien-être, soin minceur par cavitation ultrasonique et soins énergétiques</title>
+
+    <meta
+        name="description"
+        content="Lys’Harmony vous accompagne avec des séances de massage bien-être, de soin minceur par cavitation ultrasonique, de magnétisme, d’harmonisation et des soins énergétiques personnalisés."
+    >
+
+    <meta name="theme-color" content="#f7f0e8">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Manrope:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <style>
+        :root {
+            --cream: #fbf7f2;
+            --cream-dark: #f2e5d9;
+            --white: #ffffff;
+            --text: #302824;
+            --text-soft: #6e625d;
+            --gold: #c68a37;
+            --gold-light: #e6bb75;
+            --gold-dark: #9f6824;
+            --sage: #87957c;
+            --lavender: #9882a8;
+            --rose: #c7988e;
+
+            --shadow-soft:
+                0 20px 60px rgba(92, 62, 37, 0.10);
+
+            --shadow-card:
+                0 16px 45px rgba(84, 57, 38, 0.12);
+
+            --radius-large: 34px;
+            --radius-medium: 24px;
+            --radius-small: 16px;
+
+            --container: 1240px;
+            --header-height: 88px;
+
+            --transition:
+                0.35s cubic-bezier(0.2, 0.75, 0.25, 1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 100px;
+        }
+
+        body {
+            overflow-x: hidden;
+            color: var(--text);
+            background:
+                radial-gradient(
+                    circle at 15% 10%,
+                    rgba(226, 187, 125, 0.15),
+                    transparent 30%
+                ),
+                var(--cream);
+            font-family: "Manrope", sans-serif;
+            line-height: 1.6;
+        }
+
+        body.menu-open {
+            overflow: hidden;
+        }
+
+        img {
+            display: block;
+            width: 100%;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        button,
+        a {
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        button {
+            font: inherit;
+        }
+
+        .container {
+            width: min(calc(100% - 48px), var(--container));
+            margin-inline: auto;
+        }
+
+        .section {
+            position: relative;
+            padding: 110px 0;
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 18px;
+            color: var(--gold-dark);
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 0.17em;
+            text-transform: uppercase;
+        }
+
+        .eyebrow::before {
+            width: 34px;
+            height: 1px;
+            background: var(--gold);
+            content: "";
+        }
+
+        .section-title {
+            max-width: 780px;
+            font-family: "Cormorant Garamond", serif;
+            font-size: clamp(2.6rem, 5vw, 4.6rem);
+            font-weight: 500;
+            line-height: 0.97;
+            letter-spacing: -0.035em;
+        }
+
+        .section-title span {
+            color: var(--gold);
+            font-style: italic;
+        }
+
+        .section-intro {
+            max-width: 650px;
+            margin-top: 24px;
+            color: var(--text-soft);
+            font-size: 1rem;
+            line-height: 1.9;
+        }
+
+        /* HEADER */
+
+        .site-header {
+            position: fixed;
+            z-index: 1000;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: var(--header-height);
+            border-bottom: 1px solid transparent;
+            transition:
+                background var(--transition),
+                box-shadow var(--transition),
+                border-color var(--transition),
+                height var(--transition);
+        }
+
+        .site-header.scrolled {
+            height: 74px;
+            border-color: rgba(198, 138, 55, 0.12);
+            background: rgba(255, 252, 248, 0.88);
+            box-shadow: 0 12px 40px rgba(67, 42, 26, 0.08);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+        }
+
+        .header-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 100%;
+        }
+
+        .brand {
+            position: relative;
+            z-index: 1002;
+            display: flex;
+            align-items: center;
+            gap: 13px;
+        }
+
+        .brand-icon {
+            display: grid;
+            width: 49px;
+            height: 49px;
+            flex: 0 0 auto;
+            place-items: center;
+            border: 1px solid rgba(198, 138, 55, 0.42);
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.64);
+            color: var(--gold);
+            box-shadow:
+                0 8px 25px rgba(198, 138, 55, 0.14);
+            backdrop-filter: blur(10px);
+        }
+
+        .brand-icon svg {
+            width: 29px;
+            height: 29px;
+        }
+
+        .brand-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .brand-name {
+            font-family: "Cormorant Garamond", serif;
+            font-size: 1.72rem;
+            font-weight: 600;
+            line-height: 1;
+        }
+
+        .brand-tagline {
+            margin-top: 4px;
+            color: var(--text-soft);
+            font-size: 0.52rem;
+            font-weight: 600;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+        }
+
+        .main-nav {
+            display: flex;
+            align-items: center;
+            gap: 34px;
+        }
+
+        .main-nav a:not(.nav-cta) {
+            position: relative;
+            font-size: 0.84rem;
+            font-weight: 600;
+        }
+
+        .main-nav a:not(.nav-cta)::after {
+            position: absolute;
+            bottom: -7px;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background: var(--gold);
+            content: "";
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform var(--transition);
+        }
+
+        .main-nav a:not(.nav-cta):hover::after {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+
+        .nav-cta {
+            padding: 12px 22px;
+            border: 1px solid var(--gold);
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.48);
+            color: var(--gold-dark);
+            font-size: 0.78rem;
+            font-weight: 700;
+            transition: var(--transition);
+        }
+
+        .nav-cta:hover {
+            background: var(--gold);
+            color: var(--white);
+            box-shadow: 0 12px 30px rgba(198, 138, 55, 0.25);
+            transform: translateY(-2px);
+        }
+
+        .menu-button {
+            position: relative;
+            z-index: 1002;
+            display: none;
+            width: 48px;
+            height: 48px;
+            cursor: pointer;
+            border: 1px solid rgba(198, 138, 55, 0.45);
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.64);
+            backdrop-filter: blur(10px);
+        }
+
+        .menu-button span {
+            position: absolute;
+            left: 13px;
+            width: 21px;
+            height: 1.5px;
+            border-radius: 2px;
+            background: var(--text);
+            transition: var(--transition);
+        }
+
+        .menu-button span:nth-child(1) {
+            top: 16px;
+        }
+
+        .menu-button span:nth-child(2) {
+            top: 23px;
+        }
+
+        .menu-button span:nth-child(3) {
+            top: 30px;
+        }
+
+        .menu-button.active span:nth-child(1) {
+            top: 23px;
+            transform: rotate(45deg);
+        }
+
+        .menu-button.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .menu-button.active span:nth-child(3) {
+            top: 23px;
+            transform: rotate(-45deg);
+        }
+
+        /* HERO */
+
+        .hero {
+            position: relative;
+            min-height: 100svh;
+            overflow: hidden;
+            background: #ead8ca;
+        }
+
+        .hero-media,
+        .hero-media picture,
+        .hero-media img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .hero-media img {
+            object-fit: cover;
+            object-position: center center;
+            animation: heroZoom 16s ease-out forwards;
+        }
+
+        @keyframes heroZoom {
+            from {
+                transform: scale(1.04);
+            }
+
+            to {
+                transform: scale(1);
+            }
+        }
+
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(252, 246, 240, 0.98) 0%,
+                    rgba(250, 241, 232, 0.93) 25%,
+                    rgba(248, 238, 227, 0.61) 48%,
+                    rgba(66, 37, 25, 0.06) 73%
+                ),
+                linear-gradient(
+                    180deg,
+                    rgba(250, 245, 239, 0.14),
+                    rgba(47, 31, 24, 0.12)
+                );
+        }
+
+        .hero::after {
+            position: absolute;
+            right: -7%;
+            bottom: -170px;
+            width: 780px;
+            height: 410px;
+            border: 1px solid rgba(255, 224, 170, 0.42);
+            border-radius: 50%;
+            content: "";
+            filter: blur(1px);
+            transform: rotate(-12deg);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 5;
+            display: flex;
+            min-height: 100svh;
+            flex-direction: column;
+            justify-content: center;
+            padding-top: calc(var(--header-height) + 55px);
+            padding-bottom: 155px;
+        }
+
+        .hero-copy {
+            max-width: 640px;
+        }
+
+        .hero-services {
+            margin-bottom: 26px;
+            color: var(--gold-dark);
+            font-size: 0.82rem;
+            font-weight: 700;
+            line-height: 1.8;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+        }
+
+        .hero-title {
+            max-width: 630px;
+            font-family: "Cormorant Garamond", serif;
+            font-size: clamp(4.2rem, 7.5vw, 7.2rem);
+            font-weight: 500;
+            line-height: 0.83;
+            letter-spacing: -0.055em;
+        }
+
+        .hero-title span {
+            display: block;
+            color: var(--gold);
+            font-style: italic;
+            font-weight: 500;
+        }
+
+        .hero-description {
+            max-width: 500px;
+            margin-top: 30px;
+            color: #554b46;
+            font-size: 1rem;
+            line-height: 1.9;
+        }
+
+        .hero-actions {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-top: 36px;
+        }
+
+        .button {
+            display: inline-flex;
+            min-height: 56px;
+            align-items: center;
+            justify-content: center;
+            gap: 11px;
+            padding: 0 28px;
+            cursor: pointer;
+            border-radius: 999px;
+            font-size: 0.79rem;
+            font-weight: 700;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            transition: var(--transition);
+        }
+
+        .button-primary {
+            border: 1px solid var(--gold);
+            background:
+                linear-gradient(
+                    135deg,
+                    var(--gold-light),
+                    var(--gold-dark)
+                );
+            color: var(--white);
+            box-shadow: 0 16px 35px rgba(169, 108, 37, 0.27);
+        }
+
+        .button-primary:hover {
+            box-shadow: 0 21px 44px rgba(169, 108, 37, 0.34);
+            transform: translateY(-3px);
+        }
+
+        .button-secondary {
+            border: 1px solid rgba(159, 104, 36, 0.48);
+            background: rgba(255, 255, 255, 0.5);
+            color: var(--gold-dark);
+            backdrop-filter: blur(12px);
+        }
+
+        .button-secondary:hover {
+            border-color: var(--gold);
+            background: var(--white);
+            transform: translateY(-3px);
+        }
+
+        .button svg {
+            width: 19px;
+            height: 19px;
+        }
+
+        .hero-features {
+            display: grid;
+            max-width: 720px;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 18px;
+            margin-top: 58px;
+        }
+
+        .hero-feature {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #5c504a;
+            font-size: 0.72rem;
+            font-weight: 600;
+            line-height: 1.45;
+        }
+
+        .feature-icon {
+            display: grid;
+            width: 38px;
+            height: 38px;
+            flex: 0 0 auto;
+            place-items: center;
+            border: 1px solid rgba(198, 138, 55, 0.36);
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            color: var(--gold);
+        }
+
+        .feature-icon svg {
+            width: 19px;
+            height: 19px;
+        }
+
+        .energy-particle {
+            position: absolute;
+            z-index: 3;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: #ffe3a9;
+            box-shadow:
+                0 0 9px #ffd17b,
+                0 0 24px rgba(255, 209, 123, 0.75);
+            animation: particleFloat 6s ease-in-out infinite;
+        }
+
+        .energy-particle:nth-child(1) {
+            top: 22%;
+            right: 17%;
+            animation-delay: 0s;
+        }
+
+        .energy-particle:nth-child(2) {
+            top: 37%;
+            right: 7%;
+            width: 4px;
+            height: 4px;
+            animation-delay: 1.4s;
+        }
+
+        .energy-particle:nth-child(3) {
+            right: 28%;
+            bottom: 20%;
+            animation-delay: 2.2s;
+        }
+
+        .energy-particle:nth-child(4) {
+            right: 11%;
+            bottom: 33%;
+            width: 4px;
+            height: 4px;
+            animation-delay: 3.1s;
+        }
+
+        @keyframes particleFloat {
+            0%,
+            100% {
+                opacity: 0.35;
+                transform: translateY(0) scale(0.8);
+            }
+
+            50% {
+                opacity: 1;
+                transform: translateY(-24px) scale(1.25);
+            }
+        }
+
+
+        /* TRANSITION ARRONDIE ENTRE LA BANNIÈRE ET LES SOINS */
+
+        .hero-bottom-shape {
+            position: absolute;
+            z-index: 6;
+            bottom: -1px;
+            left: 50%;
+            width: 132%;
+            height: 118px;
+            pointer-events: none;
+            border-top-left-radius: 50% 100%;
+            border-top-right-radius: 50% 100%;
+            background:
+                linear-gradient(
+                    180deg,
+                    rgba(248, 239, 230, 0.98) 0%,
+                    var(--cream) 88%
+                );
+            box-shadow: 0 -18px 45px rgba(255, 247, 238, 0.18);
+            transform: translateX(-50%);
+        }
+
+        .hero-center-badge {
+            position: absolute;
+            z-index: 7;
+            bottom: 38px;
+            left: 50%;
+            display: grid;
+            width: 82px;
+            height: 82px;
+            pointer-events: none;
+            place-items: center;
+            border: 1px solid rgba(198, 138, 55, 0.24);
+            border-radius: 50%;
+            background: rgba(255, 253, 250, 0.96);
+            color: var(--gold);
+            box-shadow:
+                0 13px 30px rgba(91, 58, 34, 0.14),
+                inset 0 0 0 7px rgba(255, 255, 255, 0.68);
+            transform: translateX(-50%);
+        }
+
+        .hero-center-badge svg {
+            width: 39px;
+            height: 39px;
+        }
+
+        /* SERVICES */
+
+        .services-section {
+            overflow: hidden;
+            padding-top: 92px;
+            background:
+                radial-gradient(
+                    circle at 85% 10%,
+                    rgba(197, 169, 206, 0.19),
+                    transparent 24%
+                ),
+                radial-gradient(
+                    circle at 12% 85%,
+                    rgba(204, 169, 118, 0.15),
+                    transparent 25%
+                ),
+                var(--cream);
+        }
+
+        .services-header {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            gap: 50px;
+            margin-bottom: 52px;
+        }
+
+        .services-header-left {
+            max-width: 760px;
+        }
+
+        .services-header-right {
+            max-width: 330px;
+            color: var(--text-soft);
+            font-size: 0.92rem;
+            line-height: 1.8;
+        }
+
+        .services-slider {
+            position: relative;
+        }
+
+        .services-viewport {
+            overflow: hidden;
+            padding: 10px 4px 50px;
+            touch-action: pan-y;
+        }
+
+        .services-track {
+            display: flex;
+            gap: 26px;
+            transition:
+                transform 0.65s cubic-bezier(0.22, 0.8, 0.25, 1);
+            will-change: transform;
+        }
+
+        .service-card {
+            position: relative;
+            min-width: calc((100% - 26px) / 2);
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.75);
+            border-radius: var(--radius-large);
+            background: rgba(255, 255, 255, 0.64);
+            box-shadow: var(--shadow-card);
+            transition:
+                transform var(--transition),
+                box-shadow var(--transition);
+            backdrop-filter: blur(14px);
+        }
+
+        .service-card:hover {
+            box-shadow: 0 24px 65px rgba(82, 54, 36, 0.18);
+            transform: translateY(-9px);
+        }
+
+        .service-image {
+            position: relative;
+            height: 360px;
+            overflow: hidden;
+        }
+
+        .service-image::after {
+            position: absolute;
+            inset: 0;
+            background:
+                linear-gradient(
+                    180deg,
+                    transparent 35%,
+                    rgba(42, 28, 21, 0.16)
+                );
+            content: "";
+        }
+
+        .service-image img {
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.9s ease;
+        }
+
+        .service-card:hover .service-image img {
+            transform: scale(1.055);
+        }
+
+        .service-number {
+            position: absolute;
+            z-index: 2;
+            top: 22px;
+            left: 22px;
+            display: grid;
+            width: 47px;
+            height: 47px;
+            place-items: center;
+            border: 1px solid rgba(255, 255, 255, 0.52);
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.73);
+            color: var(--gold-dark);
+            font-family: "Cormorant Garamond", serif;
+            font-size: 1.05rem;
+            font-weight: 700;
+            backdrop-filter: blur(12px);
+        }
+
+        .service-content {
+            position: relative;
+            min-height: 290px;
+            padding: 37px 38px 39px;
+        }
+
+        .service-icon {
+            position: absolute;
+            top: -35px;
+            left: 38px;
+            display: grid;
+            width: 70px;
+            height: 70px;
+            place-items: center;
+            border: 6px solid rgba(255, 255, 255, 0.9);
+            border-radius: 50%;
+            background: var(--white);
+            color: var(--gold);
+            box-shadow: 0 10px 24px rgba(72, 47, 31, 0.13);
+        }
+
+        .service-icon svg {
+            width: 34px;
+            height: 34px;
+        }
+
+        .service-title {
+            margin-top: 19px;
+            font-family: "Cormorant Garamond", serif;
+            font-size: clamp(2rem, 3vw, 2.8rem);
+            font-weight: 500;
+            line-height: 0.98;
+        }
+
+        .service-description {
+            margin-top: 20px;
+            color: var(--text-soft);
+            font-size: 0.92rem;
+            line-height: 1.85;
+        }
+
+        .service-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 13px;
+            margin-top: 25px;
+            color: var(--gold-dark);
+            font-size: 0.82rem;
+            font-weight: 700;
+        }
+
+        .service-link span {
+            display: grid;
+            width: 32px;
+            height: 32px;
+            place-items: center;
+            border: 1px solid rgba(198, 138, 55, 0.35);
+            border-radius: 50%;
+            transition: var(--transition);
+        }
+
+        .service-link:hover span {
+            background: var(--gold);
+            color: var(--white);
+            transform: translateX(5px);
+        }
+
+        .slider-controls {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 5px;
+        }
+
+        .slider-button {
+            display: grid;
+            width: 52px;
+            height: 52px;
+            cursor: pointer;
+            place-items: center;
+            border: 1px solid rgba(198, 138, 55, 0.3);
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.62);
+            color: var(--gold-dark);
+            transition: var(--transition);
+        }
+
+        .slider-button:hover:not(:disabled) {
+            border-color: var(--gold);
+            background: var(--gold);
+            color: var(--white);
+            transform: scale(1.07);
+        }
+
+        .slider-button:disabled {
+            cursor: not-allowed;
+            opacity: 0.35;
+        }
+
+        .slider-button svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        .slider-dots {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .slider-dot {
+            width: 9px;
+            height: 9px;
+            cursor: pointer;
+            border: 0;
+            border-radius: 50%;
+            background: #d9cec5;
+            transition: var(--transition);
+        }
+
+        .slider-dot.active {
+            width: 28px;
+            border-radius: 999px;
+            background: var(--gold);
+        }
+
+        /* ABOUT */
+
+        .about-section {
+            background:
+                linear-gradient(
+                    135deg,
+                    #fffaf5,
+                    #f2e5dc
+                );
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 0.85fr 1.15fr;
+            align-items: center;
+            gap: 95px;
+        }
+
+        .about-image-column {
+            position: relative;
+        }
+
+        .about-image {
+            position: relative;
+            overflow: hidden;
+            aspect-ratio: 0.8;
+            border-radius: 48% 48% 32px 32px;
+            box-shadow: var(--shadow-soft);
+        }
+
+        .about-image img {
+            height: 100%;
+            object-fit: cover;
+            object-position: center top;
+        }
+
+        .about-image::after {
+            position: absolute;
+            inset: 0;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            border-radius: inherit;
+            content: "";
+        }
+
+        .experience-badge {
+            position: absolute;
+            right: -35px;
+            bottom: 45px;
+            display: grid;
+            width: 145px;
+            height: 145px;
+            place-items: center;
+            border: 1px solid rgba(198, 138, 55, 0.35);
+            border-radius: 50%;
+            background: rgba(255, 253, 250, 0.91);
+            box-shadow: var(--shadow-card);
+            text-align: center;
+            backdrop-filter: blur(15px);
+        }
+
+        .experience-badge strong {
+            display: block;
+            color: var(--gold-dark);
+            font-family: "Cormorant Garamond", serif;
+            font-size: 2rem;
+            line-height: 1;
+        }
+
+        .experience-badge span {
+            display: block;
+            max-width: 90px;
+            margin-top: 5px;
+            color: var(--text-soft);
+            font-size: 0.62rem;
+            font-weight: 700;
+            line-height: 1.4;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        .about-text p {
+            margin-top: 24px;
+            color: var(--text-soft);
+            line-height: 1.9;
+        }
+
+        .about-points {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+            margin-top: 32px;
+        }
+
+        .about-point {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 16px;
+            border: 1px solid rgba(198, 138, 55, 0.15);
+            border-radius: var(--radius-small);
+            background: rgba(255, 255, 255, 0.55);
+            color: #564b46;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .about-point span {
+            display: grid;
+            width: 30px;
+            height: 30px;
+            flex: 0 0 auto;
+            place-items: center;
+            border-radius: 50%;
+            background: rgba(198, 138, 55, 0.12);
+            color: var(--gold-dark);
+        }
+
+        .about-actions {
+            margin-top: 34px;
+        }
+
+
+
+        /* AVIS */
+
+        .reviews-section {
+            overflow: hidden;
+            background:
+                radial-gradient(
+                    circle at 12% 18%,
+                    rgba(230, 187, 117, 0.18),
+                    transparent 28%
+                ),
+                radial-gradient(
+                    circle at 88% 72%,
+                    rgba(152, 130, 168, 0.14),
+                    transparent 27%
+                ),
+                #fffaf6;
+        }
+
+        .reviews-header {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            gap: 50px;
+            margin-bottom: 48px;
+        }
+
+        .reviews-header-left {
+            max-width: 760px;
+        }
+
+        .reviews-header-right {
+            max-width: 340px;
+            color: var(--text-soft);
+            font-size: 0.92rem;
+            line-height: 1.8;
+        }
+
+        .reviews-slider {
+            position: relative;
+        }
+
+        .reviews-viewport {
+            overflow: hidden;
+            padding: 10px 5px 44px;
+            touch-action: pan-y;
+        }
+
+        .reviews-track {
+            display: flex;
+            gap: 24px;
+            transition:
+                transform 0.65s cubic-bezier(0.22, 0.8, 0.25, 1);
+            will-change: transform;
+        }
+
+        .review-card {
+            position: relative;
+            min-width: calc((100% - 24px) / 2);
+            min-height: 315px;
+            padding: 38px 38px 34px;
+            border: 1px solid rgba(198, 138, 55, 0.17);
+            border-radius: 30px;
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(255, 255, 255, 0.96),
+                    rgba(251, 244, 237, 0.91)
+                );
+            box-shadow: var(--shadow-card);
+        }
+
+        .review-card::after {
+            position: absolute;
+            bottom: -11px;
+            left: 54px;
+            width: 23px;
+            height: 23px;
+            border-right: 1px solid rgba(198, 138, 55, 0.17);
+            border-bottom: 1px solid rgba(198, 138, 55, 0.17);
+            background: #fcf6f0;
+            content: "";
+            transform: rotate(45deg);
+        }
+
+        .review-topline {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .review-stars {
+            display: flex;
+            gap: 4px;
+            color: var(--gold);
+            font-size: 1.08rem;
+            letter-spacing: 0.04em;
+        }
+
+        .review-rating {
+            color: var(--text-soft);
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        .review-quote-mark {
+            margin-top: 22px;
+            color: rgba(198, 138, 55, 0.26);
+            font-family: "Cormorant Garamond", serif;
+            font-size: 4.5rem;
+            font-weight: 700;
+            line-height: 0.55;
+        }
+
+        .review-text {
+            margin-top: 16px;
+            color: #594e48;
+            font-family: "Cormorant Garamond", serif;
+            font-size: clamp(1.35rem, 2.2vw, 1.72rem);
+            line-height: 1.42;
+        }
+
+        .review-author {
+            display: flex;
+            align-items: center;
+            gap: 13px;
+            margin-top: 27px;
+        }
+
+        .review-avatar {
+            display: grid;
+            width: 45px;
+            height: 45px;
+            flex: 0 0 auto;
+            place-items: center;
+            border: 1px solid rgba(198, 138, 55, 0.28);
+            border-radius: 50%;
+            background: rgba(198, 138, 55, 0.10);
+            color: var(--gold-dark);
+            font-family: "Cormorant Garamond", serif;
+            font-size: 1.05rem;
+            font-weight: 700;
+        }
+
+        .review-author strong {
+            display: block;
+            font-family: "Cormorant Garamond", serif;
+            font-size: 1.22rem;
+            font-weight: 600;
+            line-height: 1;
+        }
+
+        .review-author span {
+            display: block;
+            margin-top: 5px;
+            color: var(--text-soft);
+            font-size: 0.68rem;
+            font-weight: 600;
+            letter-spacing: 0.07em;
+            text-transform: uppercase;
+        }
+
+        .reviews-controls {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 4px;
+        }
+
+        .reviews-button {
+            display: grid;
+            width: 52px;
+            height: 52px;
+            cursor: pointer;
+            place-items: center;
+            border: 1px solid rgba(198, 138, 55, 0.3);
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.72);
+            color: var(--gold-dark);
+            transition: var(--transition);
+        }
+
+        .reviews-button:hover {
+            border-color: var(--gold);
+            background: var(--gold);
+            color: var(--white);
+            transform: scale(1.07);
+        }
+
+        .reviews-button svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        .reviews-dots {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .reviews-dot {
+            width: 9px;
+            height: 9px;
+            cursor: pointer;
+            border: 0;
+            border-radius: 50%;
+            background: #d9cec5;
+            transition: var(--transition);
+        }
+
+        .reviews-dot.active {
+            width: 28px;
+            border-radius: 999px;
+            background: var(--gold);
+        }
+
+
+        /* CTA */
+
+        .contact-section {
+            overflow: hidden;
+            padding: 80px 0;
+            background: var(--text);
+            color: var(--white);
+        }
+
+        .contact-section::before {
+            position: absolute;
+            top: -190px;
+            right: -130px;
+            width: 520px;
+            height: 520px;
+            border: 1px solid rgba(230, 187, 117, 0.22);
+            border-radius: 50%;
+            content: "";
+        }
+
+        .contact-section::after {
+            position: absolute;
+            right: 30px;
+            bottom: -270px;
+            width: 650px;
+            height: 430px;
+            border: 1px solid rgba(230, 187, 117, 0.16);
+            border-radius: 50%;
+            content: "";
+            transform: rotate(-15deg);
+        }
+
+        .contact-inner {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 50px;
+        }
+
+        .contact-copy {
+            max-width: 720px;
+        }
+
+        .contact-copy .eyebrow {
+            color: var(--gold-light);
+        }
+
+        .contact-copy h2 {
+            font-family: "Cormorant Garamond", serif;
+            font-size: clamp(2.8rem, 5vw, 4.8rem);
+            font-weight: 500;
+            line-height: 0.98;
+        }
+
+        .contact-copy h2 span {
+            color: var(--gold-light);
+            font-style: italic;
+        }
+
+        .contact-copy p {
+            max-width: 610px;
+            margin-top: 20px;
+            color: rgba(255, 255, 255, 0.69);
+            line-height: 1.85;
+        }
+
+        .contact-button {
+            flex: 0 0 auto;
+            border-color: var(--gold-light);
+        }
+
+        /* FOOTER */
+
+        .site-footer {
+            padding: 42px 0;
+            background: #241e1b;
+            color: rgba(255, 255, 255, 0.64);
+        }
+
+        .footer-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 30px;
+        }
+
+        .footer-brand {
+            color: var(--white);
+            font-family: "Cormorant Garamond", serif;
+            font-size: 1.5rem;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 25px;
+            font-size: 0.75rem;
+        }
+
+        .footer-links a:hover {
+            color: var(--gold-light);
+        }
+
+        .copyright {
+            font-size: 0.72rem;
+        }
+
+        /* ANIMATIONS AU SCROLL */
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(35px);
+            transition:
+                opacity 0.85s ease,
+                transform 0.85s cubic-bezier(0.2, 0.75, 0.25, 1);
+        }
+
+        .reveal.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .reveal-delay-1 {
+            transition-delay: 0.1s;
+        }
+
+        .reveal-delay-2 {
+            transition-delay: 0.2s;
+        }
+
+        /* TABLETTE */
+
+        @media (max-width: 1050px) {
+            .main-nav {
+                gap: 20px;
+            }
+
+            .main-nav a:not(.nav-cta) {
+                display: none;
+            }
+
+            .hero-overlay {
+                background:
+                    linear-gradient(
+                        90deg,
+                        rgba(252, 246, 240, 0.97) 0%,
+                        rgba(250, 241, 232, 0.82) 48%,
+                        rgba(62, 38, 28, 0.08) 80%
+                    );
+            }
+
+            .about-grid {
+                gap: 60px;
+            }
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 760px) {
+            :root {
+                --header-height: 78px;
+            }
+
+            .container {
+                width: min(calc(100% - 32px), var(--container));
+            }
+
+            .section {
+                padding: 82px 0;
+            }
+
+            .site-header.scrolled {
+                height: 68px;
+            }
+
+            .brand-icon {
+                width: 43px;
+                height: 43px;
+            }
+
+            .brand-name {
+                font-size: 1.47rem;
+            }
+
+            .brand-tagline {
+                font-size: 0.43rem;
+            }
+
+            .menu-button {
+                display: block;
+            }
+
+            .main-nav {
+                position: fixed;
+                z-index: 1001;
+                inset: 0;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+                gap: 27px;
+                background:
+                    radial-gradient(
+                        circle at 50% 25%,
+                        rgba(223, 183, 121, 0.20),
+                        transparent 31%
+                    ),
+                    #fdf8f2;
+                opacity: 0;
+                pointer-events: none;
+                transform: translateY(-15px);
+                transition: var(--transition);
+                backdrop-filter: none;
+                -webkit-backdrop-filter: none;
+            }
+
+            body.menu-open .site-header,
+            body.menu-open .site-header.scrolled {
+                border-color: transparent;
+                background: #fdf8f2;
+                box-shadow: none;
+                backdrop-filter: none;
+                -webkit-backdrop-filter: none;
+            }
+
+            .main-nav.open {
+                opacity: 1;
+                pointer-events: auto;
+                transform: translateY(0);
+            }
+
+            .main-nav a:not(.nav-cta) {
+                display: block;
+                font-family: "Cormorant Garamond", serif;
+                font-size: 2.1rem;
+                font-weight: 500;
+            }
+
+            .main-nav .nav-cta {
+                margin-top: 10px;
+                padding: 15px 28px;
+            }
+
+            /*
+            BANNIÈRE MOBILE :
+            - texte organisé dans la partie gauche ;
+            - Lise déplacée vers la droite ;
+            - quatre avantages alignés au-dessus de la courbe.
+            */
+
+            .hero {
+                min-height: max(920px, 100svh);
+                background: #ead8ca;
+            }
+
+            .hero-media {
+                overflow: hidden;
+            }
+
+            .hero-media picture {
+                overflow: hidden;
+            }
+
+            .hero-media img {
+                inset: 0 -28% 0 auto;
+                width: 124%;
+                height: 100%;
+                max-width: none;
+                object-fit: cover;
+                object-position: center top;
+                animation: none;
+                transform: none;
+            }
+
+            .hero-overlay {
+                background:
+                    linear-gradient(
+                        90deg,
+                        rgba(251, 244, 236, 0.99) 0%,
+                        rgba(250, 242, 233, 0.97) 31%,
+                        rgba(249, 239, 228, 0.82) 47%,
+                        rgba(245, 229, 213, 0.34) 64%,
+                        rgba(68, 43, 31, 0.05) 82%,
+                        rgba(49, 31, 23, 0.10) 100%
+                    ),
+                    linear-gradient(
+                        180deg,
+                        rgba(255, 251, 246, 0.10) 0%,
+                        rgba(255, 251, 246, 0) 58%,
+                        rgba(56, 35, 26, 0.18) 100%
+                    );
+            }
+
+            .hero-content {
+                justify-content: flex-start;
+                min-height: max(920px, 100svh);
+                padding-top: 142px;
+                padding-bottom: 205px;
+            }
+
+            .hero-copy {
+                width: 54%;
+                max-width: 430px;
+                color: var(--text);
+                text-shadow: none;
+            }
+
+            .hero-services {
+                width: 100%;
+                margin-bottom: 17px;
+                color: var(--gold-dark);
+                font-size: 0.60rem;
+                font-weight: 700;
+                line-height: 1.62;
+                letter-spacing: 0.10em;
+            }
+
+            .hero-title {
+                width: 100%;
+                max-width: none;
+                color: var(--text);
+                font-size: clamp(2.72rem, 12.6vw, 3.85rem);
+                line-height: 0.86;
+                letter-spacing: -0.045em;
+            }
+
+            .hero-title span {
+                display: block;
+                color: var(--gold);
+            }
+
+            .hero-description {
+                width: 100%;
+                max-width: none;
+                margin-top: 21px;
+                color: #554a44;
+                font-size: 0.76rem;
+                line-height: 1.72;
+            }
+
+            .hero-actions {
+                width: 100%;
+                align-items: stretch;
+                flex-direction: column;
+                gap: 10px;
+                margin-top: 24px;
+            }
+
+            .button {
+                width: 100%;
+                min-height: 52px;
+                gap: 8px;
+                padding: 0 13px;
+                font-size: 0.61rem;
+                letter-spacing: 0.025em;
+            }
+
+            .button svg {
+                width: 17px;
+                height: 17px;
+                flex: 0 0 auto;
+            }
+
+            .button-secondary {
+                border-color: rgba(159, 104, 36, 0.42);
+                background: rgba(255, 255, 255, 0.48);
+                color: var(--gold-dark);
+                backdrop-filter: blur(12px);
+                -webkit-backdrop-filter: blur(12px);
+            }
+
+            .hero-features {
+                position: absolute;
+                right: 16px;
+                bottom: 108px;
+                left: 16px;
+                display: grid;
+                width: auto;
+                max-width: none;
+                grid-template-columns: repeat(4, minmax(0, 1fr));
+                gap: 7px;
+                margin: 0;
+            }
+
+            .hero-feature {
+                align-items: center;
+                flex-direction: column;
+                gap: 7px;
+                color: #554a44;
+                font-size: 0.52rem;
+                line-height: 1.3;
+                text-align: center;
+            }
+
+            .feature-icon {
+                width: 34px;
+                height: 34px;
+                border-color: rgba(198, 138, 55, 0.38);
+                background: rgba(255, 255, 255, 0.60);
+                color: var(--gold);
+                backdrop-filter: blur(8px);
+                -webkit-backdrop-filter: blur(8px);
+            }
+
+            .feature-icon svg {
+                width: 17px;
+                height: 17px;
+            }
+
+            .hero-bottom-shape {
+                width: 154%;
+                height: 88px;
+            }
+
+            .hero-center-badge {
+                bottom: 25px;
+                width: 69px;
+                height: 69px;
+            }
+
+            .hero-center-badge svg {
+                width: 33px;
+                height: 33px;
+            }
+
+            .energy-particle {
+                display: none;
+            }
+
+            .services-section {
+                padding-top: 68px;
+            }
+
+            .services-header {
+                display: block;
+                margin-bottom: 37px;
+            }
+
+            .services-header-right {
+                margin-top: 20px;
+            }
+
+            .section-title {
+                font-size: clamp(2.8rem, 13vw, 4rem);
+            }
+
+            .service-card {
+                min-width: 100%;
+                border-radius: 27px;
+            }
+
+            .service-image {
+                height: 280px;
+            }
+
+            .service-content {
+                min-height: 285px;
+                padding: 34px 26px 31px;
+            }
+
+            .service-icon {
+                left: 25px;
+                width: 64px;
+                height: 64px;
+            }
+
+            .service-title {
+                font-size: 2.25rem;
+            }
+
+            .service-description {
+                font-size: 0.84rem;
+            }
+
+            .slider-controls {
+                margin-top: 0;
+            }
+
+            .slider-button {
+                width: 46px;
+                height: 46px;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 65px;
+            }
+
+            .about-image-column {
+                width: calc(100% - 30px);
+            }
+
+            .about-image {
+                border-radius: 46% 46% 25px 25px;
+            }
+
+            .experience-badge {
+                right: -29px;
+                bottom: 25px;
+                width: 125px;
+                height: 125px;
+            }
+
+            .about-points {
+                grid-template-columns: 1fr;
+            }
+
+
+
+            .reviews-header {
+                display: block;
+                margin-bottom: 35px;
+            }
+
+            .reviews-header-right {
+                margin-top: 20px;
+            }
+
+            .review-card {
+                min-width: 100%;
+                min-height: 0;
+                padding: 31px 25px 29px;
+                border-radius: 26px;
+            }
+
+            .review-card::after {
+                left: 42px;
+            }
+
+            .review-text {
+                font-size: 1.34rem;
+            }
+
+            .reviews-button {
+                width: 46px;
+                height: 46px;
+            }
+
+
+            .contact-inner {
+                align-items: stretch;
+                flex-direction: column;
+            }
+
+            .contact-button {
+                width: 100%;
+            }
+
+            .footer-inner {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+
+            .footer-links {
+                flex-wrap: wrap;
+            }
+        }
+
+        @media (max-width: 390px) {
+            .brand-tagline {
+                display: none;
+            }
+
+            .brand-name {
+                font-size: 1.34rem;
+            }
+
+            .hero {
+                min-height: max(900px, 100svh);
+            }
+
+            .hero-media img {
+                inset: 0 -34% 0 auto;
+                width: 130%;
+            }
+
+            .hero-content {
+                min-height: max(900px, 100svh);
+                padding-top: 132px;
+            }
+
+            .hero-copy {
+                width: 56%;
+            }
+
+            .hero-services {
+                font-size: 0.54rem;
+            }
+
+            .hero-title {
+                font-size: 2.55rem;
+            }
+
+            .hero-description {
+                font-size: 0.69rem;
+            }
+
+            .button {
+                min-height: 50px;
+                padding-inline: 9px;
+                font-size: 0.55rem;
+            }
+
+            .hero-features {
+                right: 10px;
+                left: 10px;
+                gap: 4px;
+            }
+
+            .hero-feature {
+                font-size: 0.47rem;
+            }
+
+            .feature-icon {
+                width: 31px;
+                height: 31px;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                scroll-behavior: auto !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+    </style>
 </head>
 
 <body>
-  <header class="site-header">
-    <nav class="container nav" aria-label="Navigation principale">
-      <a class="brand" href="index.html" aria-label="Retour à l’accueil Lys’Harmony">
-        <span class="brand-mark" aria-hidden="true">
-          <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M32 48C23 40 19 31 32 14C45 31 41 40 32 48Z"/>
-            <path d="M30 49C20 47 12 41 12 27C25 29 31 37 30 49Z"/>
-            <path d="M34 49C44 47 52 41 52 27C39 29 33 39 34 49Z"/>
-          </svg>
-        </span>
 
-        <span>
-          <span class="brand-name">Lys’Harmony</span>
-          <span class="brand-tagline">Harmonie du corps, de l’âme et de l’énergie</span>
-        </span>
-      </a>
+    <!-- HEADER -->
 
-      <button class="menu-button" type="button" aria-expanded="false" aria-controls="menu-principal" aria-label="Ouvrir le menu">☰</button>
+    <header class="site-header" id="siteHeader">
+        <div class="container header-inner">
 
-      <div class="nav-links" id="menu-principal">
-        <a href="index.html">Accueil</a>
-        <a href="index.html#services">Mes soins</a>
-        <a href="index.html#a-propos">À propos</a>
-        <a href="index.html#contact">Contact</a>
-      </div>
+            <a href="#accueil" class="brand" aria-label="Accueil Lys’Harmony">
 
-      <a class="nav-cta" href="disponibilites.html">Prendre rendez-vous</a>
-    </nav>
-  </header>
+                <span class="brand-icon" aria-hidden="true">
+                    <svg
+                        viewBox="0 0 64 64"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                    >
+                        <path
+                            d="M32 48C23 40 19 31 32 14C45 31 41 40 32 48Z"
+                            stroke="currentColor"
+                            stroke-width="2"
+                        />
+                        <path
+                            d="M30 49C20 47 12 41 12 27C25 29 31 37 30 49Z"
+                            stroke="currentColor"
+                            stroke-width="2"
+                        />
+                        <path
+                            d="M34 49C44 47 52 41 52 27C39 29 33 37 34 49Z"
+                            stroke="currentColor"
+                            stroke-width="2"
+                        />
+                        <path
+                            d="M31 51C21 56 13 54 7 45C17 41 25 43 31 51Z"
+                            stroke="currentColor"
+                            stroke-width="2"
+                        />
+                        <path
+                            d="M33 51C43 56 51 54 57 45C47 41 39 43 33 51Z"
+                            stroke="currentColor"
+                            stroke-width="2"
+                        />
+                    </svg>
+                </span>
 
-  <main>
-    <section class="hero">
-      <div class="container">
-        <div class="breadcrumb">
-          <a href="index.html">Accueil</a>
-          <span>•</span>
-          <a href="index.html#services">Mes soins</a>
-          <span>•</span>
-          <strong>Soin minceur</strong>
+                <span class="brand-text">
+                    <span class="brand-name">Lys’Harmony</span>
+                    <span class="brand-tagline">
+                        Harmonie du corps, de l’âme et de l’énergie
+                    </span>
+                </span>
+
+            </a>
+
+            <nav class="main-nav" id="mainNav" aria-label="Navigation principale">
+                <a href="#accueil">Accueil</a>
+                <a href="#services">Mes soins</a>
+                <a href="#a-propos">À propos</a>
+                <a href="#contact">Contact</a>
+                <a href="disponibilites.html" class="nav-cta">Prendre rendez-vous</a>
+            </nav>
+
+            <button
+                class="menu-button"
+                id="menuButton"
+                type="button"
+                aria-label="Ouvrir le menu"
+                aria-expanded="false"
+                aria-controls="mainNav"
+            >
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
         </div>
+    </header>
 
-        <div class="hero-grid">
-          <div class="hero-copy">
-            <p class="eyebrow">Bien-être et silhouette</p>
-            <h1>Soin<br><span>minceur</span></h1>
 
-            <p class="intro">
-              Une séance personnalisée pour prendre soin de votre silhouette,
-              vous accorder un moment de bien-être et avancer à votre rythme dans un cadre bienveillant.
-            </p>
+    <main>
 
-            <ul class="hero-points" aria-label="Les intentions du soin minceur">
-              <li>Soin ciblé</li>
-              <li>Confort et bien-être</li>
-              <li>Accompagnement personnalisé</li>
-            </ul>
+        <!-- HERO / BANNIÈRE -->
 
-            <div class="price-badge" aria-label="Tarif du soin minceur : 70 euros la séance">
-              <strong>70 €</strong>
-              <span>la séance</span>
+        <section class="hero" id="accueil">
+
+            <div class="hero-media" aria-hidden="true">
+                <picture>
+                    <source
+                        media="(max-width: 760px)"
+                        srcset="images/lisetel.png"
+                    >
+
+                    <img
+                        src="images/lisepc.png"
+                        alt=""
+                        fetchpriority="high"
+                    >
+                </picture>
             </div>
 
-            <div class="hero-actions">
-              <a class="btn btn-primary" href="disponibilites.html">Consulter les disponibilités</a>
-              <a class="btn btn-secondary" href="#deroulement">Découvrir le soin</a>
+            <div class="hero-overlay"></div>
+
+            <span class="energy-particle"></span>
+            <span class="energy-particle"></span>
+            <span class="energy-particle"></span>
+            <span class="energy-particle"></span>
+
+            <div class="container hero-content">
+                <div class="hero-copy">
+
+                    <p class="hero-services">
+                        Massage bien-être<br>
+                        Soin minceur par cavitation ultrasonique<br>
+                        Magnétisme et énergétique<br>
+                        Alignement et harmonisation<br>
+                        Accompagnement énergétique
+                    </p>
+
+                    <h1 class="hero-title">
+                        Retrouvez votre
+                        <span>équilibre naturel</span>
+                    </h1>
+
+                    <p class="hero-description">
+                        Des soins personnalisés pour détendre le corps, prendre
+                        soin de votre silhouette, apaiser les tensions et
+                        rééquilibrer votre énergie avec douceur et bienveillance.
+                    </p>
+
+                    <div class="hero-actions">
+
+                        <a href="#services" class="button button-primary">
+                            <svg
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="1.8"
+                                aria-hidden="true"
+                            >
+                                <rect x="3" y="5" width="18" height="16" rx="2"/>
+                                <path d="M16 3v4M8 3v4M3 10h18"/>
+                                <path d="M8 14h2M14 14h2M8 18h2M14 18h2"/>
+                            </svg>
+
+                            Découvrir mes soins
+                        </a>
+
+                        <a href="#a-propos" class="button button-secondary">
+                            <svg
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="1.8"
+                                aria-hidden="true"
+                            >
+                                <circle cx="12" cy="12" r="9"/>
+                                <path d="M10 8.5L16 12L10 15.5V8.5Z"/>
+                            </svg>
+
+                            Découvrir mon approche
+                        </a>
+
+                    </div>
+
+                    <div class="hero-features">
+
+                        <div class="hero-feature">
+                            <span class="feature-icon">
+                                <svg
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="1.7"
+                                >
+                                    <path d="M12 21C8 16 5 12 5 8a7 7 0 0 1 14 0c0 4-3 8-7 13Z"/>
+                                    <circle cx="12" cy="8" r="2.5"/>
+                                </svg>
+                            </span>
+                            Approche personnalisée
+                        </div>
+
+                        <div class="hero-feature">
+                            <span class="feature-icon">
+                                <svg
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="1.7"
+                                >
+                                    <path d="M12 21V8"/>
+                                    <path d="M12 13C8 13 5 10 5 6c4 0 7 2 7 7Z"/>
+                                    <path d="M12 17c4 0 7-3 7-7-4 0-7 2-7 7Z"/>
+                                </svg>
+                            </span>
+                            Détente et bien-être
+                        </div>
+
+                        <div class="hero-feature">
+                            <span class="feature-icon">
+                                <svg
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="1.7"
+                                >
+                                    <path d="M12 2c2.5 4 5 6.5 5 10a5 5 0 0 1-10 0c0-3.5 2.5-6 5-10Z"/>
+                                    <path d="M12 21v-5"/>
+                                </svg>
+                            </span>
+                            Soin minceur par cavitation ultrasonique
+                        </div>
+
+                        <div class="hero-feature">
+                            <span class="feature-icon">
+                                <svg
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="1.7"
+                                >
+                                    <path d="M12 21s-8-4.5-8-11a4.5 4.5 0 0 1 8-2.8A4.5 4.5 0 0 1 20 10c0 6.5-8 11-8 11Z"/>
+                                </svg>
+                            </span>
+                            Équilibre énergétique
+                        </div>
+
+                    </div>
+
+                </div>
             </div>
-          </div>
 
-          <div class="photo-shell" aria-label="Galerie photo du soin minceur par cavitation et lipolaser">
-            <div class="photo-gallery">
-              <figure class="photo-card">
-                <img
-                  src="images/soin1.png"
-                  alt="Machine utilisée pour le soin minceur par cavitation et lipolaser"
-                  loading="eager"
-                  onload="this.parentElement.classList.add('has-image')"
-                  onerror="this.style.display='none'"
-                >
-                <div class="photo-fallback" aria-hidden="true">
-                  <span class="photo-fallback-icon">▧</span>
-                  <strong>Photo à venir</strong>
-                  <span>images/soin1.png</span>
-                </div>
-                <figcaption class="photo-caption">Appareil de cavitation et lipolaser</figcaption>
-              </figure>
 
-              <figure class="photo-card">
-                <img
-                  src="images/soins2.png"
-                  alt="Application de l’appareil minceur sur la cuisse"
-                  loading="lazy"
-                  onload="this.parentElement.classList.add('has-image')"
-                  onerror="this.style.display='none'"
-                >
-                <div class="photo-fallback" aria-hidden="true">
-                  <span class="photo-fallback-icon">▧</span>
-                  <strong>Photo à venir</strong>
-                  <span>images/soins2.png</span>
-                </div>
-                <figcaption class="photo-caption">Application ciblée sur la cuisse</figcaption>
-              </figure>
+            <div class="hero-bottom-shape" aria-hidden="true"></div>
 
-              <figure class="photo-card">
-                <img
-                  src="images/soins3.png"
-                  alt="Soin minceur réalisé sur une autre zone du corps"
-                  loading="lazy"
-                  onload="this.parentElement.classList.add('has-image')"
-                  onerror="this.style.display='none'"
+            <div class="hero-center-badge" aria-hidden="true">
+                <svg
+                    viewBox="0 0 64 64"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
                 >
-                <div class="photo-fallback" aria-hidden="true">
-                  <span class="photo-fallback-icon">▧</span>
-                  <strong>Photo à venir</strong>
-                  <span>images/soins3.png</span>
-                </div>
-                <figcaption class="photo-caption">Soin adapté à la zone choisie</figcaption>
-              </figure>
+                    <path d="M32 48C23 40 19 31 32 14C45 31 41 40 32 48Z" stroke="currentColor" stroke-width="2"/>
+                    <path d="M30 49C20 47 12 41 12 27C25 29 31 37 30 49Z" stroke="currentColor" stroke-width="2"/>
+                    <path d="M34 49C44 47 52 41 52 27C39 29 33 37 34 49Z" stroke="currentColor" stroke-width="2"/>
+                    <path d="M31 51C21 56 13 54 7 45C17 41 25 43 31 51Z" stroke="currentColor" stroke-width="2"/>
+                    <path d="M33 51C43 56 51 54 57 45C47 41 39 43 33 51Z" stroke="currentColor" stroke-width="2"/>
+                </svg>
             </div>
-          </div>
+
+        </section>
+
+
+        <!-- SERVICES -->
+
+        <section class="section services-section" id="services">
+            <div class="container">
+
+                <div class="services-header reveal">
+
+                    <div class="services-header-left">
+                        <span class="eyebrow">Mes soins et accompagnements</span>
+
+                        <h2 class="section-title">
+                            Des soins pensés pour
+                            <span>votre bien-être</span>
+                        </h2>
+                    </div>
+
+                    <p class="services-header-right">
+                        Massage bien-être, soin minceur par cavitation ultrasonique, magnétisme ou énergétique :
+                        chaque séance est adaptée à vos besoins, dans un espace
+                        d’écoute, de douceur et de bienveillance.
+                    </p>
+
+                </div>
+
+                <div
+                    class="services-slider reveal reveal-delay-1"
+                    id="servicesSlider"
+                    aria-label="Carrousel des soins et accompagnements"
+                >
+
+                    <div class="services-viewport">
+
+                        <div class="services-track">
+
+
+                            <!-- CARTE 1 -->
+
+                            <article class="service-card">
+
+                                <div class="service-image">
+                                    <img
+                                        src="images/case5.png"
+                                        alt="Massage bien-être dans un espace chaleureux"
+                                        loading="lazy"
+                                    >
+
+                                    <span class="service-number">01</span>
+                                </div>
+
+                                <div class="service-content">
+
+                                    <span
+                                        class="service-icon"
+                                        aria-hidden="true"
+                                        style="color: var(--rose);"
+                                    >
+                                        <svg
+                                            viewBox="0 0 64 64"
+                                            fill="none"
+                                            stroke="currentColor"
+                                            stroke-width="2"
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                        >
+                                            <path d="M15 35C22 29 29 27 38 28C44 29 49 32 53 37"/>
+                                            <path d="M12 44C20 38 28 36 38 37C44 38 49 41 53 46"/>
+                                            <path d="M18 25C22 20 27 17 33 16"/>
+                                            <path d="M39 15C43 16 47 18 50 21"/>
+                                            <path d="M25 48C28 52 36 53 40 49"/>
+                                        </svg>
+                                    </span>
+
+                                    <h3 class="service-title">
+                                        Massage<br>
+                                        bien-être
+                                    </h3>
+
+                                    <p class="service-description">
+                                        Un massage ciblé et personnalisé pour détendre
+                                        les zones sollicitées, relâcher les tensions
+                                        et retrouver une sensation de confort corporel.
+                                    </p>
+
+                                    <a href="massage-bien-etre.html" class="service-link">
+                                        Découvrir ce soin
+                                        <span aria-hidden="true">→</span>
+                                    </a>
+
+                                </div>
+                            </article>
+
+
+
+                            <!-- CARTE 2 -->
+
+                            <article class="service-card">
+
+                                <div class="service-image">
+                                  <img
+                                        src="images/soin-minceur-cavitation.png"
+                                        alt="Soin minceur par cavitation ultrasonique sur la cuisse"
+                                        loading="lazy"
+                                    >
+
+                                    <span class="service-number">02</span>
+                                </div>
+
+                                <div class="service-content">
+
+                                    <span
+                                        class="service-icon"
+                                        aria-hidden="true"
+                                        style="color: var(--lavender);"
+                                    >
+                                        <svg
+                                            viewBox="0 0 64 64"
+                                            fill="none"
+                                            stroke="currentColor"
+                                            stroke-width="2"
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                        >
+                                            <path d="M24 11C27 17 28 22 26 28C24 34 21 40 23 48"/>
+                                            <path d="M40 11C37 17 36 22 38 28C40 34 43 40 41 48"/>
+                                            <path d="M23 48C28 52 36 52 41 48"/>
+                                            <path d="M27 29C30 31 34 31 37 29"/>
+                                            <path d="M17 22C20 24 22 27 23 31"/>
+                                            <path d="M47 22C44 24 42 27 41 31"/>
+                                        </svg>
+                                    </span>
+
+                                    <h3 class="service-title">
+                                        Soin minceur<br>
+                                        par cavitation ultrasonique
+                                    </h3>
+
+                                    <p class="service-description">
+                                        Un soin esthétique non invasif réalisé avec un appareil
+                                        de cavitation par ondes ultrasoniques, conçu pour accompagner
+                                        le travail de la silhouette et cibler certaines zones du corps.
+                                    </p>
+
+                                    <a href="soin-minceur.html" class="service-link">
+                                        Découvrir ce soin
+                                        <span aria-hidden="true">→</span>
+                                    </a>
+
+                                </div>
+                            </article>
+
+
+                            <!-- CARTE 3 -->
+
+                            <article class="service-card">
+
+                                <div class="service-image">
+                                    <img
+                                        src="images/magneto.png"
+                                        alt="Séance de magnétisme et soin énergétique"
+                                        loading="lazy"
+                                    >
+
+                                    <span class="service-number">03</span>
+                                </div>
+
+                                <div class="service-content">
+
+                                    <span class="service-icon" aria-hidden="true">
+                                        <svg
+                                            viewBox="0 0 64 64"
+                                            fill="none"
+                                            stroke="currentColor"
+                                            stroke-width="2"
+                                        >
+                                            <path d="M32 49C24 42 20 34 32 17C44 34 40 42 32 49Z"/>
+                                            <path d="M30 50C20 49 13 43 13 30C25 32 31 39 30 50Z"/>
+                                            <path d="M34 50C44 49 51 43 51 30C39 32 33 39 34 50Z"/>
+                                        </svg>
+                                    </span>
+
+                                    <h3 class="service-title">
+                                        Magnétisme<br>
+                                        et énergétique
+                                    </h3>
+
+                                    <p class="service-description">
+                                        Une séance douce pour apaiser les tensions,
+                                        soulager les inconforts et favoriser une
+                                        meilleure circulation de l’énergie dans le corps.
+                                    </p>
+
+                                    <a href="magnetisme-energie.html" class="service-link">
+                                        Découvrir ce soin
+                                        <span aria-hidden="true">→</span>
+                                    </a>
+
+                                </div>
+                            </article>
+
+
+
+                            <!-- CARTE 4 -->
+
+                            <article class="service-card">
+
+                                <div class="service-image">
+                                    <img
+                                        src="images/harmour.png"
+                                        alt="Soin d’alignement et d’harmonisation énergétique"
+                                        loading="lazy"
+                                    >
+
+                                    <span class="service-number">04</span>
+                                </div>
+
+                                <div class="service-content">
+
+                                    <span
+                                        class="service-icon"
+                                        aria-hidden="true"
+                                        style="color: var(--lavender);"
+                                    >
+                                        <svg
+                                            viewBox="0 0 64 64"
+                                            fill="none"
+                                            stroke="currentColor"
+                                            stroke-width="2"
+                                        >
+                                            <circle cx="32" cy="32" r="7"/>
+                                            <circle cx="32" cy="32" r="17"/>
+                                            <path d="M32 5V18M32 46V59M5 32H18M46 32H59"/>
+                                            <path d="M13 13L22 22M42 42L51 51M51 13L42 22M22 42L13 51"/>
+                                        </svg>
+                                    </span>
+
+                                    <h3 class="service-title">
+                                        Alignement<br>
+                                        et harmonisation
+                                    </h3>
+
+                                    <p class="service-description">
+                                        Un soin global pour libérer les blocages
+                                        énergétiques, retrouver un équilibre intérieur
+                                        et harmoniser le corps et l’esprit.
+                                    </p>
+
+                                    <a href="alignement-harmonisation.html" class="service-link">
+                                        Découvrir ce soin
+                                        <span aria-hidden="true">→</span>
+                                    </a>
+
+                                </div>
+                            </article>
+
+
+
+                            <!-- CARTE 5 -->
+
+                            <article class="service-card">
+
+                                <div class="service-image">
+                                    <img
+                                        src="images/energie.png"
+                                        alt="Accompagnement énergétique personnalisé"
+                                        loading="lazy"
+                                    >
+
+                                    <span class="service-number">05</span>
+                                </div>
+
+                                <div class="service-content">
+
+                                    <span
+                                        class="service-icon"
+                                        aria-hidden="true"
+                                        style="color: var(--sage);"
+                                    >
+                                        <svg
+                                            viewBox="0 0 64 64"
+                                            fill="none"
+                                            stroke="currentColor"
+                                            stroke-width="2"
+                                        >
+                                            <path d="M32 54V25"/>
+                                            <path d="M32 36C21 36 13 28 13 16C24 16 32 24 32 36Z"/>
+                                            <path d="M32 43C43 43 51 35 51 23C40 23 32 31 32 43Z"/>
+                                            <path d="M20 54H44"/>
+                                        </svg>
+                                    </span>
+
+                                    <h3 class="service-title">
+                                        Accompagnement<br>
+                                        énergétique
+                                    </h3>
+
+                                    <p class="service-description">
+                                        Un accompagnement personnalisé pour traverser
+                                        une période de changement, mieux comprendre vos
+                                        ressentis et avancer avec plus de sérénité.
+                                    </p>
+
+                                    <a href="accompagnement-energetique.html" class="service-link">
+                                        Découvrir ce soin
+                                        <span aria-hidden="true">→</span>
+                                    </a>
+
+                                </div>
+                            </article>
+
+                        </div>
+                    </div>
+
+                    <div class="slider-controls">
+
+                        <button
+                            class="slider-button slider-prev"
+                            type="button"
+                            aria-label="Voir les soins précédents"
+                        >
+                            <svg
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="1.8"
+                            >
+                                <path d="M15 18L9 12L15 6"/>
+                            </svg>
+                        </button>
+
+                        <div
+                            class="slider-dots"
+                            aria-label="Navigation du carrousel"
+                        ></div>
+
+                        <button
+                            class="slider-button slider-next"
+                            type="button"
+                            aria-label="Voir les soins suivants"
+                        >
+                            <svg
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="1.8"
+                            >
+                                <path d="M9 18L15 12L9 6"/>
+                            </svg>
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- À PROPOS -->
+
+        <section class="section about-section" id="a-propos">
+            <div class="container about-grid">
+
+                <div class="about-image-column reveal">
+
+                    <div class="about-image">
+                        <img
+                            src="images/lisetel.png"
+                            alt="Lise, praticienne en bien-être et soins énergétiques"
+                            loading="lazy"
+                        >
+                    </div>
+
+                    <div class="experience-badge">
+                        <div>
+                            <strong>Lise</strong>
+                            <span>Une approche douce et intuitive</span>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="about-text reveal reveal-delay-1">
+
+                    <span class="eyebrow">À propos de moi</span>
+
+                    <h2 class="section-title">
+                        Guidée par l’écoute,
+                        <span>le corps et l’énergie</span>
+                    </h2>
+
+                    <p>
+                        Je vous accueille dans un espace chaleureux et
+                        bienveillant pour vous offrir un moment de détente,
+                        prendre soin de votre corps et retrouver plus d’équilibre.
+                    </p>
+
+                    <p>
+                        Massage bien-être, soin minceur par cavitation ultrasonique ou accompagnement énergétique :
+                        chaque séance est personnalisée selon vos ressentis et les
+                        besoins du moment, dans le respect de votre rythme.
+                    </p>
+
+                    <div class="about-points">
+
+                        <div class="about-point">
+                            <span>✓</span>
+                            Écoute et bienveillance
+                        </div>
+
+                        <div class="about-point">
+                            <span>✓</span>
+                            Séances personnalisées
+                        </div>
+
+                        <div class="about-point">
+                            <span>✓</span>
+                            Approche douce et globale
+                        </div>
+
+                        <div class="about-point">
+                            <span>✓</span>
+                            Respect de votre rythme
+                        </div>
+
+                    </div>
+
+                    <div class="about-actions">
+                        <a href="#contact" class="button button-primary">
+                            En savoir plus sur mon approche
+                        </a>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+
+
+
+        <!-- AVIS -->
+
+        <section class="section reviews-section" id="avis">
+            <div class="container">
+
+                <div class="reviews-header reveal">
+                    <div class="reviews-header-left">
+                        <span class="eyebrow">Témoignages</span>
+
+                        <h2 class="section-title">
+                            Quelques mots qui viennent
+                            <span>du cœur</span>
+                        </h2>
+                    </div>
+
+                    <p class="reviews-header-right">
+                        Des ressentis partagés après une rencontre ou un
+                        accompagnement avec Lise.
+                    </p>
+                </div>
+
+                <div
+                    class="reviews-slider reveal reveal-delay-1"
+                    id="reviewsSlider"
+                    aria-label="Carrousel des témoignages"
+                    tabindex="0"
+                >
+                    <div class="reviews-viewport">
+                        <div class="reviews-track">
+
+                            <article class="review-card">
+                                <div class="review-topline">
+                                    <div class="review-stars" aria-label="5 étoiles sur 5">★★★★★</div>
+                                    <span class="review-rating">5 / 5</span>
+                                </div>
+
+                                <div class="review-quote-mark" aria-hidden="true">“</div>
+
+                                <p class="review-text">
+                                    Un moment de détente profonde. Lise est douce, à l’écoute et met tout de suite en confiance. Je suis ressortie apaisée et beaucoup plus légère.
+                                </p>
+
+                                <div class="review-author">
+                                    <span class="review-avatar" aria-hidden="true">M</span>
+                                    <div>
+                                        <strong>Marie</strong>
+                                        <span>Massage bien-être</span>
+                                    </div>
+                                </div>
+                            </article>
+
+                            <article class="review-card">
+                                <div class="review-topline">
+                                    <div class="review-stars" aria-label="5 étoiles sur 5">★★★★★</div>
+                                    <span class="review-rating">5 / 5</span>
+                                </div>
+
+                                <div class="review-quote-mark" aria-hidden="true">“</div>
+
+                                <p class="review-text">
+                                    Une belle séance qui m’a aidée à relâcher beaucoup de tensions. J’ai apprécié la bienveillance, le calme et la qualité de l’accompagnement.
+                                </p>
+
+                                <div class="review-author">
+                                    <span class="review-avatar" aria-hidden="true">S</span>
+                                    <div>
+                                        <strong>Sophie</strong>
+                                        <span>Soin énergétique</span>
+                                    </div>
+                                </div>
+                            </article>
+
+                            <article class="review-card">
+                                <div class="review-topline">
+                                    <div class="review-stars" aria-label="5 étoiles sur 5">★★★★★</div>
+                                    <span class="review-rating">5 / 5</span>
+                                </div>
+
+                                <div class="review-quote-mark" aria-hidden="true">“</div>
+
+                                <p class="review-text">
+                                    Après la séance, j’ai ressenti un vrai apaisement intérieur. Lise prend le temps d’écouter et adapte son soin avec beaucoup de douceur.
+                                </p>
+
+                                <div class="review-author">
+                                    <span class="review-avatar" aria-hidden="true">N</span>
+                                    <div>
+                                        <strong>Nathalie</strong>
+                                        <span>Magnétisme</span>
+                                    </div>
+                                </div>
+                            </article>
+
+                            <article class="review-card">
+                                <div class="review-topline">
+                                    <div class="review-stars" aria-label="5 étoiles sur 5">★★★★★</div>
+                                    <span class="review-rating">5 / 5</span>
+                                </div>
+
+                                <div class="review-quote-mark" aria-hidden="true">“</div>
+
+                                <p class="review-text">
+                                    Une expérience très agréable, dans une ambiance rassurante. Je me suis sentie recentrée, plus calme et plus légère après la séance.
+                                </p>
+
+                                <div class="review-author">
+                                    <span class="review-avatar" aria-hidden="true">J</span>
+                                    <div>
+                                        <strong>Julie</strong>
+                                        <span>Alignement et harmonisation</span>
+                                    </div>
+                                </div>
+                            </article>
+
+                            <article class="review-card">
+                                <div class="review-topline">
+                                    <div class="review-stars" aria-label="5 étoiles sur 5">★★★★★</div>
+                                    <span class="review-rating">5 / 5</span>
+                                </div>
+
+                                <div class="review-quote-mark" aria-hidden="true">“</div>
+
+                                <p class="review-text">
+                                    Lise accompagne avec beaucoup de respect et de délicatesse. La séance m’a permis de prendre du recul et de retrouver plus de sérénité.
+                                </p>
+
+                                <div class="review-author">
+                                    <span class="review-avatar" aria-hidden="true">C</span>
+                                    <div>
+                                        <strong>Caroline</strong>
+                                        <span>Accompagnement énergétique</span>
+                                    </div>
+                                </div>
+                            </article>
+
+                            <article class="review-card">
+                                <div class="review-topline">
+                                    <div class="review-stars" aria-label="5 étoiles sur 5">★★★★★</div>
+                                    <span class="review-rating">5 / 5</span>
+                                </div>
+
+                                <div class="review-quote-mark" aria-hidden="true">“</div>
+
+                                <p class="review-text">
+                                    Un très beau moment pour soi. L’espace est chaleureux, l’accueil est doux et le soin procure une vraie sensation de détente.
+                                </p>
+
+                                <div class="review-author">
+                                    <span class="review-avatar" aria-hidden="true">É</span>
+                                    <div>
+                                        <strong>Émilie</strong>
+                                        <span>Bien-être</span>
+                                    </div>
+                                </div>
+                            </article>
+
+                            <article class="review-card">
+                                <div class="review-topline">
+                                    <div class="review-stars" aria-label="5 étoiles sur 5">★★★★★</div>
+                                    <span class="review-rating">5 / 5</span>
+                                </div>
+
+                                <div class="review-quote-mark" aria-hidden="true">“</div>
+
+                                <p class="review-text">
+                                    Séance agréable et professionnelle. Lise explique bien le déroulement, reste attentive aux ressentis et le soin laisse une sensation de légèreté.
+                                </p>
+
+                                <div class="review-author">
+                                    <span class="review-avatar" aria-hidden="true">A</span>
+                                    <div>
+                                        <strong>Aurélie</strong>
+                                        <span>Soin minceur par cavitation ultrasonique</span>
+                                    </div>
+                                </div>
+                            </article>
+
+                            <article class="review-card">
+                                <div class="review-topline">
+                                    <div class="review-stars" aria-label="5 étoiles sur 5">★★★★★</div>
+                                    <span class="review-rating">5 / 5</span>
+                                </div>
+
+                                <div class="review-quote-mark" aria-hidden="true">“</div>
+
+                                <p class="review-text">
+                                    J’ai beaucoup apprécié l’approche douce et personnalisée. On se sent écoutée, respectée et accompagnée avec beaucoup de bienveillance.
+                                </p>
+
+                                <div class="review-author">
+                                    <span class="review-avatar" aria-hidden="true">I</span>
+                                    <div>
+                                        <strong>Isabelle</strong>
+                                        <span>Détente et énergie</span>
+                                    </div>
+                                </div>
+                            </article>
+
+                        </div>
+                    </div>
+
+                    <div class="reviews-controls">
+                        <button
+                            class="reviews-button reviews-prev"
+                            type="button"
+                            aria-label="Voir le témoignage précédent"
+                        >
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                                <path d="M15 18L9 12L15 6"/>
+                            </svg>
+                        </button>
+
+                        <div class="reviews-dots" aria-label="Navigation des témoignages"></div>
+
+                        <button
+                            class="reviews-button reviews-next"
+                            type="button"
+                            aria-label="Voir le témoignage suivant"
+                        >
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                                <path d="M9 18L15 12L9 6"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- CONTACT / RENDEZ-VOUS -->
+
+        <section class="section contact-section" id="contact">
+            <div class="container contact-inner">
+
+                <div class="contact-copy reveal">
+
+                    <span class="eyebrow">Prendre soin de vous</span>
+
+                    <h2>
+                        Accordez-vous un moment pour
+                        <span>vous retrouver</span>
+                    </h2>
+
+                    <p>
+                        Contactez-moi pour échanger sur vos besoins et choisir
+                        ensemble le soin, le massage ou l’accompagnement le plus adapté.
+                    </p>
+
+                </div>
+
+                <!-- Remplacer # par le lien de réservation -->
+
+                <a
+                    href="disponibilites.html"
+                    class="button button-primary contact-button reveal reveal-delay-1"
+                >
+                    Prendre rendez-vous
+                </a>
+
+            </div>
+        </section>
+
+    </main>
+
+
+    <!-- FOOTER -->
+
+    <footer class="site-footer">
+        <div class="container footer-inner">
+
+            <div>
+                <div class="footer-brand">Lys’Harmony</div>
+
+                <p class="copyright">
+                    © <span id="currentYear"></span> Lys’Harmony.
+                    Tous droits réservés.
+                </p>
+            </div>
+
+            <div class="footer-links">
+                <a href="#accueil">Accueil</a>
+                <a href="#services">Mes soins</a>
+                <a href="#a-propos">À propos</a>
+                <a href="#contact">Contact</a>
+                <a href="#">Mentions légales</a>
+            </div>
+
         </div>
-      </div>
-    </section>
+    </footer>
 
-    <section class="section section-soft" aria-labelledby="bienfaits-title">
-      <div class="container">
-        <div class="section-heading">
-          <p class="eyebrow">Prendre soin de sa silhouette</p>
-          <h2 id="bienfaits-title">Une approche douce, personnalisée et bienveillante</h2>
-          <p>
-            Le soin minceur est pensé comme un accompagnement sur mesure, adapté à vos attentes,
-            à votre confort et aux zones que vous souhaitez privilégier pendant la séance.
-          </p>
-        </div>
 
-        <div class="benefit-grid">
-          <article class="benefit-card">
-            <span class="benefit-icon" aria-hidden="true">✦</span>
-            <h3>Un soin ciblé</h3>
-            <p>
-              La séance est adaptée aux zones que vous souhaitez travailler,
-              dans le respect de votre confort et de votre sensibilité.
-            </p>
-          </article>
+    <script>
+        "use strict";
 
-          <article class="benefit-card">
-            <span class="benefit-icon" aria-hidden="true">○</span>
-            <h3>Un moment pour soi</h3>
-            <p>
-              L’ambiance chaleureuse vous permet de ralentir, de vous recentrer
-              et de profiter pleinement d’une parenthèse de bien-être.
-            </p>
-          </article>
+        /*
+        ====================================================
+        HEADER AU DÉFILEMENT
+        ====================================================
+        */
 
-          <article class="benefit-card">
-            <span class="benefit-icon" aria-hidden="true">♡</span>
-            <h3>Un accompagnement personnalisé</h3>
-            <p>
-              Chaque séance est ajustée à vos objectifs, à vos préférences
-              et à votre ressenti du moment, sans promesse irréaliste.
-            </p>
-          </article>
-        </div>
-      </div>
-    </section>
+        const siteHeader = document.getElementById("siteHeader");
 
-    <section class="section" id="deroulement" aria-labelledby="deroulement-title">
-      <div class="container process-grid">
-        <div class="process-copy">
-          <p class="eyebrow">Déroulement de la séance</p>
-          <h2 id="deroulement-title">Une séance construite autour de vos besoins</h2>
-          <p>
-            Avant de commencer, un court échange permet de comprendre vos attentes,
-            de définir les zones à privilégier et d’adapter la séance à votre confort.
-          </p>
+        function updateHeader() {
+            siteHeader.classList.toggle("scrolled", window.scrollY > 30);
+        }
 
-          <div class="steps">
-            <article class="step">
-              <span class="step-number">01</span>
-              <div>
-                <h3>Temps d’échange</h3>
-                <p>Vos attentes, votre niveau de confort et les zones à privilégier sont définis ensemble.</p>
-              </div>
-            </article>
+        updateHeader();
+        window.addEventListener("scroll", updateHeader, { passive: true });
 
-            <article class="step">
-              <span class="step-number">02</span>
-              <div>
-                <h3>Soin personnalisé</h3>
-                <p>Le soin est réalisé de manière ciblée et ajusté à votre sensibilité tout au long de la séance.</p>
-              </div>
-            </article>
 
-            <article class="step">
-              <span class="step-number">03</span>
-              <div>
-                <h3>Fin de séance</h3>
-                <p>Un temps est prévu pour recueillir votre ressenti et terminer la séance en douceur.</p>
-              </div>
-            </article>
-          </div>
-        </div>
+        /*
+        ====================================================
+        MENU MOBILE
+        ====================================================
+        */
 
-        <aside class="info-panel" aria-label="Informations sur le soin minceur">
-          <p class="eyebrow">À savoir</p>
-          <h3>Un soin en toute sérénité</h3>
+        const menuButton = document.getElementById("menuButton");
+        const mainNav = document.getElementById("mainNav");
+        const navigationLinks = mainNav.querySelectorAll("a");
 
-          <ul class="info-list">
-            <li>Accueil dans un espace calme, chaleureux et bienveillant.</li>
-            <li>Soin adapté à vos attentes, à votre sensibilité et à votre confort.</li>
-            <li>Tarif : 70 € la séance.</li>
-            <li>Respect permanent de votre intimité et de vos limites.</li>
-            <li>Possibilité de signaler à tout moment une gêne ou une zone sensible.</li>
-            <li>Prise de rendez-vous directement depuis la page des disponibilités.</li>
-          </ul>
+        function closeMobileMenu() {
+            menuButton.classList.remove("active");
+            mainNav.classList.remove("open");
+            document.body.classList.remove("menu-open");
 
-          <p class="notice">
-            Le soin minceur est une prestation de bien-être sans finalité médicale ni thérapeutique.
-            Il ne garantit pas une perte de poids et ne remplace pas l’avis d’un professionnel de santé.
-          </p>
-        </aside>
-      </div>
-    </section>
+            menuButton.setAttribute("aria-expanded", "false");
+            menuButton.setAttribute("aria-label", "Ouvrir le menu");
+        }
 
-    <section class="section cta-section">
-      <div class="container cta-inner">
-        <div class="cta-copy">
-          <p class="eyebrow">Votre rendez-vous bien-être</p>
-          <h2>Prenez soin de votre silhouette à votre rythme</h2>
-          <p>
-            Consultez les disponibilités et choisissez le moment qui vous convient
-            pour votre séance de soin minceur avec Lise.
-          </p>
-        </div>
+        menuButton.addEventListener("click", () => {
+            const menuIsOpen = mainNav.classList.toggle("open");
 
-        <a class="btn btn-primary" href="disponibilites.html">Prendre rendez-vous</a>
-      </div>
-    </section>
-  </main>
+            menuButton.classList.toggle("active", menuIsOpen);
+            document.body.classList.toggle("menu-open", menuIsOpen);
 
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <span class="footer-brand">Lys’Harmony</span>
+            menuButton.setAttribute(
+                "aria-expanded",
+                String(menuIsOpen)
+            );
 
-      <div class="footer-links">
-        <a href="index.html">Accueil</a>
-        <a href="index.html#services">Mes soins</a>
-        <a href="disponibilites.html">Rendez-vous</a>
-        <a href="mentions-legales.html">Mentions légales</a>
-      </div>
-
-      <span>© 2026 Lys’Harmony</span>
-    </div>
-  </footer>
-
-  <script>
-    const menuButton = document.querySelector('.menu-button');
-    const menu = document.querySelector('.nav-links');
-
-    if (menuButton && menu) {
-      menuButton.addEventListener('click', () => {
-        const isOpen = menu.classList.toggle('open');
-        document.body.classList.toggle('menu-open', isOpen);
-        menuButton.setAttribute('aria-expanded', String(isOpen));
-        menuButton.setAttribute('aria-label', isOpen ? 'Fermer le menu' : 'Ouvrir le menu');
-        menuButton.textContent = isOpen ? '×' : '☰';
-      });
-
-      menu.querySelectorAll('a').forEach((link) => {
-        link.addEventListener('click', () => {
-          menu.classList.remove('open');
-          document.body.classList.remove('menu-open');
-          menuButton.setAttribute('aria-expanded', 'false');
-          menuButton.setAttribute('aria-label', 'Ouvrir le menu');
-          menuButton.textContent = '☰';
+            menuButton.setAttribute(
+                "aria-label",
+                menuIsOpen ? "Fermer le menu" : "Ouvrir le menu"
+            );
         });
-      });
-    }
 
-  </script>
+        navigationLinks.forEach((link) => {
+            link.addEventListener("click", closeMobileMenu);
+        });
+
+        window.addEventListener("resize", () => {
+            if (window.innerWidth > 760) {
+                closeMobileMenu();
+            }
+        });
+
+
+        /*
+        ====================================================
+        APPARITION DES ÉLÉMENTS AU DÉFILEMENT
+        ====================================================
+        */
+
+        const revealElements = document.querySelectorAll(".reveal");
+
+        const revealObserver = new IntersectionObserver(
+            (entries, observer) => {
+                entries.forEach((entry) => {
+                    if (!entry.isIntersecting) {
+                        return;
+                    }
+
+                    entry.target.classList.add("is-visible");
+                    observer.unobserve(entry.target);
+                });
+            },
+            {
+                threshold: 0.14,
+                rootMargin: "0px 0px -50px 0px"
+            }
+        );
+
+        revealElements.forEach((element) => {
+            revealObserver.observe(element);
+        });
+
+
+        /*
+        ====================================================
+        CARROUSEL DES SERVICES
+        ====================================================
+        */
+
+        class ServicesSlider {
+            constructor(sliderElement) {
+                this.slider = sliderElement;
+                this.viewport =
+                    sliderElement.querySelector(".services-viewport");
+
+                this.track =
+                    sliderElement.querySelector(".services-track");
+
+                this.cards = Array.from(
+                    sliderElement.querySelectorAll(".service-card")
+                );
+
+                this.previousButton =
+                    sliderElement.querySelector(".slider-prev");
+
+                this.nextButton =
+                    sliderElement.querySelector(".slider-next");
+
+                this.dotsContainer =
+                    sliderElement.querySelector(".slider-dots");
+
+                this.currentIndex = 0;
+                this.visibleCards = 1;
+                this.maximumIndex = 0;
+                this.autoplayTimer = null;
+
+                this.pointerStartX = 0;
+                this.pointerCurrentX = 0;
+                this.isDragging = false;
+
+                this.initialize();
+            }
+
+            initialize() {
+                this.updateDimensions();
+                this.createDots();
+                this.updateSlider(false);
+                this.bindEvents();
+                this.startAutoplay();
+            }
+
+            getVisibleCards() {
+                return window.innerWidth > 760 ? 2 : 1;
+            }
+
+            updateDimensions() {
+                this.visibleCards = this.getVisibleCards();
+
+                this.maximumIndex = Math.max(
+                    0,
+                    this.cards.length - this.visibleCards
+                );
+
+                this.currentIndex = Math.min(
+                    this.currentIndex,
+                    this.maximumIndex
+                );
+            }
+
+            getCardStep() {
+                const firstCard = this.cards[0];
+
+                if (!firstCard) {
+                    return 0;
+                }
+
+                const trackStyle = window.getComputedStyle(this.track);
+                const gap = parseFloat(trackStyle.columnGap) || 0;
+
+                return firstCard.getBoundingClientRect().width + gap;
+            }
+
+            createDots() {
+                this.dotsContainer.innerHTML = "";
+
+                for (let index = 0; index <= this.maximumIndex; index += 1) {
+                    const dot = document.createElement("button");
+
+                    dot.type = "button";
+                    dot.className = "slider-dot";
+                    dot.setAttribute(
+                        "aria-label",
+                        `Afficher la position ${index + 1}`
+                    );
+
+                    dot.addEventListener("click", () => {
+                        this.goTo(index);
+                        this.restartAutoplay();
+                    });
+
+                    this.dotsContainer.appendChild(dot);
+                }
+            }
+
+            updateSlider(animate = true) {
+                if (!animate) {
+                    this.track.style.transition = "none";
+                }
+
+                const offset = this.currentIndex * this.getCardStep();
+
+                this.track.style.transform =
+                    `translate3d(${-offset}px, 0, 0)`;
+
+                this.previousButton.disabled =
+                    this.currentIndex === 0;
+
+                this.nextButton.disabled =
+                    this.currentIndex === this.maximumIndex;
+
+                const dots = this.dotsContainer.querySelectorAll(".slider-dot");
+
+                dots.forEach((dot, index) => {
+                    dot.classList.toggle(
+                        "active",
+                        index === this.currentIndex
+                    );
+                });
+
+                if (!animate) {
+                    requestAnimationFrame(() => {
+                        requestAnimationFrame(() => {
+                            this.track.style.transition = "";
+                        });
+                    });
+                }
+            }
+
+            goTo(index) {
+                this.currentIndex = Math.max(
+                    0,
+                    Math.min(index, this.maximumIndex)
+                );
+
+                this.updateSlider();
+            }
+
+            next() {
+                if (this.currentIndex >= this.maximumIndex) {
+                    this.goTo(0);
+                    return;
+                }
+
+                this.goTo(this.currentIndex + 1);
+            }
+
+            previous() {
+                if (this.currentIndex <= 0) {
+                    this.goTo(this.maximumIndex);
+                    return;
+                }
+
+                this.goTo(this.currentIndex - 1);
+            }
+
+            startAutoplay() {
+                this.stopAutoplay();
+
+                this.autoplayTimer = window.setInterval(() => {
+                    this.next();
+                }, 3000);
+            }
+
+            stopAutoplay() {
+                if (this.autoplayTimer) {
+                    window.clearInterval(this.autoplayTimer);
+                    this.autoplayTimer = null;
+                }
+            }
+
+            restartAutoplay() {
+                this.stopAutoplay();
+                this.startAutoplay();
+            }
+
+            bindEvents() {
+                this.previousButton.addEventListener("click", () => {
+                    this.previous();
+                    this.restartAutoplay();
+                });
+
+                this.nextButton.addEventListener("click", () => {
+                    this.next();
+                    this.restartAutoplay();
+                });
+
+                this.slider.addEventListener("mouseenter", () => {
+                    this.stopAutoplay();
+                });
+
+                this.slider.addEventListener("mouseleave", () => {
+                    this.startAutoplay();
+                });
+
+                this.slider.addEventListener("focusin", () => {
+                    this.stopAutoplay();
+                });
+
+                this.slider.addEventListener("focusout", () => {
+                    this.startAutoplay();
+                });
+
+                this.viewport.querySelectorAll("img").forEach((image) => {
+                    image.addEventListener("dragstart", (event) => {
+                        event.preventDefault();
+                    });
+                });
+
+                this.viewport.addEventListener("pointerdown", (event) => {
+                    /*
+                    Sur ordinateur, la souris ne déclenche pas le glissement.
+                    Cela laisse les liens fonctionner normalement au clic gauche.
+                    Le glissement reste actif au doigt sur mobile et tablette.
+                    */
+                    if (
+                        event.pointerType === "mouse" ||
+                        event.target.closest("a, button")
+                    ) {
+                        this.isDragging = false;
+                        return;
+                    }
+
+                    this.isDragging = true;
+                    this.pointerStartX = event.clientX;
+                    this.pointerCurrentX = event.clientX;
+
+                    this.stopAutoplay();
+
+                    this.viewport.setPointerCapture(event.pointerId);
+                });
+
+                this.viewport.addEventListener("pointermove", (event) => {
+                    if (!this.isDragging) {
+                        return;
+                    }
+
+                    this.pointerCurrentX = event.clientX;
+                });
+
+                this.viewport.addEventListener("pointerup", (event) => {
+                    if (!this.isDragging) {
+                        return;
+                    }
+
+                    this.isDragging = false;
+
+                    const movement =
+                        this.pointerCurrentX - this.pointerStartX;
+
+                    if (Math.abs(movement) > 55) {
+                        if (movement < 0) {
+                            this.next();
+                        } else {
+                            this.previous();
+                        }
+                    }
+
+                    try {
+                        this.viewport.releasePointerCapture(event.pointerId);
+                    } catch (error) {
+                        // Le pointeur peut déjà avoir été libéré.
+                    }
+
+                    this.startAutoplay();
+                });
+
+                this.viewport.addEventListener("pointercancel", () => {
+                    this.isDragging = false;
+                    this.startAutoplay();
+                });
+
+                this.slider.addEventListener("keydown", (event) => {
+                    if (event.key === "ArrowLeft") {
+                        this.previous();
+                        this.restartAutoplay();
+                    }
+
+                    if (event.key === "ArrowRight") {
+                        this.next();
+                        this.restartAutoplay();
+                    }
+                });
+
+                let resizeTimer;
+
+                window.addEventListener("resize", () => {
+                    window.clearTimeout(resizeTimer);
+
+                    resizeTimer = window.setTimeout(() => {
+                        const previousVisibleCards = this.visibleCards;
+
+                        this.updateDimensions();
+
+                        if (previousVisibleCards !== this.visibleCards) {
+                            this.createDots();
+                        }
+
+                        this.updateSlider(false);
+                    }, 120);
+                });
+            }
+        }
+
+        const servicesSlider =
+            document.getElementById("servicesSlider");
+
+        if (servicesSlider) {
+            new ServicesSlider(servicesSlider);
+        }
+
+
+
+
+        /*
+        ====================================================
+        CARROUSEL DES TÉMOIGNAGES
+        ====================================================
+        */
+
+        class ReviewsSlider {
+            constructor(sliderElement) {
+                this.slider = sliderElement;
+                this.viewport = sliderElement.querySelector(".reviews-viewport");
+                this.track = sliderElement.querySelector(".reviews-track");
+                this.cards = Array.from(sliderElement.querySelectorAll(".review-card"));
+                this.previousButton = sliderElement.querySelector(".reviews-prev");
+                this.nextButton = sliderElement.querySelector(".reviews-next");
+                this.dotsContainer = sliderElement.querySelector(".reviews-dots");
+
+                this.currentIndex = 0;
+                this.visibleCards = 1;
+                this.maximumIndex = 0;
+                this.autoplayTimer = null;
+                this.pointerStartX = 0;
+                this.pointerCurrentX = 0;
+                this.isDragging = false;
+
+                this.initialize();
+            }
+
+            initialize() {
+                this.updateDimensions();
+                this.createDots();
+                this.updateSlider(false);
+                this.bindEvents();
+                this.startAutoplay();
+            }
+
+            getVisibleCards() {
+                return window.innerWidth > 760 ? 2 : 1;
+            }
+
+            updateDimensions() {
+                this.visibleCards = this.getVisibleCards();
+                this.maximumIndex = Math.max(0, this.cards.length - this.visibleCards);
+                this.currentIndex = Math.min(this.currentIndex, this.maximumIndex);
+            }
+
+            getCardStep() {
+                const firstCard = this.cards[0];
+
+                if (!firstCard) {
+                    return 0;
+                }
+
+                const trackStyle = window.getComputedStyle(this.track);
+                const gap = parseFloat(trackStyle.columnGap) || 0;
+
+                return firstCard.getBoundingClientRect().width + gap;
+            }
+
+            createDots() {
+                this.dotsContainer.innerHTML = "";
+
+                for (let index = 0; index <= this.maximumIndex; index += 1) {
+                    const dot = document.createElement("button");
+                    dot.type = "button";
+                    dot.className = "reviews-dot";
+                    dot.setAttribute("aria-label", `Afficher le témoignage ${index + 1}`);
+
+                    dot.addEventListener("click", () => {
+                        this.goTo(index);
+                        this.restartAutoplay();
+                    });
+
+                    this.dotsContainer.appendChild(dot);
+                }
+            }
+
+            updateSlider(animate = true) {
+                if (!animate) {
+                    this.track.style.transition = "none";
+                }
+
+                const offset = this.currentIndex * this.getCardStep();
+                this.track.style.transform = `translate3d(${-offset}px, 0, 0)`;
+
+                const dots = this.dotsContainer.querySelectorAll(".reviews-dot");
+                dots.forEach((dot, index) => {
+                    dot.classList.toggle("active", index === this.currentIndex);
+                });
+
+                if (!animate) {
+                    requestAnimationFrame(() => {
+                        requestAnimationFrame(() => {
+                            this.track.style.transition = "";
+                        });
+                    });
+                }
+            }
+
+            goTo(index) {
+                this.currentIndex = Math.max(0, Math.min(index, this.maximumIndex));
+                this.updateSlider();
+            }
+
+            next() {
+                this.goTo(
+                    this.currentIndex >= this.maximumIndex
+                        ? 0
+                        : this.currentIndex + 1
+                );
+            }
+
+            previous() {
+                this.goTo(
+                    this.currentIndex <= 0
+                        ? this.maximumIndex
+                        : this.currentIndex - 1
+                );
+            }
+
+            startAutoplay() {
+                this.stopAutoplay();
+
+                if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+                    return;
+                }
+
+                this.autoplayTimer = window.setInterval(() => {
+                    this.next();
+                }, 4000);
+            }
+
+            stopAutoplay() {
+                if (this.autoplayTimer) {
+                    window.clearInterval(this.autoplayTimer);
+                    this.autoplayTimer = null;
+                }
+            }
+
+            restartAutoplay() {
+                this.stopAutoplay();
+                this.startAutoplay();
+            }
+
+            bindEvents() {
+                this.previousButton.addEventListener("click", () => {
+                    this.previous();
+                    this.restartAutoplay();
+                });
+
+                this.nextButton.addEventListener("click", () => {
+                    this.next();
+                    this.restartAutoplay();
+                });
+
+                this.slider.addEventListener("mouseenter", () => {
+                    this.stopAutoplay();
+                });
+
+                this.slider.addEventListener("mouseleave", () => {
+                    this.startAutoplay();
+                });
+
+                this.slider.addEventListener("focusin", () => {
+                    this.stopAutoplay();
+                });
+
+                this.slider.addEventListener("focusout", () => {
+                    this.startAutoplay();
+                });
+
+                this.viewport.addEventListener("pointerdown", (event) => {
+                    if (event.pointerType === "mouse" || event.target.closest("button")) {
+                        this.isDragging = false;
+                        return;
+                    }
+
+                    this.isDragging = true;
+                    this.pointerStartX = event.clientX;
+                    this.pointerCurrentX = event.clientX;
+                    this.stopAutoplay();
+                    this.viewport.setPointerCapture(event.pointerId);
+                });
+
+                this.viewport.addEventListener("pointermove", (event) => {
+                    if (this.isDragging) {
+                        this.pointerCurrentX = event.clientX;
+                    }
+                });
+
+                this.viewport.addEventListener("pointerup", (event) => {
+                    if (!this.isDragging) {
+                        return;
+                    }
+
+                    this.isDragging = false;
+                    const movement = this.pointerCurrentX - this.pointerStartX;
+
+                    if (Math.abs(movement) > 55) {
+                        movement < 0 ? this.next() : this.previous();
+                    }
+
+                    try {
+                        this.viewport.releasePointerCapture(event.pointerId);
+                    } catch (error) {
+                        // Le pointeur peut déjà avoir été libéré.
+                    }
+
+                    this.startAutoplay();
+                });
+
+                this.viewport.addEventListener("pointercancel", () => {
+                    this.isDragging = false;
+                    this.startAutoplay();
+                });
+
+                this.slider.addEventListener("keydown", (event) => {
+                    if (event.key === "ArrowLeft") {
+                        this.previous();
+                        this.restartAutoplay();
+                    }
+
+                    if (event.key === "ArrowRight") {
+                        this.next();
+                        this.restartAutoplay();
+                    }
+                });
+
+                let resizeTimer;
+
+                window.addEventListener("resize", () => {
+                    window.clearTimeout(resizeTimer);
+
+                    resizeTimer = window.setTimeout(() => {
+                        const previousVisibleCards = this.visibleCards;
+                        this.updateDimensions();
+
+                        if (previousVisibleCards !== this.visibleCards) {
+                            this.createDots();
+                        }
+
+                        this.updateSlider(false);
+                    }, 120);
+                });
+            }
+        }
+
+        const reviewsSlider = document.getElementById("reviewsSlider");
+
+        if (reviewsSlider) {
+            new ReviewsSlider(reviewsSlider);
+        }
+
+
+        /*
+        ====================================================
+        ANNÉE AUTOMATIQUE
+        ====================================================
+        */
+
+        document.getElementById("currentYear").textContent =
+            new Date().getFullYear();
+    </script>
+
+    
 </body>
 </html>
