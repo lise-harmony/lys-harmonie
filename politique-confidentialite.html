@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Informations légales | Lys’Harmony</title>
+  <meta name="description" content="Mentions légales, politique de confidentialité et politique relative aux cookies du site Lys’Harmony.">
+  <meta name="theme-color" content="#fbf7f1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+:root{
+  --bg:#fbf7f1;
+  --surface:#fffdf9;
+  --surface-soft:#f5ece2;
+  --text:#302923;
+  --muted:#756a61;
+  --gold:#bd7b27;
+  --gold-dark:#945818;
+  --gold-soft:#eed8b9;
+  --rose:#c9988e;
+  --sage:#87947b;
+  --line:rgba(95,71,49,.13);
+  --shadow:0 24px 60px rgba(84,61,38,.13);
+  --radius-lg:34px;
+  --radius-md:24px;
+  --container:1060px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:100px}
+body{
+  margin:0;
+  overflow-x:hidden;
+  color:var(--text);
+  background:
+    radial-gradient(circle at 92% 10%,rgba(201,152,142,.20),transparent 31rem),
+    radial-gradient(circle at 4% 82%,rgba(225,205,168,.28),transparent 31rem),
+    var(--bg);
+  font-family:"Manrope",sans-serif;
+  line-height:1.72
+}
+body.menu-open{overflow:hidden}
+a{color:inherit;text-decoration:none}
+button{font:inherit}
+.container{width:min(calc(100% - 40px),var(--container));margin-inline:auto}
+.site-header{
+  position:sticky;z-index:50;top:0;
+  border-bottom:1px solid var(--line);
+  background:rgba(255,252,247,.92);
+  box-shadow:0 8px 30px rgba(73,49,30,.04);
+  backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px)
+}
+.nav{display:flex;min-height:84px;align-items:center;justify-content:space-between;gap:28px}
+.brand{display:inline-flex;min-width:max-content;align-items:center;gap:13px}
+.brand-mark{
+  display:grid;width:42px;height:42px;place-items:center;
+  border:1px solid var(--gold-soft);border-radius:50%;
+  background:#fffaf3;color:var(--gold);
+  box-shadow:0 8px 24px rgba(184,121,38,.09)
+}
+.brand-mark svg{width:24px;height:24px}
+.brand-name{display:block;font-family:"Cormorant Garamond",serif;font-size:25px;font-weight:600;line-height:1}
+.brand-tagline{display:block;margin-top:4px;color:var(--muted);font-size:8px;letter-spacing:.16em;text-transform:uppercase}
+.nav-links{display:flex;align-items:center;justify-content:center;gap:26px;font-size:14px;font-weight:600}
+.nav-links a:hover,.nav-links a:focus-visible{color:var(--gold-dark)}
+.nav-cta{
+  display:inline-flex;min-height:50px;align-items:center;justify-content:center;
+  padding:0 23px;border:1px solid var(--gold);border-radius:999px;
+  background:rgba(255,253,249,.72);color:var(--gold-dark);
+  font-size:14px;font-weight:700;transition:transform .18s ease
+}
+.nav-cta:hover{transform:translateY(-2px)}
+.menu-button{
+  display:none;width:44px;height:44px;cursor:pointer;border:1px solid var(--line);
+  border-radius:50%;background:var(--surface);color:var(--text);font-size:21px
+}
+.hero{position:relative;padding:70px 0 54px;overflow:hidden}
+.hero:after{
+  position:absolute;z-index:-1;top:45px;right:-190px;width:480px;height:480px;
+  border:1px solid rgba(189,123,39,.14);border-radius:50%;content:""
+}
+.breadcrumb{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-bottom:28px;color:var(--muted);font-size:13px;font-weight:600}
+.breadcrumb span{color:var(--gold)}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;margin:0 0 16px;color:var(--gold-dark);font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase}
+.eyebrow:before{width:28px;height:1px;background:var(--gold);content:""}
+h1,h2,h3{margin-top:0;font-family:"Cormorant Garamond",serif;font-weight:600;line-height:1.08}
+h1{max-width:860px;margin-bottom:22px;font-size:clamp(48px,7vw,78px);letter-spacing:-.035em}
+h1 span{color:var(--gold);font-style:italic}
+.intro{max-width:790px;margin:0;color:var(--muted);font-size:clamp(16px,2vw,19px)}
+.legal-wrap{padding:20px 0 96px}
+.legal-card{
+  padding:clamp(25px,5vw,52px);border:1px solid var(--line);border-radius:var(--radius-lg);
+  background:rgba(255,253,249,.88);box-shadow:var(--shadow)
+}
+.summary{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:15px;margin:0 0 40px
+}
+.summary a{
+  padding:16px 18px;border:1px solid var(--line);border-radius:18px;
+  background:var(--surface-soft);color:var(--gold-dark);font-size:13px;font-weight:700
+}
+.summary a:hover{border-color:rgba(189,123,39,.35)}
+.legal-section{padding:30px 0;border-top:1px solid var(--line)}
+.legal-section:first-of-type{border-top:0;padding-top:0}
+.legal-section h2{margin-bottom:14px;font-size:clamp(30px,4vw,42px)}
+.legal-section h3{margin:24px 0 8px;font-size:27px}
+.legal-section p{margin:0 0 13px;color:#5f554d}
+.legal-section ul{margin:10px 0 15px;padding-left:22px;color:#5f554d}
+.legal-section li{margin:7px 0}
+.info-box,.warning-box{
+  margin:18px 0;padding:18px 20px;border-radius:18px;font-size:14px
+}
+.info-box{border:1px solid rgba(135,148,123,.24);background:rgba(135,148,123,.10);color:#52604d}
+.warning-box{border:1px solid rgba(189,123,39,.28);background:rgba(238,216,185,.24);color:#6b5947}
+.todo{
+  display:inline-block;padding:2px 8px;border:1px dashed #b65a48;border-radius:7px;
+  background:#fff1ed;color:#8f3f31;font-weight:800
+}
+.legal-table{width:100%;border-collapse:collapse;margin:15px 0 20px}
+.legal-table th,.legal-table td{padding:13px 14px;border:1px solid var(--line);vertical-align:top;text-align:left}
+.legal-table th{width:30%;background:var(--surface-soft);color:var(--gold-dark)}
+.small{font-size:13px;color:var(--muted)}
+.site-footer{padding:38px 0;background:#241f1b;color:rgba(255,255,255,.68);font-size:12px}
+.footer-inner{display:flex;align-items:center;justify-content:space-between;gap:25px}
+.footer-brand{color:white;font-family:"Cormorant Garamond",serif;font-size:24px}
+.footer-links{display:flex;flex-wrap:wrap;justify-content:center;gap:18px}
+.footer-links a:hover{color:var(--gold-soft)}
+@media(max-width:900px){
+  .nav-links{gap:18px}.nav-links a{display:none}
+  .summary{grid-template-columns:1fr 1fr}
+}
+@media(max-width:680px){
+  .container{width:min(calc(100% - 30px),var(--container))}
+  .nav{min-height:72px}
+  .brand-tagline,.nav-cta{display:none}
+  .brand-name{font-size:22px}
+  .menu-button{display:grid;place-items:center}
+  .nav-links{
+    position:fixed;z-index:49;inset:72px 0 0;display:flex;align-items:center;
+    justify-content:center;flex-direction:column;gap:25px;background:#fdf8f2;
+    opacity:0;pointer-events:none;transform:translateY(-12px);
+    transition:opacity .22s ease,transform .22s ease
+  }
+  .nav-links.open{opacity:1;pointer-events:auto;transform:translateY(0)}
+  .nav-links a{display:block;font-family:"Cormorant Garamond",serif;font-size:31px;font-weight:600}
+  .hero{padding:42px 0 38px}
+  h1{font-size:clamp(43px,14vw,61px)}
+  .legal-wrap{padding-bottom:70px}
+  .legal-card{padding:24px 20px;border-radius:25px}
+  .summary{grid-template-columns:1fr}
+  .legal-table,.legal-table tbody,.legal-table tr,.legal-table th,.legal-table td{display:block;width:100%}
+  .legal-table th{border-bottom:0}
+  .footer-inner{align-items:stretch;flex-direction:column;text-align:center}
+  .footer-links{justify-content:center}
+}
+
+  .main-legal-nav {
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:16px;
+    margin:0 0 36px;
+  }
+
+  .main-legal-nav a {
+    padding:20px;
+    border:1px solid var(--line);
+    border-radius:20px;
+    background:linear-gradient(145deg,#fffdf9,#f5ece2);
+    color:var(--gold-dark);
+    font-weight:800;
+    text-align:center;
+    box-shadow:0 10px 28px rgba(82,59,38,.06);
+  }
+
+  .main-legal-nav a:hover {
+    transform:translateY(-2px);
+  }
+
+  .document-block {
+    scroll-margin-top:110px;
+  }
+
+  .document-block + .document-block {
+    margin-top:50px;
+    padding-top:50px;
+    border-top:3px double rgba(189,123,39,.28);
+  }
+
+  .document-title {
+    margin:0 0 30px;
+    padding:24px 28px;
+    border-radius:22px;
+    background:linear-gradient(135deg,rgba(238,216,185,.42),rgba(201,152,142,.16));
+    color:var(--gold-dark);
+    font-family:"Cormorant Garamond",serif;
+    font-size:clamp(36px,5vw,52px);
+    line-height:1.05;
+  }
+
+  @media(max-width:680px) {
+    .main-legal-nav { grid-template-columns:1fr; }
+    .document-title { padding:20px; }
+  }
+  </style>
+</head>
+<body>
+<header class="site-header">
+  <nav class="container nav" aria-label="Navigation principale">
+    <a class="brand" href="index.html" aria-label="Retour à l’accueil Lys’Harmony">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M32 48C23 40 19 31 32 14C45 31 41 40 32 48Z"/>
+          <path d="M30 49C20 47 12 41 12 27C25 29 31 37 30 49Z"/>
+          <path d="M34 49C44 47 52 41 52 27C39 29 33 39 34 49Z"/>
+        </svg>
+      </span>
+      <span>
+        <span class="brand-name">Lys’Harmony</span>
+        <span class="brand-tagline">Harmonie du corps, de l’âme et de l’énergie</span>
+      </span>
+    </a>
+
+    <button class="menu-button" type="button" aria-expanded="false" aria-controls="menu-principal" aria-label="Ouvrir le menu">☰</button>
+
+    <div class="nav-links" id="menu-principal">
+      <a href="index.html">Accueil</a>
+      <a href="index.html#services">Mes soins</a>
+      <a href="index.html#a-propos">À propos</a>
+      <a href="index.html#contact">Contact</a>
+    </div>
+
+    <a class="nav-cta" href="disponibilites.html">Prendre rendez-vous</a>
+  </nav>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="index.html">Accueil</a><span>•</span><strong>Informations légales</strong>
+      </div>
+      <p class="eyebrow">Informations et vie privée</p>
+      <h1>Informations <span>légales</span></h1>
+      <p class="intro">
+        Retrouvez sur une seule page les mentions légales, la politique de confidentialité
+        et les informations relatives aux cookies du site Lys’Harmony.
+      </p>
+    </div>
+  </section>
+
+  <section class="legal-wrap">
+    <div class="container">
+      <article class="legal-card">
+        <nav class="main-legal-nav" aria-label="Accès rapide aux informations légales">
+          <a href="#mentions-legales">Mentions légales</a>
+          <a href="#confidentialite">Confidentialité</a>
+          <a href="#cookies">Cookies</a>
+        </nav>
+
+        <section class="document-block" id="mentions-legales">
+          <h2 class="document-title">Mentions légales</h2>
+          <div class="warning-box">
+  <strong>À compléter avant publication :</strong> les éléments encadrés en rouge sont indispensables
+  et doivent correspondre exactement aux informations officielles de l’entreprise de Lise.
+</div>
+
+<nav class="summary" aria-label="Sommaire">
+  <a href="#editeur">Éditeur du site</a>
+  <a href="#hebergeur">Hébergement</a>
+  <a href="#propriete">Propriété intellectuelle</a>
+  <a href="#responsabilite">Responsabilité</a>
+  <a href="#mediation">Médiation</a>
+  <a href="#donnees">Données personnelles</a>
+</nav>
+
+<section class="legal-section" id="editeur">
+  <h2>1. Éditeur du site</h2>
+  <p>Le site <strong>lys-harmony.fr</strong> est édité par :</p>
+  <table class="legal-table">
+    <tr><th>Nom commercial</th><td>Lys’Harmony</td></tr>
+    <tr><th>Responsable</th><td>Lise Piotrowski</td></tr>
+    <tr><th>Statut juridique</th><td><span class="todo">À COMPLÉTER : entreprise individuelle, micro-entreprise ou autre statut</span></td></tr>
+    <tr><th>SIREN / SIRET</th><td><span class="todo">À COMPLÉTER</span></td></tr>
+    <tr><th>Adresse professionnelle</th><td><span class="todo">À COMPLÉTER : adresse postale complète, 54850 Messein, France</span></td></tr>
+    <tr><th>Téléphone</th><td>07 87 03 33 56</td></tr>
+    <tr><th>Adresse électronique</th><td><a href="mailto:lys.harmony@mail.fr">lys.harmony@mail.fr</a></td></tr>
+    <tr><th>Directrice de la publication</th><td>Lise Piotrowski</td></tr>
+  </table>
+</section>
+
+<section class="legal-section" id="hebergeur">
+  <h2>2. Hébergement</h2>
+  <p>Le site est hébergé au moyen du service GitHub Pages par :</p>
+  <p><strong>GitHub, Inc.</strong><br>
+  88 Colin P. Kelly Jr. Street<br>
+  San Francisco, CA 94107<br>
+  États-Unis</p>
+  <p class="small">Le nom de domaine lys-harmony.fr est utilisé pour accéder au site.</p>
+</section>
+
+<section class="legal-section" id="propriete">
+  <h2>3. Propriété intellectuelle</h2>
+  <p>
+    Les textes, photographies, vidéos, illustrations, éléments graphiques, logos, icônes,
+    structure et présentation du site sont protégés par les règles relatives à la propriété
+    intellectuelle. Sauf mention contraire, ils sont la propriété de Lys’Harmony ou sont utilisés
+    avec l’autorisation de leurs titulaires.
+  </p>
+  <p>
+    Toute reproduction, adaptation, représentation, diffusion ou exploitation, totale ou partielle,
+    sans autorisation écrite préalable est interdite, hors exceptions prévues par la loi.
+  </p>
+</section>
+
+<section class="legal-section" id="responsabilite">
+  <h2>4. Informations et responsabilité</h2>
+  <p>
+    Lys’Harmony s’efforce de fournir des informations exactes et régulièrement mises à jour.
+    Toutefois, aucune garantie absolue ne peut être donnée quant à l’exhaustivité ou à l’absence
+    d’erreur des informations publiées.
+  </p>
+  <p>
+    Les prestations présentées relèvent du bien-être et ne remplacent pas un diagnostic, un suivi
+    ou un traitement médical. En cas de problème de santé, de grossesse, de traitement en cours
+    ou de doute, il convient de demander l’avis d’un professionnel de santé.
+  </p>
+  <p>
+    Lys’Harmony ne peut être tenue responsable des dommages résultant d’une mauvaise utilisation
+    du site, d’une interruption temporaire, d’un incident technique ou du contenu de sites externes
+    accessibles par lien.
+  </p>
+</section>
+
+<section class="legal-section" id="mediation">
+  <h2>5. Médiation de la consommation</h2>
+  <p>
+    Après une réclamation écrite préalable restée sans solution, le consommateur peut recourir
+    gratuitement au médiateur de la consommation dont relève Lys’Harmony.
+  </p>
+  <table class="legal-table">
+    <tr><th>Nom du médiateur</th><td><span class="todo">À COMPLÉTER après adhésion à un médiateur</span></td></tr>
+    <tr><th>Adresse</th><td><span class="todo">À COMPLÉTER</span></td></tr>
+    <tr><th>Site internet</th><td><span class="todo">À COMPLÉTER</span></td></tr>
+  </table>
+  <p class="small">
+    Le médiateur indiqué doit être celui auquel l’entreprise a réellement adhéré.
+  </p>
+</section>
+
+<section class="legal-section" id="donnees">
+  <h2>6. Données personnelles et cookies</h2>
+  <p>
+    Les informations concernant la collecte et l’utilisation des données personnelles sont
+    détaillées dans la <a href="#confidentialite"><strong>Politique de confidentialité</strong></a>.
+  </p>
+  <p>
+    Les informations relatives aux traceurs et services techniques figurent dans la
+    <a href="#cookies"><strong>Politique relative aux cookies</strong></a>.
+  </p>
+</section>
+
+<section class="legal-section">
+  <h2>7. Droit applicable</h2>
+  <p>
+    Le site et les présentes mentions légales sont soumis au droit français. En cas de difficulté,
+    une solution amiable sera recherchée avant toute action judiciaire.
+  </p>
+  <p class="small">Dernière mise à jour : 27 juin 2026.</p>
+</section>
+        </section>
+
+        <section class="document-block" id="confidentialite">
+          <h2 class="document-title">Politique de confidentialité</h2>
+          <div class="info-box">
+  Cette politique décrit de manière simple les données utilisées par Lys’Harmony pour répondre aux
+  demandes de contact et de rendez-vous, y compris les demandes reçues au moyen d’un formulaire Meta.
+</div>
+
+<nav class="summary" aria-label="Sommaire">
+  <a href="#responsable">Responsable</a>
+  <a href="#donnees">Données collectées</a>
+  <a href="#finalites">Utilisation</a>
+  <a href="#destinataires">Destinataires</a>
+  <a href="#durees">Conservation</a>
+  <a href="#droits">Vos droits</a>
+</nav>
+
+<section class="legal-section" id="responsable">
+  <h2>1. Responsable du traitement</h2>
+  <p>
+    Le responsable des traitements décrits sur cette page est <strong>Lise Piotrowski</strong>,
+    exerçant sous le nom commercial <strong>Lys’Harmony</strong>.
+  </p>
+  <p>
+    Contact : <a href="mailto:lys.harmony@mail.fr"><strong>lys.harmony@mail.fr</strong></a> —
+    07 87 03 33 56.
+  </p>
+  <p>
+    Adresse professionnelle : <span class="todo">À COMPLÉTER avec l’adresse postale officielle</span>.
+  </p>
+</section>
+
+<section class="legal-section" id="donnees">
+  <h2>2. Données susceptibles d’être collectées</h2>
+  <ul>
+    <li>nom et prénom ;</li>
+    <li>adresse électronique et numéro de téléphone ;</li>
+    <li>soin ou prestation envisagée ;</li>
+    <li>zone souhaitée pour un soin ciblé ;</li>
+    <li>date, horaire ou disponibilités souhaitées ;</li>
+    <li>contenu du message et échanges nécessaires au rendez-vous ;</li>
+    <li>données techniques de connexion traitées par les prestataires d’hébergement et de sécurité.</li>
+  </ul>
+  <p>
+    Il est demandé de ne pas transmettre, dans un formulaire public, d’informations médicales
+    détaillées ou de documents de santé. Les éventuelles précautions utiles au soin sont abordées
+    directement avec Lise.
+  </p>
+</section>
+
+<section class="legal-section" id="finalites">
+  <h2>3. Finalités et bases juridiques</h2>
+  <table class="legal-table">
+    <tr>
+      <th>Répondre aux demandes</th>
+      <td>Répondre à une question, rappeler une personne et organiser un rendez-vous. Base : mesures précontractuelles demandées par la personne.</td>
+    </tr>
+    <tr>
+      <th>Gestion des rendez-vous</th>
+      <td>Préparer, confirmer, modifier ou annuler une séance. Base : exécution du contrat ou mesures précontractuelles.</td>
+    </tr>
+    <tr>
+      <th>Suivi de la relation</th>
+      <td>Conserver la trace des échanges utiles, traiter une réclamation et défendre les droits de Lys’Harmony. Base : intérêt légitime et obligations légales.</td>
+    </tr>
+    <tr>
+      <th>Communication commerciale</th>
+      <td>Envoyer des nouvelles ou offres uniquement lorsque la personne y a consenti, avec possibilité de se désinscrire à tout moment. Base : consentement.</td>
+    </tr>
+  </table>
+</section>
+
+<section class="legal-section" id="destinataires">
+  <h2>4. Destinataires et prestataires</h2>
+  <p>Les données sont accessibles uniquement dans la mesure nécessaire :</p>
+  <ul>
+    <li>à Lise Piotrowski pour répondre et gérer les rendez-vous ;</li>
+    <li>à l’hébergeur GitHub Pages pour le fonctionnement et la sécurité du site ;</li>
+    <li>à Formspree lorsqu’un formulaire du site est envoyé par ce service ;</li>
+    <li>à Meta lorsque la personne remplit un formulaire instantané Facebook ou Instagram ;</li>
+    <li>aux services de messagerie ou de télécommunication utilisés pour répondre, notamment l’e-mail ou WhatsApp ;</li>
+    <li>aux autorités légalement habilitées lorsque la loi l’impose.</li>
+  </ul>
+  <p>
+    Certains prestataires peuvent traiter des données hors de l’Espace économique européen.
+    Ils appliquent alors leurs propres mécanismes juridiques de protection des transferts.
+  </p>
+</section>
+
+<section class="legal-section" id="durees">
+  <h2>5. Durées de conservation</h2>
+  <ul>
+    <li>demandes de rendez-vous sans suite : jusqu’à 12 mois après le dernier échange ;</li>
+    <li>données de prospects utilisées avec leur accord : jusqu’à 3 ans après le dernier contact actif ;</li>
+    <li>données liées à une prestation : pendant la relation, puis archivage limité aux durées nécessaires à la preuve et aux obligations légales ;</li>
+    <li>documents comptables et factures : pendant la durée légale applicable ;</li>
+    <li>choix relatifs aux cookies, lorsqu’ils existent : durée limitée et révisée périodiquement.</li>
+  </ul>
+</section>
+
+<section class="legal-section" id="droits">
+  <h2>6. Vos droits</h2>
+  <p>
+    Selon la situation, vous pouvez demander l’accès à vos données, leur rectification, leur
+    effacement, la limitation du traitement, leur portabilité, ou vous opposer à certains usages.
+    Lorsqu’un traitement repose sur votre consentement, vous pouvez le retirer à tout moment.
+  </p>
+  <p>
+    Pour exercer vos droits, écrivez à
+    <a href="mailto:lys.harmony@mail.fr"><strong>lys.harmony@mail.fr</strong></a>
+    en précisant l’objet de votre demande. Une preuve d’identité peut être demandée uniquement
+    lorsqu’elle est nécessaire pour éviter une divulgation à une autre personne.
+  </p>
+  <p>
+    Vous pouvez également introduire une réclamation auprès de la Commission nationale de
+    l’informatique et des libertés (CNIL).
+  </p>
+</section>
+
+<section class="legal-section">
+  <h2>7. Sécurité</h2>
+  <p>
+    Lys’Harmony prend des mesures raisonnables pour limiter l’accès aux données et éviter leur perte,
+    leur altération ou leur divulgation. Aucun moyen de transmission ou d’hébergement ne pouvant être
+    garanti sans risque, seules les informations nécessaires doivent être communiquées.
+  </p>
+</section>
+
+<section class="legal-section">
+  <h2>8. Mise à jour</h2>
+  <p>
+    Cette politique peut être modifiée lorsque les outils utilisés ou les obligations applicables
+    évoluent. La date de mise à jour est indiquée ci-dessous.
+  </p>
+  <p class="small">Dernière mise à jour : 27 juin 2026.</p>
+</section>
+        </section>
+
+        <section class="document-block" id="cookies">
+          <h2 class="document-title">Politique relative aux cookies</h2>
+          <div class="info-box">
+  À la date de cette version, le site n’intègre pas volontairement de pixel publicitaire Meta.
+  Cette page devra être mise à jour avant l’ajout d’un outil publicitaire ou d’analyse soumis au consentement.
+</div>
+
+<nav class="summary" aria-label="Sommaire">
+  <a href="#definition">Définition</a>
+  <a href="#utilises">Outils utilisés</a>
+  <a href="#consentement">Consentement</a>
+  <a href="#reglages">Vos réglages</a>
+  <a href="#externes">Services externes</a>
+  <a href="#contact">Contact</a>
+</nav>
+
+<section class="legal-section" id="definition">
+  <h2>1. Qu’est-ce qu’un cookie ?</h2>
+  <p>
+    Un cookie ou traceur est une information enregistrée ou consultée sur votre appareil lors de
+    l’utilisation d’un site ou d’un service en ligne. Certains sont strictement nécessaires au
+    fonctionnement technique ; d’autres servent à mesurer l’audience, personnaliser du contenu
+    ou suivre l’efficacité d’une publicité.
+  </p>
+</section>
+
+<section class="legal-section" id="utilises">
+  <h2>2. Outils actuellement utilisés</h2>
+  <table class="legal-table">
+    <tr>
+      <th>Hébergement GitHub Pages</th>
+      <td>Peut traiter des informations techniques, notamment l’adresse IP et les journaux nécessaires à la sécurité et au fonctionnement du service.</td>
+    </tr>
+    <tr>
+      <th>Google Fonts</th>
+      <td>Les polices du site peuvent être chargées depuis les serveurs de Google, ce qui entraîne une requête technique vers ce prestataire.</td>
+    </tr>
+    <tr>
+      <th>Formspree</th>
+      <td>Lorsqu’un formulaire est envoyé, les informations saisies sont transmises à Formspree afin d’acheminer la demande à Lys’Harmony.</td>
+    </tr>
+    <tr>
+      <th>Liens sociaux</th>
+      <td>Un simple lien vers Facebook, Instagram ou WhatsApp ne transmet normalement des informations à ces plateformes qu’au moment où vous cliquez et quittez le site.</td>
+    </tr>
+    <tr>
+      <th>Pixel Meta</th>
+      <td><strong>Non installé dans la version actuelle du site.</strong></td>
+    </tr>
+  </table>
+</section>
+
+<section class="legal-section" id="consentement">
+  <h2>3. Consentement</h2>
+  <p>
+    Les traceurs strictement nécessaires peuvent être utilisés sans consentement lorsqu’ils sont
+    indispensables au service demandé. Les traceurs de publicité, de profilage ou certaines mesures
+    d’audience ne doivent être activés qu’après un choix libre et éclairé.
+  </p>
+  <p>
+    Si un pixel Meta, Google Analytics ou un outil équivalent est ajouté, un bandeau de gestion des
+    cookies devra permettre d’accepter ou de refuser avec la même simplicité, avant leur activation.
+  </p>
+</section>
+
+<section class="legal-section" id="reglages">
+  <h2>4. Gérer vos choix</h2>
+  <p>
+    Vous pouvez supprimer les cookies depuis les réglages de votre navigateur. Toutefois, le seul
+    paramétrage du navigateur ne remplace pas le mécanisme de consentement que le site doit proposer
+    lorsqu’il utilise des traceurs non nécessaires.
+  </p>
+</section>
+
+<section class="legal-section" id="externes">
+  <h2>5. Formulaires Meta</h2>
+  <p>
+    Les formulaires instantanés Facebook et Instagram sont hébergés directement par Meta et non par
+    ce site. Lorsque vous les utilisez, Meta traite vos informations conformément à sa propre
+    politique, puis transmet à Lys’Harmony les coordonnées que vous avez choisi de communiquer afin
+    d’être recontacté.
+  </p>
+</section>
+
+<section class="legal-section" id="contact">
+  <h2>6. Contact</h2>
+  <p>
+    Pour toute question concernant les cookies ou la vie privée, contactez
+    <a href="mailto:lys.harmony@mail.fr"><strong>lys.harmony@mail.fr</strong></a>.
+  </p>
+  <p class="small">Dernière mise à jour : 27 juin 2026.</p>
+</section>
+        </section>
+      </article>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <span class="footer-brand">Lys’Harmony</span>
+    <div class="footer-links">
+      <a href="#mentions-legales">Mentions légales</a>
+      <a href="#confidentialite">Confidentialité</a>
+      <a href="#cookies">Cookies</a>
+      <a href="index.html#contact">Contact</a>
+    </div>
+    <span>© <span id="year"></span> Lys’Harmony</span>
+  </div>
+</footer>
+<script>
+  const menuButton = document.querySelector('.menu-button');
+  const menu = document.querySelector('.nav-links');
+  if (menuButton && menu) {
+    menuButton.addEventListener('click', () => {
+      const isOpen = menu.classList.toggle('open');
+      document.body.classList.toggle('menu-open', isOpen);
+      menuButton.setAttribute('aria-expanded', String(isOpen));
+      menuButton.setAttribute('aria-label', isOpen ? 'Fermer le menu' : 'Ouvrir le menu');
+      menuButton.textContent = isOpen ? '×' : '☰';
+    });
+    menu.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
+      menu.classList.remove('open');
+      document.body.classList.remove('menu-open');
+      menuButton.setAttribute('aria-expanded', 'false');
+      menuButton.textContent = '☰';
+    }));
+  }
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
