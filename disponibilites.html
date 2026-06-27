@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>Prendre rendez-vous | Lys’Harmony</title>
-  <meta name="description" content="Choisissez votre soin Lys’Harmony et préparez votre demande de rendez-vous à Messein : magnétisme, soins énergétiques, massage bien-être ou soin minceur par aspiration.">
+  <meta name="description" content="Choisissez votre soin Lys’Harmony et préparez votre demande de rendez-vous à Messein : magnétisme, soins énergétiques, massage bien-être ou soin minceur par cavitation ultrasonique.">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -699,6 +699,7 @@
               <span>Demande simple</span>
               <span>Confirmation par Lise</span>
               <span>Cabinet à Messein</span>
+              <span>Lundi au samedi · 9 h à 17 h</span>
             </div>
           </div>
 
@@ -712,7 +713,7 @@
             </span>
             <h2>Une demande, puis une confirmation</h2>
             <p>
-              Les créneaux indiqués sont vos préférences. Lise vous répondra afin de confirmer l’horaire ou de vous proposer une autre disponibilité.
+              Les demandes de rendez-vous sont possibles du lundi au samedi, de 9 h à 17 h. Lise vous répondra afin de confirmer le créneau choisi ou de vous proposer une autre disponibilité.
             </p>
 
             <div class="hero-contact">
@@ -733,7 +734,7 @@
               accept-charset="UTF-8"
               novalidate>
           <input type="hidden" name="_subject" value="Nouvelle demande de rendez-vous Lys’Harmony">
-          <input type="hidden" id="servicePrice" name="tarif" value="55 € TTC">
+          <input type="hidden" id="servicePrice" name="tarif" value="60 € TTC">
           <input type="hidden" id="formattedRequest" name="demande_complete" value="">
           <input type="text" name="_gotcha" tabindex="-1" autocomplete="off"
                  style="position:absolute;left:-9999px;opacity:0;" aria-hidden="true">
@@ -748,12 +749,12 @@
 
             <div class="service-options">
               <div class="service-option">
-                <input type="radio" id="service-magnetisme" name="service" value="Magnétisme et énergie" data-price="55 € TTC" checked>
+                <input type="radio" id="service-magnetisme" name="service" value="Magnétisme et énergie" data-price="60 € TTC" checked>
                 <label class="service-label" for="service-magnetisme">
                   <span class="service-check">✓</span>
                   <h3>Magnétisme et énergie</h3>
                   <p>Une séance douce pour favoriser l’apaisement, le relâchement et le mieux-être.</p>
-                  <strong class="service-price">55 € TTC</strong>
+                  <strong class="service-price">60 € TTC</strong>
                 </label>
               </div>
 
@@ -788,11 +789,11 @@
               </div>
 
               <div class="service-option">
-                <input type="radio" id="service-minceur" name="service" value="Soin minceur par aspiration" data-price="70 € TTC">
+                <input type="radio" id="service-minceur" name="service" value="Soin minceur par cavitation ultrasonique" data-price="70 € TTC">
                 <label class="service-label" for="service-minceur">
                   <span class="service-check">✓</span>
-                  <h3>Soin minceur par aspiration</h3>
-                  <p>Un soin esthétique non invasif réalisé par aspiration pour accompagner le remodelage et le confort de la silhouette.</p>
+                  <h3>Soin minceur par cavitation ultrasonique</h3>
+                  <p>Une séance esthétique non invasive par ultrasons, appliquée sur une zone ciblée pour accompagner le travail de la silhouette et l’aspect de la cellulite, selon votre confort.</p>
                   <strong class="service-price">70 € TTC</strong>
                 </label>
               </div>
@@ -804,7 +805,7 @@
               <span class="panel-number">2</span>
               <div>
                 <h2 id="creneau-title">Votre créneau souhaité</h2>
-                <p>Indiquez une préférence de date et d’heure.</p>
+                <p>Créneaux proposés du lundi au samedi, de 9 h à 17 h.</p>
               </div>
             </div>
 
@@ -816,13 +817,13 @@
 
               <div class="field">
                 <label for="time">Heure souhaitée *</label>
-                <input type="time" id="time" name="time" min="08:00" max="20:00" step="900" required>
-                <span class="field-hint">La disponibilité exacte sera confirmée par Lise.</span>
+                <input type="time" id="time" name="time" min="09:00" max="17:00" step="900" required>
+                <span class="field-hint">Horaires disponibles : du lundi au samedi, de 9 h à 17 h. Le créneau sera confirmé par Lise.</span>
               </div>
 
               <div class="field field-full">
                 <label for="alternative">Autre possibilité</label>
-                <input type="text" id="alternative" name="alternative" placeholder="Ex. : mardi ou jeudi après 17 h">
+                <input type="text" id="alternative" name="alternative" placeholder="Ex. : mardi ou jeudi vers 14 h">
               </div>
             </div>
           </section>
@@ -889,7 +890,7 @@
             </div>
             <div class="summary-row">
               <span>Tarif</span>
-              <strong class="summary-price" id="summaryPrice">55 € TTC</strong>
+              <strong class="summary-price" id="summaryPrice">60 € TTC</strong>
             </div>
             <div class="summary-row">
               <span>Date</span>
@@ -1005,6 +1006,47 @@
       return document.querySelector('input[name="service"]:checked');
     }
 
+    function validateBookingSchedule() {
+      dateInput.setCustomValidity("");
+      timeInput.setCustomValidity("");
+
+      if (dateInput.value) {
+        const [year, month, day] = dateInput.value.split("-").map(Number);
+        const selectedDate = new Date(year, month - 1, day);
+
+        if (selectedDate.getDay() === 0) {
+          dateInput.setCustomValidity(
+            "Les rendez-vous sont disponibles du lundi au samedi. Merci de choisir un autre jour."
+          );
+        }
+      }
+
+      if (timeInput.value && (timeInput.value < "09:00" || timeInput.value > "17:00")) {
+        timeInput.setCustomValidity(
+          "Merci de choisir une heure comprise entre 9 h et 17 h."
+        );
+      }
+
+      if (
+        dateInput.value &&
+        timeInput.value &&
+        !dateInput.validationMessage &&
+        !timeInput.validationMessage
+      ) {
+        const [year, month, day] = dateInput.value.split("-").map(Number);
+        const [hours, minutes] = timeInput.value.split(":").map(Number);
+        const selectedDateTime = new Date(year, month - 1, day, hours, minutes);
+
+        if (selectedDateTime.getTime() < Date.now()) {
+          timeInput.setCustomValidity(
+            "Ce créneau est déjà passé. Merci de choisir une date et une heure à venir."
+          );
+        }
+      }
+
+      return dateInput.checkValidity() && timeInput.checkValidity();
+    }
+
     function updateSummary() {
       const selected = selectedService();
       summaryService.textContent = selected?.value || "À choisir";
@@ -1015,11 +1057,21 @@
     }
 
     serviceInputs.forEach((input) => input.addEventListener("change", updateSummary));
-    dateInput.addEventListener("change", updateSummary);
-    timeInput.addEventListener("change", updateSummary);
+
+    dateInput.addEventListener("input", () => {
+      validateBookingSchedule();
+      updateSummary();
+    });
+
+    timeInput.addEventListener("input", () => {
+      validateBookingSchedule();
+      updateSummary();
+    });
 
     form.addEventListener("submit", async (event) => {
       event.preventDefault();
+
+      validateBookingSchedule();
 
       if (!form.checkValidity()) {
         form.reportValidity();
@@ -1125,6 +1177,7 @@
       }, 2400);
     });
 
+    validateBookingSchedule();
     updateSummary();
   </script>
 </body>
