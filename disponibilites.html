@@ -699,7 +699,7 @@
               <span>Demande simple</span>
               <span>Confirmation par Lise</span>
               <span>Cabinet à Messein</span>
-              <span>Lundi au samedi · 9 h à 17 h</span>
+              <span>Lundi au samedi · 9 h à 19 h</span>
             </div>
           </div>
 
@@ -713,7 +713,7 @@
             </span>
             <h2>Une demande, puis une confirmation</h2>
             <p>
-              Les demandes de rendez-vous sont possibles du lundi au samedi, de 9 h à 17 h. Lise vous répondra afin de confirmer le créneau choisi ou de vous proposer une autre disponibilité.
+              Les demandes de rendez-vous sont possibles du lundi au samedi, de 9 h à 19 h. Lise vous répondra afin de confirmer le créneau choisi ou de vous proposer une autre disponibilité.
             </p>
 
             <div class="hero-contact">
@@ -805,7 +805,7 @@
               <span class="panel-number">2</span>
               <div>
                 <h2 id="creneau-title">Votre créneau souhaité</h2>
-                <p>Créneaux proposés du lundi au samedi, de 9 h à 17 h.</p>
+                <p>Créneaux proposés du lundi au samedi, de 9 h à 19 h.</p>
               </div>
             </div>
 
@@ -817,8 +817,8 @@
 
               <div class="field">
                 <label for="time">Heure souhaitée *</label>
-                <input type="time" id="time" name="time" min="09:00" max="17:00" step="900" required>
-                <span class="field-hint">Horaires disponibles : du lundi au samedi, de 9 h à 17 h. Le créneau sera confirmé par Lise.</span>
+                <input type="time" id="time" name="time" min="09:00" max="19:00" step="900" required>
+                <span class="field-hint">Horaires disponibles : du lundi au samedi, de 9 h à 19 h. Le créneau sera confirmé par Lise.</span>
               </div>
 
               <div class="field field-full">
@@ -1021,9 +1021,9 @@
         }
       }
 
-      if (timeInput.value && (timeInput.value < "09:00" || timeInput.value > "17:00")) {
+      if (timeInput.value && (timeInput.value < "09:00" || timeInput.value > "19:00")) {
         timeInput.setCustomValidity(
-          "Merci de choisir une heure comprise entre 9 h et 17 h."
+          "Merci de choisir une heure comprise entre 9 h et 19 h."
         );
       }
 
