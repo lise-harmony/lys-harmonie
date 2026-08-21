@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1448 1086" role="img" aria-labelledby="title desc">
+  <title id="title">Cartes de tarot dans une ambiance douce et lumineuse</title>
+  <desc id="desc">Illustration élégante de cartes de tarot, lune et étoiles aux tons crème, or et lavande.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f9f0e7"/>
+      <stop offset="0.55" stop-color="#efe4ef"/>
+      <stop offset="1" stop-color="#e9d7bd"/>
+    </linearGradient>
+    <linearGradient id="card" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#fffdf9"/>
+      <stop offset="1" stop-color="#f7eee6"/>
+    </linearGradient>
+    <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="24" stdDeviation="26" flood-color="#684a34" flood-opacity=".18"/>
+    </filter>
+  </defs>
+  <rect width="1448" height="1086" fill="url(#bg)"/>
+  <circle cx="1240" cy="170" r="260" fill="#ffffff" opacity=".24"/>
+  <circle cx="190" cy="930" r="300" fill="#cdb8d5" opacity=".18"/>
+  <g opacity=".42" fill="#bd7b27">
+    <circle cx="260" cy="195" r="5"/><circle cx="1185" cy="760" r="6"/><circle cx="1040" cy="238" r="4"/>
+    <circle cx="335" cy="790" r="4"/><circle cx="1120" cy="910" r="4"/><circle cx="185" cy="530" r="3"/>
+  </g>
+  <g stroke="#bd7b27" stroke-width="5" stroke-linecap="round" opacity=".55">
+    <path d="M292 225v42M271 246h42"/>
+    <path d="M1128 255v34M1111 272h34"/>
+    <path d="M1220 675v40M1200 695h40"/>
+  </g>
+  <g filter="url(#shadow)" transform="translate(370 130)">
+    <g transform="rotate(-12 210 390)">
+      <rect x="40" y="85" width="400" height="650" rx="35" fill="url(#card)" stroke="#bd7b27" stroke-width="7"/>
+      <rect x="72" y="117" width="336" height="586" rx="25" fill="none" stroke="#d7b886" stroke-width="3"/>
+      <path d="M240 255c-72 0-124 55-124 124s52 124 124 124c-42-27-66-68-66-124s24-97 66-124Z" fill="#c8b0d1"/>
+      <circle cx="281" cy="335" r="8" fill="#bd7b27"/>
+      <path d="M150 570h180" stroke="#bd7b27" stroke-width="4"/>
+      <path d="M188 606h104" stroke="#bd7b27" stroke-width="3"/>
+    </g>
+    <g transform="translate(245 15) rotate(8 210 390)">
+      <rect x="40" y="85" width="400" height="650" rx="35" fill="url(#card)" stroke="#9b7aa8" stroke-width="7"/>
+      <rect x="72" y="117" width="336" height="586" rx="25" fill="none" stroke="#cdb8d5" stroke-width="3"/>
+      <circle cx="240" cy="348" r="102" fill="none" stroke="#bd7b27" stroke-width="6"/>
+      <circle cx="240" cy="348" r="44" fill="#efd7a9" opacity=".72"/>
+      <g stroke="#bd7b27" stroke-width="4">
+        <path d="M240 205v48M240 443v48M97 348h48M335 348h48"/>
+        <path d="M139 247l34 34M307 415l34 34M341 247l-34 34M173 415l-34 34"/>
+      </g>
+      <path d="M150 570h180" stroke="#9b7aa8" stroke-width="4"/>
+      <path d="M188 606h104" stroke="#9b7aa8" stroke-width="3"/>
+    </g>
+  </g>
+</svg>
